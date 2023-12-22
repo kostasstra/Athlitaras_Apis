@@ -1,0 +1,1995 @@
+{
+	"info": {
+		"_postman_id": "6729dbb7-baef-41db-af7d-93ddf71c0800",
+		"name": "Athlitaras",
+		"description": "URL Staging : http://localhost:5052  \nUrl Production : http://api.athlitaras.gr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"item": [
+				{
+					"name": "Create_User",
+					"id": "2f70f6fe-5d7c-49d2-abed-98bda2f7247c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"example@example.com\",\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"msisdn\": \"1234567890\",\r\n  \"password\": \"your_password\",\r\n  \"role_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/auth/register"
+					},
+					"response": [
+						{
+							"id": "580458fe-68d0-4549-ab41-7a13dcd776be",
+							"name": "Create_User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"example@examp1le.com\",\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"msisdn\": \"1234567890\",\r\n  \"password\": \"your_password\",\r\n  \"role_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/auth/register"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "// Success Request\r\n\r\n{\r\n    \"message\": \"Success\"\r\n}\r\n\r\n\r\n\r\n//Bad Request \r\n\r\n{\r\n    \"message\": \"Failed! Email is already in use!\"\r\n}\r\n\r\n{\r\n    \"message\": \"Failed! Role does not exist = 2\"\r\n}"
+						}
+					]
+				}
+			],
+			"id": "bd851f13-4a99-4567-8495-f61fc78f9d68"
+		},
+		{
+			"name": "login_User",
+			"item": [
+				{
+					"name": "Login_User",
+					"id": "0ea243b2-3622-4301-872e-572b5188c2f3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kostasstra@hotmail.com\",\r\n    \"password\":\"kostas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/auth/login"
+					},
+					"response": []
+				}
+			],
+			"id": "408e621c-5164-4b93-96ad-d98943694d84"
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Return_User_By_User_Id",
+					"id": "539f46ff-216a-4378-9f37-27f8e1a330a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/username/findoneuser/1"
+					},
+					"response": [
+						{
+							"id": "dbe5ed3d-7ec5-47d0-943e-c97733703bb2",
+							"name": "Return_User_By_User_Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5052/api/username/findoneuser/:user_id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5052",
+									"path": [
+										"api",
+										"username",
+										"findoneuser",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"user_id\": 1,\r\n    \"msisdn\": 6970,\r\n    \"first_name\": \"kostas\",\r\n    \"last_name\": \"stratigos\",\r\n    \"password\": \"$2a$10$xM2/C1m4uPDHfyepytD5IeZWoIbK0zFmJiYMnalIa/thN6/GWd/fG\",\r\n    \"email\": \"kostasstra@hotmail.com\",\r\n    \"role_id\": 1,\r\n    \"createdAt\": \"2022-07-26T20:43:45.321Z\",\r\n    \"updatedAt\": \"2022-07-26T20:43:45.325Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Return_User_By_Email",
+					"id": "7dd88eb8-5320-4a9b-a54b-f29a2487e9d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kostasstra@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/currentuser/user"
+					},
+					"response": [
+						{
+							"id": "321c3bb3-4852-49ad-8045-e610d651c388",
+							"name": "Return_User_By_Email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"kostasstra@hotmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/currentuser/user"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"user_id\": 1,\r\n    \"first_name\": \"kostas\",\r\n    \"last_name\": \"stratigos\",\r\n    \"email\": \"kostasstra@hotmail.com\",\r\n    \"msisdn\": 6970,\r\n    \"createdAt\": \"2022-07-26T20:43:45.321Z\",\r\n    \"role_id\": 1\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update_User_By_Id",
+					"id": "e7db64f6-654b-4292-aec0-88891d48adca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"kostas\",\r\n    \"last_name\" : \"stratigos\",\r\n    \"email\" : \"kostasstra@hotmail.com\" ,\r\n    \"msisdn\" : \"6970\"\r\n}\r\n\r\n// If a field is empty, shouldnt it be updated",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/changeprofile/profile/1"
+					},
+					"response": [
+						{
+							"id": "e9b604d5-61d3-4385-9405-d4ff8aa43878",
+							"name": "Update_User_By_Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\" : \"kostas\",\r\n    \"last_name\" : \"stratigos\",\r\n    \"email\" : \"kostasstra@hotmail.com\" ,\r\n    \"msisdn\" : \"6970\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/changeprofile/profile/1"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"result\": \"ok\",\r\n    \"data\": [\r\n        {\r\n            \"user_id\": 1,\r\n            \"first_name\": \"kostas\",\r\n            \"last_name\": \"stratigos\",\r\n            \"email\": \"kostasstra@hotmail.com\",\r\n            \"msisdn\": \"6970\",\r\n            \"updatedAt\": \"2023-12-09T09:50:25.706Z\"\r\n        }\r\n    ],\r\n    \"message\": \"update a user successfully\"\r\n}"
+						}
+					]
+				}
+			],
+			"id": "766a9d06-777b-42c7-a6d3-56e59c24a522"
+		},
+		{
+			"name": "sport_centers",
+			"item": [
+				{
+					"name": "Return_All_SportCenters",
+					"id": "c20544a9-28e5-4845-8734-d7d5213fd133",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/getallsportcenters/getallsportcenters"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_SportCenter_By_Email_An_User_On_Body_Request",
+					"id": "5d10778b-f9ce-4169-8d99-adfd1b9abe11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kostasstra@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/sportcenters/sportcenters"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_SportCenter_By_Email_An_User _On_URL",
+					"id": "39845530-96d5-4da4-9982-3d244858a042",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kostasstra@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/mysportcenters/mysportcenters/kostasstra@hotmail.com"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_SportCenter",
+					"id": "ae07d13b-33fc-4297-8d91-85d0ddbd475a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n//   \"type\": \"your_type\",\r\n  \"country_name\": \"TestCountry\",\r\n  \"city_name\": \"Test_city_name_here\",\r\n  \"area_name\": \"Test_area_name_here\",\r\n  \"sport_center_name\": \"Test_sport_center_name_here\",\r\n  \"address\": \"Test_address_here\",\r\n  \"email\": \"Test_email_here@test.gr\",\r\n  \"mobile_number\": \"123\",\r\n  \"postal_code\": \"123\",\r\n  \"phone_number\": \"123\",\r\n  \"url\": \"www\",\r\n  \"address_number\": \"12\"\r\n}\r\n\r\n//When creating a sport_center_name, corresponding entries are created in the country_name, city_name, and area_name tables.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/insertsportcenter/insertsportcenter"
+					},
+					"response": [
+						{
+							"id": "8357df35-f96e-4eff-b1b0-f38c02358f2b",
+							"name": "Create_SportCenter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"area_id\":13,\r\n    \"sport_center_name\": \"kostas\",\r\n    \"address\": \"testaki\",\r\n    \"email\": \"kostasstra@hotmail.com\",\r\n    \"mobile_number\": \"697\",\r\n    \"postal_code\": \"16451\",\r\n    \"phone_number\": \"697\",\r\n    \"url\": \"testurl\" \r\n}\r\n\r\n//When creating a sport_center_name, corresponding entries are created in the country_name, city_name, and area_name tables.\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/insertsportcenter/insertsportcenter"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"country_id\": 4,\r\n    \"city_id\": 6,\r\n    \"area_id\": 24,\r\n    \"sport_center_name\": \"Test_sport_center_name_here\",\r\n    \"address\": \"Test_address_here\",\r\n    \"email\": \"Test_email_here@test.gr\",\r\n    \"mobile_number\": \"123\",\r\n    \"postal_code\": \"123\",\r\n    \"phone_number\": \"123\",\r\n    \"url\": \"www\",\r\n    \"address_number\": \"12\"\r\n}"
+						}
+					]
+				}
+			],
+			"id": "6006108a-4834-40d8-beb8-41caff121d7e"
+		},
+		{
+			"name": "arenas",
+			"item": [
+				{
+					"name": "InsertArenas",
+					"id": "827a040c-99d8-4ece-aab7-9cf240438aba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagearena",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"src": "/C:/Users/k.stratigos_xe/Desktop/Στρατηγός_Κωνσταντίνος/Athlitars_Project/tennis1.jpeg"
+								},
+								{
+									"key": "email",
+									"value": "kostasstra@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "sport_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sport_center_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "arena_details",
+									"value": "{\n        \"Kind\": [\"Διπλό Γήπεδο\"],\n        \"Events\": [\"Παιδικό Πάρτι\"]\n      }",
+									"type": "text"
+								},
+								{
+									"key": "arena_name",
+									"value": "test test",
+									"type": "text"
+								},
+								{
+									"key": "desc_arenas",
+									"value": "testaki",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{Url}}/api/insertarenas/insertarenas"
+					},
+					"response": [
+						{
+							"id": "03a80a06-fe1c-4837-8158-7118eb706fa4",
+							"name": "InsertArenas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagearena",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"src": "/C:/Users/k.stratigos_xe/Desktop/Στρατηγός_Κωνσταντίνος/Athlitars_Project/tennis1.jpeg"
+										},
+										{
+											"key": "email",
+											"value": "kostasstra@hotmail.com",
+											"type": "text"
+										},
+										{
+											"key": "sport_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "sport_center_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "arena_details",
+											"value": "{\n        \"Kind\": [\"Διπλό Γήπεδο\"],\n        \"Events\": [\"Παιδικό Πάρτι\"]\n      }",
+											"type": "text"
+										},
+										{
+											"key": "arena_name",
+											"value": "test test",
+											"type": "text"
+										},
+										{
+											"key": "desc_arenas",
+											"value": "testaki",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:5052/api/insertarenas/insertarenas"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"arena_id\": 9,\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"arena_details\": {\r\n        \"Kind\": [\r\n            \"Διπλό Γήπεδο\"\r\n        ],\r\n        \"Events\": [\r\n            \"Παιδικό Πάρτι\"\r\n        ]\r\n    },\r\n    \"arena_name\": \"test test\",\r\n    \"desc_arenas\": \"testaki\",\r\n    \"imagearena\": null,\r\n    \"updatedAt\": \"2023-12-11T19:46:06.911Z\",\r\n    \"createdAt\": \"2023-12-11T19:46:06.911Z\",\r\n    \"rate_arenas\": null,\r\n    \"config_admin_booking\": null\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Return_Arenas_By_Email",
+					"id": "5cb48979-3e68-4d1b-8104-340747761093",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/myarenas/myarenas/kostasstra@hotmail.com"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_All_Arenas",
+					"id": "938a73ad-6f59-4a3e-bff6-ff330f197bdc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/getallarenas/getallarenas"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_Name",
+					"id": "594d1316-363e-4564-9d33-6762d799e748",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"config_admin_booking\":{\r\n  \"Friday\": [\r\n    {\r\n      \"toTime\": \"11:00\",\r\n      \"fromTime\": \"07:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"09:00\",\r\n        \"08:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Monday\": [\r\n    {\r\n      \"toTime\": \"17:00\",\r\n      \"fromTime\": \"07:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"09:00\",\r\n        \"08:00\",\r\n        \"12:00\",\r\n        \"13:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Sunday\": [\r\n    {\r\n      \"toTime\": \"20:00\",\r\n      \"fromTime\": \"18:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"19:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Tuesday\": [\r\n    {\r\n      \"toTime\": \"15:00\",\r\n      \"fromTime\": \"09:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"14:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Saturday\": [\r\n    {\r\n      \"toTime\": \"20:00\",\r\n      \"fromTime\": \"18:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"19:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Thursday\": [\r\n    {\r\n      \"toTime\": \"18:00\",\r\n      \"fromTime\": \"16:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"17:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Wednesday\": [\r\n    {\r\n      \"toTime\": \"11:00\",\r\n      \"fromTime\": \"09:00\"\r\n    },\r\n    {\r\n      \"excludeTime\": [\r\n        \"11:00\"\r\n      ]\r\n    }\r\n  ],\r\n  \"ActiveDate\": [\r\n    {\r\n      \"toDate\": [\r\n        \"22/05/2024\"\r\n      ]\r\n    }\r\n  ],\r\n  \"ExcludeDays\": [\r\n    \"Mondays\"\r\n  ],\r\n  \"ExcludeDates\": [\r\n    \"18/02/2023\"\r\n  ],\r\n  \"timeIntervals\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"60 λεπτά\",\r\n      \"checked\": true\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"name\": \"30 λεπτά\",\r\n      \"checked\": false\r\n    },\r\n    {\r\n      \"id\": 3,\r\n      \"name\": \"15 λεπτά\",\r\n      \"checked\": false\r\n    }\r\n  ],\r\n  \"ExcludeDayTime\": [\r\n    {\r\n      \"dayTime\": \"28/01/2023\",\r\n      \"toDaytime\": \"16:00\",\r\n      \"fromDayTime\": \"15:00\"\r\n    },\r\n    {\r\n      \"dayTime\": \"27/01/2023\",\r\n      \"toDaytime\": \"14:00\",\r\n      \"fromDayTime\": \"13:00\"\r\n    }\r\n  ]\r\n}\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/updateconfigbookingarenas/1/test test"
+					},
+					"response": [
+						{
+							"id": "c6e631eb-6117-40c1-b404-5ee4ef8b6a38",
+							"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_Name",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5052/api/updateconfigbookingarenas/:sport_center_id/:arena_name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5052",
+									"path": [
+										"api",
+										"updateconfigbookingarenas",
+										":sport_center_id",
+										":arena_name"
+									],
+									"variable": [
+										{
+											"key": "sport_center_id",
+											"value": ""
+										},
+										{
+											"key": "arena_name",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Insert_Image_To_Arenas //TODO",
+					"id": "ffdb224d-9e56-4463-a2ef-46f5972f7be9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/k.stratigos_xe/Desktop/Project_xe/Screenshot 2023-04-25 124154.png"
+								}
+							]
+						},
+						"url": "{{Url}}/api/imageuploadarena/imageuploadarena"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Arenas_By_Arena_id",
+					"id": "72239ed0-2611-474c-bca9-845ef4d7563c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/api/insertarenas/deleteArenas/9",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"insertarenas",
+								"deleteArenas",
+								"9"
+							],
+							"query": [
+								{
+									"key": "arena_id",
+									"value": "9",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "4267da76-8e92-4705-b0e6-6f17702ccba6"
+		},
+		{
+			"name": "areas",
+			"item": [
+				{
+					"name": "Create_Area",
+					"id": "fafb389d-cff3-4763-993e-056d0a750885",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"area_name\":\"testa\", \r\n    \"city_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/insertarea/insertarea"
+					},
+					"response": []
+				}
+			],
+			"id": "e65a3d9a-ec3a-492b-bc44-8d7dd934d9bb"
+		},
+		{
+			"name": "arena_dates",
+			"item": [],
+			"id": "1815762a-55cf-43c2-a89b-08db21ff8a38"
+		},
+		{
+			"name": "arena_details",
+			"item": [],
+			"id": "998c0606-4183-4880-b9aa-f8ac5962eea5"
+		},
+		{
+			"name": "booking_details",
+			"item": [
+				{
+					"name": "Create_Booking",
+					"id": "aaf1c3f0-2711-44cc-ae63-517677e9d8c5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 9,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-01\",\r\n  \"booking_time\": \"16:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/bookingdetails/bookingdetails"
+					},
+					"response": [
+						{
+							"id": "6548daa8-3b95-4596-88ec-5a39f7d5beb1",
+							"name": "Create_Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 5,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-31\",\r\n  \"booking_time\": \"15:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/bookingdetails/bookingdetails"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"booking_id\": 3,\r\n    \"msisdn\": 697,\r\n    \"booking_date\": \"2023-12-31\",\r\n    \"booking_time\": \"15:00\",\r\n    \"booking_price\": \"50\",\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 5,\r\n    \"updatedAt\": \"2023-12-10T07:37:00.037Z\",\r\n    \"createdAt\": \"2023-12-10T07:37:00.037Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Return_Arena_Details_By_Email",
+					"id": "7252e338-15a1-4743-aa68-6ba1a362df42",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 5,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-01\",\r\n  \"booking_time\": \"16:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/mybookings/mybookings/kostasstra@hotmail.com"
+					},
+					"response": [
+						{
+							"id": "dc47bcc8-2934-4511-bb29-b5a3134a2a6a",
+							"name": "Create_Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 5,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-31\",\r\n  \"booking_time\": \"15:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/bookingdetails/bookingdetails"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"booking_id\": 3,\r\n    \"msisdn\": 697,\r\n    \"booking_date\": \"2023-12-31\",\r\n    \"booking_time\": \"15:00\",\r\n    \"booking_price\": \"50\",\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 5,\r\n    \"updatedAt\": \"2023-12-10T07:37:00.037Z\",\r\n    \"createdAt\": \"2023-12-10T07:37:00.037Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete_Booking",
+					"id": "38a24012-90d5-4cca-9dc1-8261b298f76e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"user_id\": 1,\r\n  \"booking_date\": \"2023-12-31\",\r\n  \"booking_time\": \"15:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/deletebooking/deletebooking/"
+					},
+					"response": [
+						{
+							"id": "489069cb-2cc2-4236-994f-fc22f5ae93ea",
+							"name": "Create_Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 5,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-31\",\r\n  \"booking_time\": \"15:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/bookingdetails/bookingdetails"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"booking_id\": 3,\r\n    \"msisdn\": 697,\r\n    \"booking_date\": \"2023-12-31\",\r\n    \"booking_time\": \"15:00\",\r\n    \"booking_price\": \"50\",\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 5,\r\n    \"updatedAt\": \"2023-12-10T07:37:00.037Z\",\r\n    \"createdAt\": \"2023-12-10T07:37:00.037Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Return_A_Booking //TODO",
+					"id": "52b7035b-f325-4482-a02f-c61400f6b8b0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"msisdn\": \"697\"\r\n  \r\n}\r\n\r\n//It should return all bookings from the database based on the user's 'msisdn'. However, it currently returns only one booking.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/onebooking/onebooking"
+					},
+					"response": [
+						{
+							"id": "d9f13c02-b47e-4847-8248-bd40412ad32c",
+							"name": "Create_Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 5,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-31\",\r\n  \"booking_time\": \"15:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/bookingdetails/bookingdetails"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"booking_id\": 3,\r\n    \"msisdn\": 697,\r\n    \"booking_date\": \"2023-12-31\",\r\n    \"booking_time\": \"15:00\",\r\n    \"booking_price\": \"50\",\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 5,\r\n    \"updatedAt\": \"2023-12-10T07:37:00.037Z\",\r\n    \"createdAt\": \"2023-12-10T07:37:00.037Z\"\r\n}"
+						}
+					]
+				}
+			],
+			"id": "71a39d50-2e40-47e1-b988-d7020a456e87"
+		},
+		{
+			"name": "cache",
+			"item": [
+				{
+					"name": "Return_Cache_By_Cache_Name_Areas",
+					"id": "6d098ef6-be51-4574-b39e-945ca48ead03",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/api/cache/getCache?cache_name=areas",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"cache",
+								"getCache"
+							],
+							"query": [
+								{
+									"key": "cache_name",
+									"value": "areas"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Cache_By_Cache_Name_Arena_Details_And_Sport_Id",
+					"id": "8ea1c7eb-7c28-4559-8dec-0ca558835ff8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/api/cache/getCache?cache_name=arena_details_and_sport_id",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"cache",
+								"getCache"
+							],
+							"query": [
+								{
+									"key": "cache_name",
+									"value": "arena_details_and_sport_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Cache_By_Cache_Name_Sports",
+					"id": "7a33a00c-a332-4322-87a8-194b176667db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/api/cache/getCache?cache_name=sports",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"cache",
+								"getCache"
+							],
+							"query": [
+								{
+									"key": "cache_name",
+									"value": "sports"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "a6bd2c6c-3c4d-41cc-a64c-a3bcdd780dd7"
+		},
+		{
+			"name": "cities",
+			"item": [
+				{
+					"name": "Create_City",
+					"id": "d187b1fe-dc90-47ec-a014-7dd426329daf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city_name\":\"test\", \r\n    \"country_id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/insertcity/insertcity"
+					},
+					"response": [
+						{
+							"id": "f424bc45-7e9b-4806-b5b3-77aa6bfd7a60",
+							"name": "Create_City",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"city_name\":\"test\", \r\n    \"country_id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/insertcity/insertcity"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"city_id\": 8,\r\n    \"city_name\": \"test\",\r\n    \"country_id\": 1,\r\n    \"updatedAt\": \"2023-12-11T20:16:30.715Z\",\r\n    \"createdAt\": \"2023-12-11T20:16:30.715Z\"\r\n}"
+						}
+					]
+				}
+			],
+			"id": "12adbb3e-0a8e-4490-b7f4-b5a88ec8db38"
+		},
+		{
+			"name": "countries",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "7a45207f-c6f4-41fb-b1d1-030fb1ba7d09",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "43522dbf-ce38-4f2e-945b-1e16831546a6"
+		},
+		{
+			"name": "refresh_tokens",
+			"item": [],
+			"id": "8e20ff3a-1217-4f47-a4e7-6033d007250e"
+		},
+		{
+			"name": "roles",
+			"item": [],
+			"id": "e1051a4f-042c-4f89-84be-0d33248d23fd"
+		},
+		{
+			"name": "sports",
+			"item": [
+				{
+					"name": "Return_All_Sports",
+					"id": "0eea9546-60df-4a95-808e-395f4abde09a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/getallsports/getallsports"
+					},
+					"response": []
+				}
+			],
+			"id": "933b1b01-f2eb-47b2-bd05-754acbcddf9c"
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "Return_Results_From_Search",
+					"id": "3c8c8542-4b1f-43a1-89d8-b6d897324454",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Basketball&areas=Αθήνα&page=1&size=10",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"search",
+								"getSearchResultsHome"
+							],
+							"query": [
+								{
+									"key": "sport",
+									"value": "Basketball"
+								},
+								{
+									"key": "areas",
+									"value": "Αθήνα"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "a49077cf-0089-4035-b7e6-9c209aa8956f",
+							"name": "Return_Results_From_Search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5052/api/search/getSearchResultsHome?sport=Basketball&areas=Αθήνα&size=10&page=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5052",
+									"path": [
+										"api",
+										"search",
+										"getSearchResultsHome"
+									],
+									"query": [
+										{
+											"key": "sport",
+											"value": "Basketball",
+											"description": "Basketball,Tennis"
+										},
+										{
+											"key": "areas",
+											"value": "Αθήνα",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"count\": 3,\r\n    \"rows\": [\r\n        {\r\n            \"arena_id\": 6,\r\n            \"arena_name\": \"NBA Arena3\",\r\n            \"arena_details\": {\r\n                \"Events\": [\r\n                    \"Παιδικό Πάρτι\"\r\n                ],\r\n                \"Services\": [\r\n                    \"Αποδυτήρια\"\r\n                ]\r\n            },\r\n            \"sport_id\": 1,\r\n            \"desc_arenas\": \"kostas test\",\r\n            \"rate_arenas\": 5,\r\n            \"config_admin_booking\": {\r\n                \"Friday\": [\r\n                    {\r\n                        \"toTime\": \"18:00\",\r\n                        \"fromTime\": \"02:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"09:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Monday\": [\r\n                    {\r\n                        \"toTime\": \"17:00\",\r\n                        \"fromTime\": \"01:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"07:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Sunday\": [\r\n                    {\r\n                        \"toTime\": \"17:00\",\r\n                        \"fromTime\": \"02:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"11:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Tuesday\": [\r\n                    {\r\n                        \"toTime\": \"16:00\",\r\n                        \"fromTime\": \"01:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"05:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Saturday\": [\r\n                    {\r\n                        \"toTime\": \"17:00\",\r\n                        \"fromTime\": \"03:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"10:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Thursday\": [\r\n                    {\r\n                        \"toTime\": \"17:00\",\r\n                        \"fromTime\": \"03:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"07:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Wednesday\": [\r\n                    {\r\n                        \"toTime\": \"16:00\",\r\n                        \"fromTime\": \"02:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"04:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"ActiveDate\": [\r\n                    {\r\n                        \"toDate\": \"13-04-2024\"\r\n                    }\r\n                ],\r\n                \"ExcludeDays\": [\r\n                    \"Mondays\"\r\n                ],\r\n                \"ExcludeDates\": [\r\n                    \"22-11-2023\"\r\n                ],\r\n                \"timeIntervals\": [\r\n                    {\r\n                        \"id\": 1,\r\n                        \"name\": \"60 λεπτά\",\r\n                        \"checked\": true\r\n                    },\r\n                    {\r\n                        \"id\": 2,\r\n                        \"name\": \"30 λεπτά\",\r\n                        \"checked\": false\r\n                    },\r\n                    {\r\n                        \"id\": 3,\r\n                        \"name\": \"15 λεπτά\",\r\n                        \"checked\": false\r\n                    }\r\n                ],\r\n                \"ExcludeDayTime\": [\r\n                    {\r\n                        \"dayTime\": \"28/01/2023\",\r\n                        \"toDaytime\": \"16:00\",\r\n                        \"fromDayTime\": \"15:00\"\r\n                    },\r\n                    {\r\n                        \"dayTime\": \"27/01/2023\",\r\n                        \"toDaytime\": \"14:00\",\r\n                        \"fromDayTime\": \"13:00\"\r\n                    }\r\n                ]\r\n            },\r\n            \"imagearena\": \"imageArenas/1698181003953.jpg\",\r\n            \"SportCenter.sport_center_id\": 1,\r\n            \"SportCenter.sport_center_name\": \"OAKA\",\r\n            \"SportCenter.address\": \"Λέλας Καραγιάννη\",\r\n            \"SportCenter.postal_code\": 11257,\r\n            \"SportCenter.phone_number\": \"2155104961\",\r\n            \"SportCenter.mobile_number\": \"6970938599\",\r\n            \"SportCenter.email\": \"kostasstra@hotmail.com\",\r\n            \"SportCenter.url\": \"https://athlitaras.gr/\",\r\n            \"SportCenter.createdAt\": \"2023-10-09T10:37:26.509Z\",\r\n            \"SportCenter.rate\": null,\r\n            \"SportCenter.address_number\": \"36\",\r\n            \"SportCenter.country\": null\r\n        },\r\n        {\r\n            \"arena_id\": 1,\r\n            \"arena_name\": \"Initial Arena\",\r\n            \"arena_details\": {\r\n                \"Kind\": [\r\n                    \"Μονό Γήπεδο\",\r\n                    \"Διπλό Γήπεδο\"\r\n                ],\r\n                \"Events\": [\r\n                    \"Παιδικό Πάρτι\",\r\n                    \"Συναυλία\"\r\n                ],\r\n                \"Services\": [\r\n                    \"Καφετέρια\",\r\n                    \"Αποδυτήρια\"\r\n                ]\r\n            },\r\n            \"sport_id\": 1,\r\n            \"desc_arenas\": \"testtttt\",\r\n            \"rate_arenas\": 3,\r\n            \"config_admin_booking\": {\r\n                \"Friday\": [\r\n                    {\r\n                        \"toTime\": \"11:00\",\r\n                        \"fromTime\": \"07:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"09:00\",\r\n                            \"08:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Monday\": [\r\n                    {\r\n                        \"toTime\": \"17:00\",\r\n                        \"fromTime\": \"07:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"09:00\",\r\n                            \"08:00\",\r\n                            \"12:00\",\r\n                            \"13:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Sunday\": [\r\n                    {\r\n                        \"toTime\": \"20:00\",\r\n                        \"fromTime\": \"18:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"19:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Tuesday\": [\r\n                    {\r\n                        \"toTime\": \"15:00\",\r\n                        \"fromTime\": \"09:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"14:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Saturday\": [\r\n                    {\r\n                        \"toTime\": \"20:00\",\r\n                        \"fromTime\": \"18:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"19:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Thursday\": [\r\n                    {\r\n                        \"toTime\": \"18:00\",\r\n                        \"fromTime\": \"16:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"17:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Wednesday\": [\r\n                    {\r\n                        \"toTime\": \"11:00\",\r\n                        \"fromTime\": \"09:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"11:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"ActiveDate\": [\r\n                    {\r\n                        \"toDate\": \"22-02-2023\"\r\n                    }\r\n                ],\r\n                \"ExcludeDays\": [\r\n                    \"Mondays\"\r\n                ],\r\n                \"ExcludeDates\": [\r\n                    \"15-02-2023\"\r\n                ],\r\n                \"timeIntervals\": [\r\n                    {\r\n                        \"id\": 1,\r\n                        \"name\": \"60 λεπτά\",\r\n                        \"checked\": true\r\n                    },\r\n                    {\r\n                        \"id\": 2,\r\n                        \"name\": \"30 λεπτά\",\r\n                        \"checked\": false\r\n                    },\r\n                    {\r\n                        \"id\": 3,\r\n                        \"name\": \"15 λεπτά\",\r\n                        \"checked\": false\r\n                    }\r\n                ],\r\n                \"ExcludeDayTime\": [\r\n                    {\r\n                        \"dayTime\": \"28/01/2023\",\r\n                        \"toDaytime\": \"16:00\",\r\n                        \"fromDayTime\": \"15:00\"\r\n                    },\r\n                    {\r\n                        \"dayTime\": \"27/01/2023\",\r\n                        \"toDaytime\": \"14:00\",\r\n                        \"fromDayTime\": \"13:00\"\r\n                    }\r\n                ]\r\n            },\r\n            \"imagearena\": \"imageArenas/1697050930947.jpg\",\r\n            \"SportCenter.sport_center_id\": 1,\r\n            \"SportCenter.sport_center_name\": \"OAKA\",\r\n            \"SportCenter.address\": \"Λέλας Καραγιάννη\",\r\n            \"SportCenter.postal_code\": 11257,\r\n            \"SportCenter.phone_number\": \"2155104961\",\r\n            \"SportCenter.mobile_number\": \"6970938599\",\r\n            \"SportCenter.email\": \"kostasstra@hotmail.com\",\r\n            \"SportCenter.url\": \"https://athlitaras.gr/\",\r\n            \"SportCenter.createdAt\": \"2023-10-09T10:37:26.509Z\",\r\n            \"SportCenter.rate\": null,\r\n            \"SportCenter.address_number\": \"36\",\r\n            \"SportCenter.country\": null\r\n        },\r\n        {\r\n            \"arena_id\": 5,\r\n            \"arena_name\": \"Arena NBA 3\",\r\n            \"arena_details\": {\r\n                \"Kind\": [\r\n                    \"Διπλό Γήπεδο\"\r\n                ],\r\n                \"Events\": [\r\n                    \"Παιδικό Πάρτι\"\r\n                ]\r\n            },\r\n            \"sport_id\": 1,\r\n            \"desc_arenas\": \"test\",\r\n            \"rate_arenas\": 5,\r\n            \"config_admin_booking\": {\r\n                \"Friday\": [\r\n                    {\r\n                        \"toTime\": \"11:00\",\r\n                        \"fromTime\": \"07:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"09:00\",\r\n                            \"08:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Monday\": [\r\n                    {\r\n                        \"toTime\": \"17:00\",\r\n                        \"fromTime\": \"07:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"09:00\",\r\n                            \"08:00\",\r\n                            \"12:00\",\r\n                            \"13:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Sunday\": [\r\n                    {\r\n                        \"toTime\": \"20:00\",\r\n                        \"fromTime\": \"18:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"19:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Tuesday\": [\r\n                    {\r\n                        \"toTime\": \"15:00\",\r\n                        \"fromTime\": \"09:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"14:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Saturday\": [\r\n                    {\r\n                        \"toTime\": \"20:00\",\r\n                        \"fromTime\": \"18:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"19:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Thursday\": [\r\n                    {\r\n                        \"toTime\": \"18:00\",\r\n                        \"fromTime\": \"16:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"17:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"Wednesday\": [\r\n                    {\r\n                        \"toTime\": \"11:00\",\r\n                        \"fromTime\": \"09:00\"\r\n                    },\r\n                    {\r\n                        \"excludeTime\": [\r\n                            \"11:00\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"ActiveDate\": [\r\n                    {\r\n                        \"toDate\": \"22-02-2023\"\r\n                    }\r\n                ],\r\n                \"ExcludeDays\": [\r\n                    \"Mondays\"\r\n                ],\r\n                \"ExcludeDates\": [\r\n                    \"15-02-2023\"\r\n                ],\r\n                \"timeIntervals\": [\r\n                    {\r\n                        \"id\": 1,\r\n                        \"name\": \"60 λεπτά\",\r\n                        \"checked\": true\r\n                    },\r\n                    {\r\n                        \"id\": 2,\r\n                        \"name\": \"30 λεπτά\",\r\n                        \"checked\": false\r\n                    },\r\n                    {\r\n                        \"id\": 3,\r\n                        \"name\": \"15 λεπτά\",\r\n                        \"checked\": false\r\n                    }\r\n                ],\r\n                \"ExcludeDayTime\": [\r\n                    {\r\n                        \"dayTime\": \"28/01/2023\",\r\n                        \"toDaytime\": \"16:00\",\r\n                        \"fromDayTime\": \"15:00\"\r\n                    },\r\n                    {\r\n                        \"dayTime\": \"27/01/2023\",\r\n                        \"toDaytime\": \"14:00\",\r\n                        \"fromDayTime\": \"13:00\"\r\n                    }\r\n                ]\r\n            },\r\n            \"imagearena\": \"imageArenas/1697050930947.jpg\",\r\n            \"SportCenter.sport_center_id\": 1,\r\n            \"SportCenter.sport_center_name\": \"OAKA\",\r\n            \"SportCenter.address\": \"Λέλας Καραγιάννη\",\r\n            \"SportCenter.postal_code\": 11257,\r\n            \"SportCenter.phone_number\": \"2155104961\",\r\n            \"SportCenter.mobile_number\": \"6970938599\",\r\n            \"SportCenter.email\": \"kostasstra@hotmail.com\",\r\n            \"SportCenter.url\": \"https://athlitaras.gr/\",\r\n            \"SportCenter.createdAt\": \"2023-10-09T10:37:26.509Z\",\r\n            \"SportCenter.rate\": null,\r\n            \"SportCenter.address_number\": \"36\",\r\n            \"SportCenter.country\": null\r\n        }\r\n    ]\r\n}"
+						}
+					]
+				}
+			],
+			"id": "54fd9b67-6818-4814-913c-4f77c5e97bf4"
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Return_Public_content",
+					"id": "2703c63f-af0f-4af8-9097-dc66a271eb35",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/test/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_User_Content",
+					"id": "58e62d15-7cd9-4614-9ef0-3a9b73bf4f4f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/test/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Admin_Content",
+					"id": "91983281-b4eb-4d84-968c-bd6d37c7ddaf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/test/admin"
+					},
+					"response": []
+				}
+			],
+			"id": "43af7108-28b2-4c10-a8cd-e8dea1c41a23"
+		},
+		{
+			"name": "Old_Endpoints",
+			"item": [
+				{
+					"name": "Register_fitme_Post",
+					"id": "e613d069-7a08-4625-a773-2610ef5ab2ef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test@hotmail.com\",\r\n    \"first_name\":\"test\",\r\n    \"last_name\":\"test\",\r\n    \"password\":\"test\",\r\n     \"role\":\"user\"\r\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "test2",
+					"id": "15a74ccd-4501-4faa-8cfd-2bd00b462ea7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5052/api/test2/test2?email=kostasstra@hotmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5052",
+							"path": [
+								"api",
+								"test2",
+								"test2"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kostasstra@hotmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All_Users",
+					"id": "a8a95a36-335b-413d-9fa0-702acf5891a4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5052/api/getuser/allusers"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"id": "06c2cb74-7f43-4ad5-bceb-651a310764a5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Profile",
+					"id": "59a27d70-e1f6-4bd8-ab2d-aaf8e2446c6d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"first_name\":\"kostas\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5052/api/changeprofile/profile/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5052",
+							"path": [
+								"api",
+								"changeprofile",
+								"profile",
+								"1"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kostastra@hotmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sport_centers",
+					"id": "a31137e1-523c-4702-9304-7dcc94caa8d1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"email\":\"kostasstra@hotmail.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/sportcenters/sportcenters"
+					},
+					"response": []
+				},
+				{
+					"name": "My_sport_centers_condition_email",
+					"id": "ba77d853-8e4a-4a6a-bb95-ac1bd83fcd9d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"email\":\"kostasstra@hotmail.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5052/api/mysportcenters/mysportcenters?email=kostasstra@hotmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5052",
+							"path": [
+								"api",
+								"mysportcenters",
+								"mysportcenters"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kostasstra@hotmail.com",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insert_Booking_details",
+					"id": "f21513c8-6010-458c-b1d7-37f7ea5a88fd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \r\n    \"msisdn\": 697,\r\n    \"booking_date\": \"28/7/2022\",\r\n    \"booking_time\": \"19:00\",\r\n    \"booking_price\": 150,\r\n    \"status\":\"complete\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\":22\r\n}\r\n\r\n    \r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/bookingdetails/bookingdetails"
+					},
+					"response": []
+				},
+				{
+					"name": "cache_selected_arena",
+					"id": "647938c4-1025-4186-bdc0-d7ce0ff58ecb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Booking",
+					"id": "2d442e9e-49b0-44eb-aaed-2d7045179a99",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"booking_date\": \"29/4/2022\",\r\n\"boooking_time\": \"10:00μμ\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/deletebooking/deletebooking/"
+					},
+					"response": []
+				},
+				{
+					"name": "OneBooking",
+					"id": "0cfddcd1-9830-40c6-8718-93d93c34daab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Cache",
+					"id": "212559d8-327a-4c8d-b973-ea9a0a23a091",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5052/api/cache/getCache?cache_name=arena_details_and_sport_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5052",
+							"path": [
+								"api",
+								"cache",
+								"getCache"
+							],
+							"query": [
+								{
+									"key": "cache_name",
+									"value": "arena_details_and_sport_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search_Results",
+					"id": "e389101e-6994-47d7-b378-314db053591c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5052/api/search/getSearchResultsHome?sport=Basketball",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5052",
+							"path": [
+								"api",
+								"search",
+								"getSearchResultsHome"
+							],
+							"query": [
+								{
+									"key": "sport",
+									"value": "Basketball"
+								},
+								{
+									"key": null,
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search_results_params",
+					"id": "9e7d23bf-bb06-4dd1-90b5-29d2e19a1faa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5052/api/search/getSearchResultsHome?&sport=Basketball&page=1&size=6&arena_details={\"Events\":[party1]}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5052",
+							"path": [
+								"api",
+								"search",
+								"getSearchResultsHome"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "sport",
+									"value": "Basketball"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "6"
+								},
+								{
+									"key": "arena_details",
+									"value": "{\"Events\":[party1]}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking_Details",
+					"id": "8e68cd80-78fc-4d5e-a37f-dcc6e1b146f9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/mybookings/mybookings/kostasstra@hotmail.com"
+					},
+					"response": []
+				},
+				{
+					"name": "Get_all_sports",
+					"id": "04683ae0-e5f0-4446-aa94-cbc29786bcc1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5052/api/getallsports/getallsports/2"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "0dbd2bac-1cc9-46e8-a596-03d01129e4a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Find_One_User",
+					"id": "41d81de3-ce4f-4b8b-bb25-6b5a17bc920d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/username/findoneuser/"
+					},
+					"response": []
+				},
+				{
+					"name": "1_CREATE",
+					"id": "f64e7b6c-65bb-45e3-9c20-f6e0ddff1649",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\" : \"userpostman\",\r\n\t\"email\" : \"user@user.gr\",\r\n\t\"role\" : \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "2_READ",
+					"id": "330fc6b4-0d15-4b1c-a1c6-596951326054",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:5000/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "3_FIND",
+					"id": "abd60e0e-8da4-4e86-b7c9-37483b18da10",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/users/873bf2aa-3610-4672-ab82-1bc7eb9d4e1f"
+					},
+					"response": []
+				},
+				{
+					"name": "4_READ_POSTS",
+					"id": "7aff8e12-ea35-45da-9199-ca7195a2787e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "5_CREATE_POST",
+					"id": "40c9efd2-843a-4269-bce9-2bfb4ef9cf35",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"body\": \"This is a new post4\",\r\n\t\"userUuid\": \"41b60e1a-09d9-453f-878b-ba111a015414\"\r\n\t\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "6_DELETE_USER",
+					"id": "11087850-67cd-43ef-8ff9-1062912e8078",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\" : \"user\",\r\n\t\"email\" : \"user@user.gr\",\r\n\t\"role\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/users/9401a2c4-f973-4c40-8eb7-71468963faf6"
+					},
+					"response": []
+				},
+				{
+					"name": "7_UPDATE_USER",
+					"id": "2a7a36b2-7cce-4776-ab53-37e46b0f30b7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\":\"new user\",\r\n\t\"email\":\"user@email.gr\",\r\n\t\"role\":\"superadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/users/873bf2aa-3610-4672-ab82-1bc7eb9d4e1f"
+					},
+					"response": []
+				},
+				{
+					"name": "8_TEST_POST_REGION",
+					"id": "cc37ef68-037a-4577-97da-899354dc33ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\r\n\t\"region_name\": \"Evritania\"\r\n\t\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/region"
+					},
+					"response": []
+				},
+				{
+					"name": "9_TEST_CREATE_AREA",
+					"id": "9d48a100-3149-4430-8854-c8c855ecfaf5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"area_name\" : \"Dafnh\",\r\n\t\"regionId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/area"
+					},
+					"response": []
+				},
+				{
+					"name": "10_GET_FROM_REGION",
+					"id": "79555047-2177-4104-83f7-192c0ceb3af9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"region_name\":\"Attikh\"\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/getFromRegions"
+					},
+					"response": []
+				},
+				{
+					"name": "11_INSERT_SPORTS",
+					"id": "0c91baac-516d-41b6-a85f-911e374e54ce",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\r\n\t\"sport_name\": \"Basket\"\r\n\t\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/sports"
+					},
+					"response": []
+				},
+				{
+					"name": "12_CREATE_SPORTS_CENTER",
+					"id": "2bf42de6-8bbc-4c53-8c0f-b4e154a04f82",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"areasId\" : \"2\",\r\n\t\"sport_center_name\": \"george\",\r\n\t\"address\": \"anexarthsias\",\r\n\t\"postal_code\": \"16451\",\r\n\t\"phone_number\": \"69709\"\t\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/sports_centers"
+					},
+					"response": []
+				},
+				{
+					"name": "13_SEARCH_SPORTS_CENTER",
+					"id": "d0680be8-bbfe-48a8-ba8d-6d8e368a1e46",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"sport_center_name\":\"basdekis\"\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/getFrom_sports_centers"
+					},
+					"response": []
+				},
+				{
+					"name": "TEST_PROTECTED",
+					"id": "310d37c1-3465-49eb-a737-ef8d4f519074",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6Imtvc3Rhc3N0cmFAaG90bWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia29zdGFzIiwibGFzdF9uYW1lIjoia29zdGFzIiwiaWF0IjoxNjQwMjg3MTEzfQ.Z2fdSmTyRL0G0qkZoh7-VW4IEzgqYjUOc2ZTXtbzAEM",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:5000/s/test_protected"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/user/login",
+					"id": "faad2d65-dde3-472f-aa5c-06b859393078",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"sport_name\":\"basketball\",\r\n     \"sport_id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5052/api/search/getSearchResultsHome"
+					},
+					"response": []
+				}
+			],
+			"id": "fa281bdb-938a-43d8-bb69-5873e2abf6f7"
+		}
+	]
+}
