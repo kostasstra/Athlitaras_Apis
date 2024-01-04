@@ -20,7 +20,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"example@example.com\",\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"msisdn\": \"1234567890\",\r\n  \"password\": \"your_password\",\r\n  \"role_id\": 2\r\n}",
+							"raw": "{\r\n  \"email\": \"example3@example.com\",\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"msisdn\": 6970938599,\r\n  \"password\": \"your_password\",\r\n  \"role_id\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -320,7 +320,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n//   \"type\": \"your_type\",\r\n  \"country_name\": \"TestCountry\",\r\n  \"city_name\": \"Test_city_name_here\",\r\n  \"area_name\": \"Test_area_name_here\",\r\n  \"sport_center_name\": \"Test_sport_center_name_here\",\r\n  \"address\": \"Test_address_here\",\r\n  \"email\": \"Test_email_here@test.gr\",\r\n  \"mobile_number\": \"123\",\r\n  \"postal_code\": \"123\",\r\n  \"phone_number\": \"123\",\r\n  \"url\": \"www\",\r\n  \"address_number\": \"12\"\r\n}\r\n\r\n//When creating a sport_center_name, corresponding entries are created in the country_name, city_name, and area_name tables.",
+							"raw": "{\r\n//   \"type\": \"your_type\",\r\n  \"country_name\": \"TestCountry\",\r\n  \"city_name\": \"Test_city_name_here\",\r\n  \"area_name\": \"Test_area_name_here\",\r\n  \"sport_center_name\": \"Test_sport_center_name_here\",\r\n  \"address\": \"Test_address_here\",\r\n  \"email\": \"Test_email_here@test.gr\",\r\n  \"mobile_number\": 6970938599,\r\n  \"postal_code\": \"123\",\r\n  \"phone_number\": 6970938599,\r\n  \"url\": \"www\",\r\n  \"address_number\": \"12\"\r\n}\r\n\r\n//When creating a sport_center_name, corresponding entries are created in the country_name, city_name, and area_name tables.",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -503,7 +503,7 @@
 								}
 							}
 						},
-						"url": "{{Url}}/api/myarenas/myarenas/kostasstra@hotmail.com"
+						"url": "{{Url}}/api/myarenas/myarenas/test@hotmail.com"
 					},
 					"response": []
 				},
@@ -1040,7 +1040,17 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country_name\":\"kostas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/insertcountry/insertcountry/1"
 					},
 					"response": []
 				}
@@ -1090,6 +1100,52 @@
 			"item": [
 				{
 					"name": "Return_Results_From_Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c473c3b7-57f0-45b2-a42b-bb1e6cc5fe2f",
+								"exec": [
+									"var template = `\r",
+									"<style type=\"text/css\">\r",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+									"    .tftable tr {background-color:#ffffff;}\r",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+									"    .tftable tr:hover {background-color:#e0ffff;}\r",
+									"</style>\r",
+									"\r",
+									"<table class=\"tftable\" border=\"1\">\r",
+									"    <tr>\r",
+									"        <th>Arena ID</th>\r",
+									"        <th>Arena Name</th>\r",
+									"        <th>Sport ID</th>\r",
+									"        <th>Description of Arenas</th>\r",
+									"        <th>Rate Arenas</th>\r",
+									"    </tr>\r",
+									"    \r",
+									"    {{#each response.rows}}\r",
+									"        <tr>\r",
+									"            <td>{{arena_id}}</td>\r",
+									"            <td>{{arena_name}}</td>\r",
+									"            <td>{{sport_id}}</td>\r",
+									"            <td>{{desc_arenas}}</td>\r",
+									"            <td>{{rate_arenas}}</td>\r",
+									"        </tr>\r",
+									"    {{/each}}\r",
+									"</table>\r",
+									"`;\r",
+									"\r",
+									"function constructVisualizerPayload() {\r",
+									"    return {response: pm.response.json()}\r",
+									"}\r",
+									"\r",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "3c8c8542-4b1f-43a1-89d8-b6d897324454",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1102,7 +1158,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Basketball&areas=Αθήνα&page=1&size=10",
+							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Basketball&page=1&size=10",
 							"host": [
 								"{{Url}}"
 							],
@@ -1118,7 +1174,8 @@
 								},
 								{
 									"key": "areas",
-									"value": "Αθήνα"
+									"value": "Αθήνα",
+									"disabled": true
 								},
 								{
 									"key": "page",
