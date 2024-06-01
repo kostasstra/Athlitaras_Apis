@@ -354,6 +354,19 @@
 							"body": "{\r\n    \"country_id\": 4,\r\n    \"city_id\": 6,\r\n    \"area_id\": 24,\r\n    \"sport_center_name\": \"Test_sport_center_name_here\",\r\n    \"address\": \"Test_address_here\",\r\n    \"email\": \"Test_email_here@test.gr\",\r\n    \"mobile_number\": \"123\",\r\n    \"postal_code\": \"123\",\r\n    \"phone_number\": \"123\",\r\n    \"url\": \"www\",\r\n    \"address_number\": \"12\"\r\n}"
 						}
 					]
+				},
+				{
+					"name": "Update_Sport_Center //TODO",
+					"id": "52f3f124-e86e-483b-9d27-1121a357d267",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "{{Url}}/api/insertarenas/updateSportCenter/1"
+					},
+					"response": []
 				}
 			],
 			"id": "6006108a-4834-40d8-beb8-41caff121d7e"
@@ -650,6 +663,28 @@
 								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Arena",
+					"id": "5db7ea0b-176b-45a1-983b-0c9bf65c553b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"arena_name\": \"New Arena Name\",\r\n  \"desc_arenas\": \"Updated description\",\r\n  \"rate_arenas\": \"45\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/insertarenas/updateArenas/1"
 					},
 					"response": []
 				}
