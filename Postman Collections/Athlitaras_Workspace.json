@@ -445,6 +445,11 @@
 									"key": "published_arena",
 									"value": "false",
 									"type": "text"
+								},
+								{
+									"key": "views",
+									"value": "3",
+									"type": "text"
 								}
 							]
 						},
@@ -533,7 +538,7 @@
 								}
 							}
 						},
-						"url": "{{Url}}/api/myarenas/myarenas/test@hotmail.com"
+						"url": "{{Url}}/api/myarenas/myarenas/kostasstra@hotmail.com"
 					},
 					"response": []
 				},
@@ -684,8 +689,8 @@
 					"response": []
 				},
 				{
-					"name": "Update_Arena",
-					"id": "5db7ea0b-176b-45a1-983b-0c9bf65c553b",
+					"name": "Update_Arena Copy",
+					"id": "f5766133-39e1-4642-9052-a63520e539e2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -694,18 +699,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "multipart/form-data",
+								"value": "application/json",
 								"disabled": true
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"arena_name\": \"New Arena Name2\"\r\n//    \"desc_arenas\": \"Updated description\",\r\n//    \"rate_arenas\": \"45\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"mode": "urlencoded",
+							"urlencoded": []
 						},
 						"url": "{{Url}}/api/insertarenas/updateArenas/1"
 					},
@@ -2275,6 +2275,63 @@
 				}
 			],
 			"id": "fa281bdb-938a-43d8-bb69-5873e2abf6f7"
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Insert_Review",
+					"id": "e80d0c4f-71b6-47ff-8e60-7fa62bd73422",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":4,\r\n    \"arena_id\":1,\r\n    \"review_desc\":\"test test\",\r\n    \"answer_review\":\"test answetr\",\r\n    \"rate\":1,\r\n    \"image_review\":\"\",\r\n    \"published_review\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/reviews/insertReview"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Review_By_Arena_Id",
+					"id": "c098c522-2c5a-495a-b1de-17eea87430e8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/api/reviews/getReviewsByArenaId?arena_id=1",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"getReviewsByArenaId"
+							],
+							"query": [
+								{
+									"key": "arena_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "faff0af6-d718-4c7c-a9b4-21139b536b94"
 		}
 	]
 }
