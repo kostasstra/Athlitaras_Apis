@@ -107,7 +107,7 @@
 								}
 							}
 						},
-						"url": "{{Url}}/api/username/findoneuser/1"
+						"url": "{{Url}}/api/username/findoneuser/kostasstra@hotmail.com"
 					},
 					"response": [
 						{
@@ -320,7 +320,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n//   \"type\": \"your_type\",\r\n  \"country_name\": \"TestCountry\",\r\n  \"city_name\": \"Test_city_name_here\",\r\n  \"area_name\": \"Test_area_name_here\",\r\n  \"sport_center_name\": \"Test_sport_center_name_here\",\r\n  \"address\": \"Test_address_here\",\r\n  \"email\": \"Test_email_here@test.gr\",\r\n  \"mobile_number\": 6970938599,\r\n  \"postal_code\": \"123\",\r\n  \"phone_number\": 6970938599,\r\n  \"url\": \"www\",\r\n  \"address_number\": \"12\"\r\n}\r\n\r\n//When creating a sport_center_name, corresponding entries are created in the country_name, city_name, and area_name tables.",
+							"raw": "{\r\n//   \"type\": \"your_type\",\r\n  \"country_name\": \"TestCountry1\",\r\n  \"city_name\": \"Test_city_name_here1\",\r\n  \"area_name\": \"Test_area_name_here1\",\r\n  \"sport_center_name\": \"Test_sport_center_name_here1\",\r\n  \"address\": \"Test_address_here\",\r\n  \"email\": \"Test_email_her9e@test.gr\",\r\n  \"mobile_number\": 6970938599,\r\n  \"postal_code\": \"123\",\r\n  \"phone_number\": 2109717839,\r\n  \"url\": \"www\",\r\n  \"address_number\": \"12\",\r\n  \"lat\": 25,\r\n  \"lng\": 55.00\r\n}\r\n\r\n//When creating a sport_center_name, corresponding entries are created in the country_name, city_name, and area_name tables.",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1383,10 +1383,15 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Basketball&area_ids=1&page=1&size=10&area_type=\"isArea\"",
+							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Basketball&page=1&size=10",
 							"host": [
 								"{{Url}}"
 							],
@@ -1401,10 +1406,6 @@
 									"value": "Basketball"
 								},
 								{
-									"key": "area_ids",
-									"value": "1"
-								},
-								{
 									"key": "page",
 									"value": "1"
 								},
@@ -1413,17 +1414,24 @@
 									"value": "10"
 								},
 								{
-									"key": "area_type",
-									"value": "\"isArea\""
-								},
-								{
-									"key": "arena_details",
-									"value": "[{\"area_name\": \"Λεωφόρος Δημοκρατίας\",\"city_name\": \"Ηλιούπολη\", \"country_name\": \"Ελλάδα\"}]",
+									"key": "type",
+									"value": "isCity",
 									"disabled": true
 								},
 								{
-									"key": "cities",
-									"value": "Κηφισιά",
+									"key": "city",
+									"value": "Αργυρούπολη",
+									"disabled": true
+								},
+								{
+									"key": "arena_details",
+									"value": "{\"Events\": [ \"party1\" ], \"Services\": [\"coffee\" ]}",
+									"description": "{\"Events\": [ \"party1\" ], \"Services\": [\"coffee\" ]}",
+									"disabled": true
+								},
+								{
+									"key": "arena_details",
+									"value": "{ \"Kind\": [ \"Διπλό Γήπεδο\"],  \"Events\": [   \"Παιδικό Πάρτι\" ]}",
 									"disabled": true
 								}
 							]
