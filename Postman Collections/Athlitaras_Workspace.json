@@ -2419,6 +2419,39 @@
 				}
 			],
 			"id": "faff0af6-d718-4c7c-a9b4-21139b536b94"
+		},
+		{
+			"name": "Checkout",
+			"item": [
+				{
+					"name": "Return_Payment_Session",
+					"id": "e87463ad-397e-4242-a767-7e6bc6b102e5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "sk_sbox_naylnju2wg357anilli654aaim="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 1000,\r\n  \"currency\": \"GBP\",\r\n  \"reference\": \"ORD-123A\",\r\n  \"billing\": {\r\n    \"address\": {\r\n      \"country\": \"GR\"\r\n    }\r\n  },\r\n  \"customer\": {\r\n    \"name\": \"Jia Tsang1\",\r\n    \"email\": \"jia.tsang@example.com\"\r\n  },\r\n  \"success_url\": \"https://example.com/payments/success\",\r\n  \"failure_url\": \"https://example.com/payments/failure\",\r\n  \"processing_channel_id\": \"pc_46qvpgdp4rhurjwxtuii4dsrve\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.sandbox.checkout.com/payment-sessions"
+					},
+					"response": []
+				}
+			],
+			"id": "5c047bec-9e19-4ab4-b758-6e4c2884b223"
 		}
 	]
 }
