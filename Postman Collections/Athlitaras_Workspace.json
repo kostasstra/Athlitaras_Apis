@@ -2434,12 +2434,16 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "sk_sbox_naylnju2wg357anilli654aaim="
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"amount\": 1000,\r\n  \"currency\": \"GBP\",\r\n  \"reference\": \"ORD-123A\",\r\n  \"billing\": {\r\n    \"address\": {\r\n      \"country\": \"GR\"\r\n    }\r\n  },\r\n  \"customer\": {\r\n    \"name\": \"Jia Tsang1\",\r\n    \"email\": \"jia.tsang@example.com\"\r\n  },\r\n  \"success_url\": \"https://example.com/payments/success\",\r\n  \"failure_url\": \"https://example.com/payments/failure\",\r\n  \"processing_channel_id\": \"pc_46qvpgdp4rhurjwxtuii4dsrve\"\r\n}",
+							"raw": "{\r\n  \"amount\": 1000,\r\n  \"currency\": \"EUR\",  // Set to euros for payments in Greece\r\n  \"payment_type\": \"Regular\",\r\n  \"billing\": {\r\n    \"address\": {\r\n    \"address_line1\": \"123 High St.\",\r\n    \"address_line2\": \"Flat 456\",\r\n    \"city\": \"London\",\r\n    \"state\": \"str\",\r\n    \"zip\": \"SW1A 1AA\",\r\n    \"country\": \"GB\"\r\n    },\r\n    \"phone\": {\r\n      \"country_code\": \"30\",  // Greece country code\r\n      \"number\": \"2109717839\"  // Example Greek phone number\r\n    }\r\n  },\r\n  \"billing_descriptor\": {\r\n    \"name\": \"test\",\r\n    \"city\": \"TEST\",\r\n    \"reference\": \"12345\"\r\n  },\r\n  \"reference\": \"ORD-123A\",\r\n  \"description\": \"Payment for gold necklace\",\r\n  \"customer\": {\r\n    \"email\": \"kostasstra@example.com\",\r\n    \"name\": \"Kostas test\",\r\n    \"id\": \"cus_76qrsggdzshudgz3klfrbcgdqq\",\r\n    \"phone\": {\r\n      \"country_code\": \"30\",  // Greece country code\r\n      \"number\": \"2101234567\"\r\n    },\r\n    \"tax_number\": \"GR123456789\"  // Example Greek tax number (optional)\r\n  },\r\n  \"processing\": {\r\n    \"aft\": true\r\n  },\r\n  \"processing_channel_id\": \"pc_46qvpgdp4rhurjwxtuii4dsrve\",\r\n  \"expires_on\": \"2024-10-01T09:15:30Z\",\r\n  \"payment_method_configuration\": {\r\n    \"card\": {}\r\n  },\r\n  \"enabled_payment_methods\": [\r\n    \"card\",\r\n    \"applepay\",\r\n    \"googlepay\"\r\n  ],\r\n  \"disabled_payment_methods\": [\r\n    \"eps\",\r\n    \"ideal\",\r\n    \"knet\"\r\n  ],\r\n  \"items\": [\r\n    {\r\n      \"name\": \"Gold Necklace\",\r\n      \"quantity\": 1,\r\n      \"unit_price\": 1000,\r\n      \"wxpay_goods_id\": \"12345\"\r\n    }\r\n  ],\r\n  \"amount_allocations\": [\r\n    {\r\n      \"id\": \"alloc_1\",\r\n      \"amount\": 1000\r\n    }\r\n  ],\r\n  \"risk\": {\r\n    \"enabled\": false\r\n  },\r\n  \"customer_retry\": {\r\n    \"max_attempts\": 2\r\n  },\r\n  \"display_name\": \"string\",\r\n  \"success_url\": \"https://example.com/payments/success\",\r\n  \"failure_url\": \"https://example.com/payments/failure\",\r\n  \"metadata\": {\r\n    \"coupon_code\": \"NY2018\"\r\n  },\r\n  \"locale\": \"el\",  // Locale for Greek language (optional)\r\n  \"3ds\": {\r\n    \"enabled\": false,\r\n    \"attempt_n3d\": false,\r\n    \"challenge_indicator\": \"no_preference\",\r\n    \"exemption\": \"low_value\",\r\n    \"allow_upgrade\": true\r\n  },\r\n  \"sender\": {\r\n    \"type\": \"instrument\",\r\n    \"reference\": \"8285282045818\"\r\n  },\r\n  \"capture\": true,\r\n  \"capture_on\": \"2024-01-01T09:15:30Z\",\r\n  \"ip_address\": \"54.72.217.78\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2447,6 +2451,175 @@
 							}
 						},
 						"url": "https://api.sandbox.checkout.com/payment-sessions"
+					},
+					"response": []
+				},
+				{
+					"name": "Payment",
+					"id": "c0b19d6a-a377-409c-96cb-6ce1bab1680d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": {\r\n    \"type\": \"card\",\r\n    \"number\": \"4242424242424242\",  // Example test card number\r\n    \"expiry_month\": \"12\",          // Example expiry month\r\n    \"expiry_year\": \"24\",           // Example expiry year\r\n    \"cvv\": \"123\"                   // Optional: CVV\r\n  },\r\n  \"amount\": 1000,\r\n  \"currency\": \"EUR\",\r\n  \"capture\": true,\r\n  \"reference\": \"ORD-123A\",\r\n  \"description\": \"Payment for gold necklace\",\r\n  \"customer\": {\r\n    \"id\": \"cus_76qrsggdzshudgz3klfrbcgdqq\"  // Replace with the actual customer ID you received when creating the customer\r\n  },\r\n  \"processing_channel_id\": \"pc_46qvpgdp4rhurjwxtuii4dsrve\"  // Replace with actual processing channel ID\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.sandbox.checkout.com/payments"
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Token",
+					"id": "1f58c0eb-0314-4e9d-b2cb-31d5969a2480",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_naylnju2wg357anilli654aaim=",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "ack_nfmdpgpi4ybubduuptq7oriftq",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "ijI6KLMdhef7LKayadWZMSHRXK4SrdN68SbW0yvFhcj5Fr9RwWk6Xqkkvo1-AYpzqcvFcxKeuLpZ41u5YVnE3Q",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "gateway",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://access.sandbox.checkout.com/connect/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_A_Customer",
+					"id": "c1511e6d-dfa2-4394-867a-2aedcebf11ad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"kostasstra3@example.com\",\r\n  \"name\": \"Kostas Test\",\r\n  \"phone\": {\r\n    \"country_code\": \"30\",  // Greece country code\r\n    \"number\": \"2109717839\"  // Example Greek phone number\r\n  },\r\n  \"billing_address\": {\r\n    \"line1\": \"36 Lelas Karagianni\",\r\n    \"city\": \"Ilioupoli\",\r\n    \"state\": \"Attica\",\r\n    \"country\": \"GR\",  // Country code for Greece\r\n    \"zip\": \"16342\"\r\n  },\r\n//   \"shipping_address\": {\r\n//     \"line1\": \"235 Leof. Kifisias\",\r\n//     \"city\": \"Athens\",\r\n//     \"state\": \"Attica\",\r\n//     \"country\": \"GR\",\r\n//     \"zip\": \"11525\"\r\n//   },\r\n  \"metadata\": {\r\n    \"tax_number\": \"GR123456789\"  // Example Greek tax number (optional)\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.sandbox.checkout.com/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_A_Customer",
+					"id": "ef7c2483-a29d-4d6e-8e70-83964fb00ff8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.sandbox.checkout.com/customers/cus_76qrsggdzshudgz3klfrbcgdqq"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Payments",
+					"id": "f131b952-086d-4fe9-94e6-a8ea4919b81e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"id:'pay_eobexd2wms7epbenncehzs425a'\",\r\n  \"limit\": 10,\r\n  \"from\": \"2023-08-24T14:15:22Z\",\r\n  \"to\": \"2025-08-24T14:15:22Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.checkout.com/payments/search"
 					},
 					"response": []
 				}
