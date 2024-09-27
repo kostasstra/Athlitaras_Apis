@@ -2612,14 +2612,58 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"query\": \"id:'pay_eobexd2wms7epbenncehzs425a'\",\r\n  \"limit\": 10,\r\n  \"from\": \"2023-08-24T14:15:22Z\",\r\n  \"to\": \"2025-08-24T14:15:22Z\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "https://api.checkout.com/payments/search"
+						"url": "https://api.sandbox.checkout.com/payments/search"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Actions_For_Payment",
+					"id": "f8c567a2-d77a-47ff-9a89-dd632e077c77",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.sandbox.checkout.com/payments/pay_eobexd2wms7epbenncehzs425a/actions"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_A_Payment",
+					"id": "ea80bcad-010a-436e-ac16-905df9853939",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.sandbox.checkout.com/payments/pay_eobexd2wms7epbenncehzs425a"
 					},
 					"response": []
 				}
