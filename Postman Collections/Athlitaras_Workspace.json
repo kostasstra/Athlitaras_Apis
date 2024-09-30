@@ -2486,6 +2486,37 @@
 					"response": []
 				},
 				{
+					"name": "Payment From My backend",
+					"id": "a7344034-c135-4327-9ffa-4136a7a6813f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"token\": \"tok_sztcnm7azkdejmvizw2wt4dy4q\",  // Replace with actual token from frontend\r\n  \"orderId\": \"ORD-123A\",\r\n  \"amount\": 2500,  // The amount in the smallest currency unit (integer)\r\n  \"processing_channel_id\": \"pc_46qvpgdp4rhurjwxtuii4dsrve\"  // Replace with actual processing channel ID\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/payments/pay"
+					},
+					"response": []
+				},
+				{
 					"name": "Get_Token",
 					"id": "1f58c0eb-0314-4e9d-b2cb-31d5969a2480",
 					"protocolProfileBehavior": {
@@ -2559,7 +2590,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"kostasstra3@example.com\",\r\n  \"name\": \"Kostas Test\",\r\n  \"phone\": {\r\n    \"country_code\": \"30\",  // Greece country code\r\n    \"number\": \"2109717839\"  // Example Greek phone number\r\n  },\r\n  \"billing_address\": {\r\n    \"line1\": \"36 Lelas Karagianni\",\r\n    \"city\": \"Ilioupoli\",\r\n    \"state\": \"Attica\",\r\n    \"country\": \"GR\",  // Country code for Greece\r\n    \"zip\": \"16342\"\r\n  },\r\n//   \"shipping_address\": {\r\n//     \"line1\": \"235 Leof. Kifisias\",\r\n//     \"city\": \"Athens\",\r\n//     \"state\": \"Attica\",\r\n//     \"country\": \"GR\",\r\n//     \"zip\": \"11525\"\r\n//   },\r\n  \"metadata\": {\r\n    \"tax_number\": \"GR123456789\"  // Example Greek tax number (optional)\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"email\": \"kostasstra4@example.com\",\r\n  \"name\": \"Kostas Test\",\r\n  \"phone\": {\r\n    \"country_code\": \"30\",  // Greece country code\r\n    \"number\": \"2109717839\"  // Example Greek phone number\r\n  },\r\n  \"billing_address\": {\r\n    \"line1\": \"36 Lelas Karagianni\",\r\n    \"city\": \"Ilioupoli\",\r\n    \"state\": \"Attica\",\r\n    \"country\": \"GR\",  // Country code for Greece\r\n    \"zip\": \"16342\"\r\n  },\r\n//   \"shipping_address\": {\r\n//     \"line1\": \"235 Leof. Kifisias\",\r\n//     \"city\": \"Athens\",\r\n//     \"state\": \"Attica\",\r\n//     \"country\": \"GR\",\r\n//     \"zip\": \"11525\"\r\n//   },\r\n  \"metadata\": {\r\n    \"tax_number\": \"GR123456789\"  // Example Greek tax number (optional)\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2588,6 +2619,15 @@
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "https://api.sandbox.checkout.com/customers/cus_76qrsggdzshudgz3klfrbcgdqq"
 					},
 					"response": []
@@ -2663,7 +2703,60 @@
 								"value": "application/json"
 							}
 						],
-						"url": "https://api.sandbox.checkout.com/payments/pay_eobexd2wms7epbenncehzs425a"
+						"url": "https://api.sandbox.checkout.com/payments/pay_fhicnmixaetepk6cppbpmgl2pq"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_A_Payment_Session_From_ps",
+					"id": "aaa9669c-9f2e-4a6a-a26e-5e5d314df46c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "https://api.sandbox.checkout.com/payment-sessions/ps_2mkgEOghk9JEd3ZxWsh13wrDqJm"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_A_Token_Payment_Session",
+					"id": "c039fe2a-bcd6-4208-b605-b284f786bd18",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 1000,\r\n  \"currency\": \"GBP\",\r\n  \"reference\": \"ORD-123A\",\r\n  \"billing\": {\r\n    \"address\": {\r\n      \"country\": \"GB\"\r\n    }\r\n  },\r\n  \"customer\": {\r\n    \"email\": \"kostasstra@example.com\",\r\n    \"name\": \"Kostas test\"\r\n  },\r\n  \"success_url\": \"https://example.com/payments/success\",\r\n  \"failure_url\": \"https://example.com/payments/failure\",\r\n  \"processing_channel_id\": \"pc_46qvpgdp4rhurjwxtuii4dsrve\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/payments/session"
 					},
 					"response": []
 				}
