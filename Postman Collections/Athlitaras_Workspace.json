@@ -236,6 +236,98 @@
 							"body": "{\r\n    \"result\": \"ok\",\r\n    \"data\": [\r\n        {\r\n            \"user_id\": 1,\r\n            \"first_name\": \"kostas\",\r\n            \"last_name\": \"stratigos\",\r\n            \"email\": \"kostasstra@hotmail.com\",\r\n            \"msisdn\": \"6970\",\r\n            \"updatedAt\": \"2023-12-09T09:50:25.706Z\"\r\n        }\r\n    ],\r\n    \"message\": \"update a user successfully\"\r\n}"
 						}
 					]
+				},
+				{
+					"name": "Update_User_By_Id_One_By_One",
+					"id": "a622dc2d-3392-4ac1-8382-12b2e24e35c4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"kostas\",\r\n    \"last_name\" : \"stratigos\",\r\n    \"email\" : \"kostasstra@hotmail.com\" ,\r\n    \"msisdn\" : \"6970\"\r\n}\r\n\r\n// If a field is empty, shouldnt it be updated",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/changeprofile/profile/1"
+					},
+					"response": [
+						{
+							"id": "d6467d17-033b-4712-b1af-557a7082a6c8",
+							"name": "Update_User_By_Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\" : \"kostas\",\r\n    \"last_name\" : \"stratigos\",\r\n    \"email\" : \"kostasstra@hotmail.com\" ,\r\n    \"msisdn\" : \"6970\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/changeprofile/profile/1"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"result\": \"ok\",\r\n    \"data\": [\r\n        {\r\n            \"user_id\": 1,\r\n            \"first_name\": \"kostas\",\r\n            \"last_name\": \"stratigos\",\r\n            \"email\": \"kostasstra@hotmail.com\",\r\n            \"msisdn\": \"6970\",\r\n            \"updatedAt\": \"2023-12-09T09:50:25.706Z\"\r\n        }\r\n    ],\r\n    \"message\": \"update a user successfully\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update_User_Password",
+					"id": "7c4238f7-c5b8-4c87-a8e6-c605df2d313d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\": \"kostas\",\r\n    \"newPassword\": \"Kostas!!!13\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/changePasswordByUser/changePasswordByUser/9/changePasswordByUser"
+					},
+					"response": [
+						{
+							"id": "8ffd516f-a1d5-40b3-8835-3745064ac818",
+							"name": "Update_User_By_Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\" : \"kostas\",\r\n    \"last_name\" : \"stratigos\",\r\n    \"email\" : \"kostasstra@hotmail.com\" ,\r\n    \"msisdn\" : \"6970\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/changeprofile/profile/1"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"result\": \"ok\",\r\n    \"data\": [\r\n        {\r\n            \"user_id\": 1,\r\n            \"first_name\": \"kostas\",\r\n            \"last_name\": \"stratigos\",\r\n            \"email\": \"kostasstra@hotmail.com\",\r\n            \"msisdn\": \"6970\",\r\n            \"updatedAt\": \"2023-12-09T09:50:25.706Z\"\r\n        }\r\n    ],\r\n    \"message\": \"update a user successfully\"\r\n}"
+						}
+					]
 				}
 			],
 			"id": "766a9d06-777b-42c7-a6d3-56e59c24a522"
@@ -565,8 +657,125 @@
 					"response": []
 				},
 				{
-					"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_Name",
+					"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_id_For_Exclude_Date_time",
 					"id": "594d1316-363e-4564-9d33-6762d799e748",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"time\": [\"07:00\"],\r\n    \"dayTime\": \"09-10-2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/updateconfigbookingarenas/arenas/1/40/excludedaytime"
+					},
+					"response": [
+						{
+							"id": "583c704a-0542-4645-aa6d-6aa5ab2c79a2",
+							"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_id_For_Exclude_Date_time",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"time\": [\"03:00\", \"11:00\",\"17:00\",\"08:00\",\"09:00\",\"04:00\",\"05:00\",\"06:00\",\"07:00\",\"03:00\",\"10:00\",\"15:00\",\"14:00\",\"13:00\"],\r\n    \"dayTime\": \"18/10/2024\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url}}/api/updateconfigbookingarenas/arenas/{sport_center_id}/{arena_id}/excludedaytime"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Return_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_id_For_Exclude_Date_time Copy",
+					"id": "50647a6a-c75e-4dc0-8abb-468904134e48",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"time\": \"07:00\",\r\n    \"dayTime\": \"29/10/2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/api/updateconfigbookingarenas/arenas/1/40/getExcludedayTime",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"updateconfigbookingarenas",
+								"arenas",
+								"1",
+								"40",
+								"getExcludedayTime"
+							],
+							"query": [
+								{
+									"key": "dayTime",
+									"value": "09/10/2024",
+									"disabled": true
+								},
+								{
+									"key": "time",
+									"value": "04:00",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c4a30dfd-10c2-41ab-854a-12bc371f263d",
+							"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_id_For_Exclude_Date_time",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"time\": [\"03:00\", \"11:00\",\"17:00\",\"08:00\",\"09:00\",\"04:00\",\"05:00\",\"06:00\",\"07:00\",\"03:00\",\"10:00\",\"15:00\",\"14:00\",\"13:00\"],\r\n    \"dayTime\": \"18/10/2024\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url}}/api/updateconfigbookingarenas/arenas/{sport_center_id}/{arena_id}/excludedaytime"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_Name Copy",
+					"id": "ed641599-a781-4f1d-82ec-c9a7417861d9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -584,54 +793,7 @@
 						},
 						"url": "{{Url}}/api/updateconfigbookingarenas/1/test test"
 					},
-					"response": [
-						{
-							"id": "c6e631eb-6117-40c1-b404-5ee4ef8b6a38",
-							"name": "Update_Config_Booking_Arenas_By_Sport_Center_Id_And_By_Arena_Name",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:5052/api/updateconfigbookingarenas/:sport_center_id/:arena_name",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "5052",
-									"path": [
-										"api",
-										"updateconfigbookingarenas",
-										":sport_center_id",
-										":arena_name"
-									],
-									"variable": [
-										{
-											"key": "sport_center_id",
-											"value": ""
-										},
-										{
-											"key": "arena_name",
-											"value": ""
-										}
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"responseTime": null,
-							"body": null
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Insert_Image_To_Arenas //TODO",
@@ -2759,9 +2921,68 @@
 						"url": "{{Url}}/api/payments/session"
 					},
 					"response": []
+				},
+				{
+					"name": "Return_A_Token_Payment_Session Copy",
+					"id": "f1a75b62-183f-4262-b3b7-e00c19559b50",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer sk_sbox_674omshgf5zlfvgrgoti26uemyk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/payments/create-payment-sessions"
+					},
+					"response": []
 				}
 			],
 			"id": "5c047bec-9e19-4ab4-b758-6e4c2884b223"
+		},
+		{
+			"name": "Start_Booking_And_Payment",
+			"item": [
+				{
+					"name": "Start_Booking_Payment",
+					"id": "09f5c6d5-3ac4-4a61-b6c1-a243f847f8cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dayTime\": \"19/11/2024\",\r\n  \"time\": [\"23:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970\",\r\n    \"booking_date\": \"19/11/2024\",\r\n    \"booking_time\": \"23:00\",\r\n    \"booking_price\": 50,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 40\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/startBooking/1/40/bookingTransaction"
+					},
+					"response": []
+				}
+			],
+			"id": "1b6dc415-0840-400d-8fa1-aa88bb18849b"
 		}
 	]
 }
