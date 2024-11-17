@@ -2980,6 +2980,41 @@
 						"url": "{{Url}}/api/startBooking/1/40/bookingTransaction"
 					},
 					"response": []
+				},
+				{
+					"name": "Delete_Booking_Payment_And_DayTime_By_Config_Admin_Booking",
+					"id": "22adf77a-90ee-4c55-84ea-2821fa5f6d44",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 42,\r\n    \"booking_id\": 403,\r\n    \"dayTime\": \"28/10/2024\",\r\n    \"time\": \"23:26\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/startBooking/deleteBookingTransaction"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Expired_bookings",
+					"id": "9c4facec-965d-4573-9a1f-45fb20e4a2b7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{Url}}/api/expiredBookings/expiredBookings"
+					},
+					"response": []
 				}
 			],
 			"id": "1b6dc415-0840-400d-8fa1-aa88bb18849b"
