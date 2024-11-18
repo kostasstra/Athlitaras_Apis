@@ -1270,6 +1270,50 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update_Booking_UpdatedAt",
+					"id": "98faa395-d53a-4234-8ddd-1179dcddc1db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"booking_date\": \"21/11/2024\",\r\n  \"booking_time\": \"04:00\",\r\n  \"user_id\": 1,\r\n  \"sport_center_id\": 1,\r\n  \"arena_id\": 42\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/bookingdetails/bookings/updateUpdatedAt"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_A_Redirect_Url_If_Not_Exist_Correct_Status",
+					"id": "079b5ac2-b204-4eba-89c5-5f7abce3d142",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"booking_date\": \"20/11/2024\",\r\n  \"booking_time\": \"03:00\",\r\n  \"user_id\": 1,\r\n  \"sport_center_id\": 1,\r\n  \"arena_id\": 42\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/bookingdetails/bookings/getCheckBookingStatus"
+					},
+					"response": []
 				}
 			],
 			"id": "71a39d50-2e40-47e1-b988-d7020a456e87"
