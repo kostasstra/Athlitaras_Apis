@@ -1140,6 +1140,28 @@
 					"response": []
 				},
 				{
+					"name": "Return_Booking_By_Date _Time_User_ID",
+					"id": "297196a5-302a-4631-9702-b0dffa15ec62",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"booking_date\": \"29/11/2024\",\r\n  \"booking_time\": \"06:00\",\r\n  \"user_id\": 18\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/bookingdetails/bookings/getBookingdetailsByDateTimeUserId"
+					},
+					"response": []
+				},
+				{
 					"name": "Return_booking_Total_Price_By_Arena_Month",
 					"id": "10b18060-1c7d-480d-adb6-955322f66f71",
 					"protocolProfileBehavior": {
@@ -1282,7 +1304,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"booking_date\": \"21/11/2024\",\r\n  \"booking_time\": \"04:00\",\r\n  \"user_id\": 1,\r\n  \"sport_center_id\": 1,\r\n  \"arena_id\": 42\r\n}\r\n",
+							"raw": "{\r\n  \"booking_date\": \"22/11/2024\",\r\n  \"booking_time\": \"04:00\",\r\n  \"user_id\": 18,\r\n  \"sport_center_id\": 1,\r\n  \"arena_id\": 42\r\n \r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
