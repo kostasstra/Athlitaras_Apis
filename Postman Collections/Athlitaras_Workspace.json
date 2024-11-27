@@ -1150,7 +1150,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"booking_date\": \"29/11/2024\",\r\n  \"booking_time\": \"06:00\",\r\n  \"user_id\": 18\r\n}",
+							"raw": "{\r\n  \"booking_date\": \"30/11/2024\",\r\n  \"booking_time\": \"22:00\",\r\n  \"user_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3036,14 +3036,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"dayTime\": \"19/11/2024\",\r\n  \"time\": [\"23:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970\",\r\n    \"booking_date\": \"19/11/2024\",\r\n    \"booking_time\": \"23:00\",\r\n    \"booking_price\": 50,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 40\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"dayTime\": \"28/12/2024\",\r\n  \"time\": [\"04:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970\",\r\n    \"booking_date\": \"28/12/2024\",\r\n    \"booking_time\": \"04:00\",\r\n    \"booking_price\": 50,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 42\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{Url}}/api/startBooking/1/40/bookingTransaction"
+						"url": "{{Url}}/api/startBooking/1/42/bookingTransaction"
 					},
 					"response": []
 				},
@@ -3066,6 +3066,28 @@
 							}
 						},
 						"url": "{{Url}}/api/startBooking/deleteBookingTransaction"
+					},
+					"response": []
+				},
+				{
+					"name": "Delet_CheckIfExistBookingWithPaymentOrPendingPaymentStatusAndDeleteBooking",
+					"id": "41eb003f-ee71-4a55-9f8c-ffa8da8afb01",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 18\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/startBooking/checkIfExistBookingWithPaymentOrPendingPaymentStatusAndDeleteBooking"
 					},
 					"response": []
 				},
