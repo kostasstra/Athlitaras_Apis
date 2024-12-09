@@ -1344,91 +1344,319 @@
 			"name": "cache",
 			"item": [
 				{
-					"name": "Return_Cache_By_Cache_Name_Areas",
-					"id": "6d098ef6-be51-4574-b39e-945ca48ead03",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{Url}}/api/cache/getCache?cache_name=areas",
-							"host": [
-								"{{Url}}"
-							],
-							"path": [
-								"api",
-								"cache",
-								"getCache"
-							],
-							"query": [
+					"name": "Redis_Cache",
+					"item": [
+						{
+							"name": "Create_cache",
+							"item": [
 								{
-									"key": "cache_name",
-									"value": "areas"
+									"name": "Create_Cache_Redis",
+									"id": "2651fe38-a723-41a9-9100-d2376658edc6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"key\": \"exampleKey\",\r\n  \"value\": \"exampleValue\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/set"
+									},
+									"response": []
+								},
+								{
+									"name": "Create_Arena_Details_By_Cache_Redis_And_Fetch_Data_By_Database",
+									"id": "f08f5026-819b-4b60-be93-a9a61dd82dbc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/setArenaDetailsSportId"
+									},
+									"response": []
+								},
+								{
+									"name": "Create_Areas_By_Cache_Redis_And_Fetch_Data_By_Database",
+									"id": "0b391b17-4086-4a47-ae3a-782349abfe46",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/setAllAreasForRedis"
+									},
+									"response": []
+								},
+								{
+									"name": "Create_Sports_By_Cache_Redis_And_Fetch_Data_By_Database",
+									"id": "22d09bb0-9989-40c4-8756-bcd71b5338c8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/setSportsForRedis"
+									},
+									"response": []
 								}
-							]
+							],
+							"id": "56b65873-5912-438c-824b-e1170f8b2ac0"
+						},
+						{
+							"name": "Delete_Cache",
+							"item": [
+								{
+									"name": "Delete_Cache_Redis_By_Key",
+									"id": "10381bcf-8868-4709-b465-4ab39d5da6c9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/delete/arena_details_and_sport_id"
+									},
+									"response": []
+								}
+							],
+							"id": "61c639b3-be33-4b58-b7db-48420d793329"
+						},
+						{
+							"name": "Return_Cache",
+							"item": [
+								{
+									"name": "Return_Cache_Redis_By_Key",
+									"id": "2ab84d7a-dccc-4622-a112-1b5671c0f6ea",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/get/{{keyRedis}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Arena_Details_By_Cache_Redis",
+									"id": "d065db94-b8f8-4b8e-97c6-1344aba23c49",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/getArenaDetailsSportId"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Areas_By_Cache_Redis",
+									"id": "f823a705-b91f-434d-8ac7-eb7208ea179f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/getAllAreasByRedis"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Sports_By_Cache_Redis",
+									"id": "b46f7904-83f3-4b98-ad32-9c3917494d77",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/cacheRedis/getSportsByRedis"
+									},
+									"response": []
+								}
+							],
+							"id": "9a4669b2-ef6c-462b-b7c1-dd6e7b00131e"
 						}
-					},
-					"response": []
+					],
+					"id": "ecd84a58-daf7-4ce6-a428-24a74a56e715"
 				},
 				{
-					"name": "Return_Cache_By_Cache_Name_Arena_Details_And_Sport_Id",
-					"id": "8ea1c7eb-7c28-4559-8dec-0ca558835ff8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{Url}}/api/cache/getCache?cache_name=arena_details_and_sport_id",
-							"host": [
-								"{{Url}}"
-							],
-							"path": [
-								"api",
-								"cache",
-								"getCache"
-							],
-							"query": [
-								{
-									"key": "cache_name",
-									"value": "arena_details_and_sport_id"
+					"name": "Cache_By_Database",
+					"item": [
+						{
+							"name": "Return_Cache_By_Cache_Name_Areas",
+							"id": "6d098ef6-be51-4574-b39e-945ca48ead03",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Url}}/api/cache/getCache?cache_name=areas",
+									"host": [
+										"{{Url}}"
+									],
+									"path": [
+										"api",
+										"cache",
+										"getCache"
+									],
+									"query": [
+										{
+											"key": "cache_name",
+											"value": "areas"
+										}
+									]
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Return_Cache_By_Cache_Name_Sports",
-					"id": "7a33a00c-a332-4322-87a8-194b176667db",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{Url}}/api/cache/getCache?cache_name=sports",
-							"host": [
-								"{{Url}}"
-							],
-							"path": [
-								"api",
-								"cache",
-								"getCache"
-							],
-							"query": [
-								{
-									"key": "cache_name",
-									"value": "sports"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Cache_By_Cache_Name_Arena_Details_And_Sport_Id",
+							"id": "8ea1c7eb-7c28-4559-8dec-0ca558835ff8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Url}}/api/cache/getCache?cache_name=arena_details_and_sport_id",
+									"host": [
+										"{{Url}}"
+									],
+									"path": [
+										"api",
+										"cache",
+										"getCache"
+									],
+									"query": [
+										{
+											"key": "cache_name",
+											"value": "arena_details_and_sport_id"
+										}
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Cache_By_Cache_Name_Sports",
+							"id": "7a33a00c-a332-4322-87a8-194b176667db",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Url}}/api/cache/getCache?cache_name=sports",
+									"host": [
+										"{{Url}}"
+									],
+									"path": [
+										"api",
+										"cache",
+										"getCache"
+									],
+									"query": [
+										{
+											"key": "cache_name",
+											"value": "sports"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "bd73629e-bccc-46d3-b651-2a10fb5dbfa7"
 				}
 			],
 			"id": "a6bd2c6c-3c4d-41cc-a64c-a3bcdd780dd7"
@@ -1619,7 +1847,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Basketball&page=1&size=10",
+							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Μπάσκετ&page=1&size=10",
 							"host": [
 								"{{Url}}"
 							],
@@ -1629,18 +1857,6 @@
 								"getSearchResultsHome"
 							],
 							"query": [
-								{
-									"key": "sport",
-									"value": "Basketball"
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "size",
-									"value": "10"
-								},
 								{
 									"key": "type",
 									"value": "isCity",
@@ -1661,6 +1877,18 @@
 									"key": "arena_details",
 									"value": "{ \"Kind\": [ \"Διπλό Γήπεδο\"],  \"Events\": [   \"Παιδικό Πάρτι\" ]}",
 									"disabled": true
+								},
+								{
+									"key": "sport",
+									"value": "Μπάσκετ"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
 								}
 							]
 						}
