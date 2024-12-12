@@ -3339,92 +3339,227 @@
 			"name": "Keycloak",
 			"item": [
 				{
-					"name": "login_keycloak",
-					"id": "0e3f6998-28fc-43c1-b563-ee4de0f9b13e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"username\": \"newuser\",\r\n  \"email\": \"newuser@example.com\",\r\n  \"enabled\": true\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+					"name": "Keycloak_endpoints",
+					"item": [
+						{
+							"name": "Return_Count_For_Users",
+							"id": "f3db27bc-5f84-417f-99b2-8a374d935526",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTUGhKUHlfazUtd1JFRFZVYWFsUGxiOEo3SFNwZnpyTE04UTNxdVRCWFM4In0.eyJleHAiOjE3MzM5OTQ0NzEsImlhdCI6MTczMzk5NDQxMSwianRpIjoiN2VmMjIxNzktYTc0OC00N2I2LThlNDItYjRlNGFlYmZjMTg4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOlsiYXRobGl0YXJhc19kZXYtcmVhbG0iLCJtYXN0ZXItcmVhbG0iLCJhY2NvdW50Il0sInN1YiI6IjcxY2U5NTNmLTMxYzktNGM3Yi05ODAzLTk5ZmIyY2ZkYWU0NSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImF0aGxpdGFyYXNfc3RnIiwic2lkIjoiM2Q4MzY0MmQtZDdmOC00MDU0LTlhM2UtMmQ5OTI3NDBjMTdhIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImNyZWF0ZS1yZWFsbSIsImRlZmF1bHQtcm9sZXMtbWFzdGVyIiwib2ZmbGluZV9hY2Nlc3MiLCJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYXRobGl0YXJhc19kZXYtcmVhbG0iOnsicm9sZXMiOlsidmlldy1yZWFsbSIsInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sIm1hc3Rlci1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LXJlYWxtIiwidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJrb3N0YXNzdHJhQGhvdG1haWwuY29tIn0.C0S2XdHGssH786Wxmq7OWQ5T6YpESYKDWg0Cum0xvYCl3dvMgoNaB8_GrI97wd7xOLhYsmnq0PHltDd_wsD6uU2x6_RuO0TmSNvE0Lo-gXszAvt9JwGtmVuJVJyJX5LVPdKk3NtQjpmu5C73mn-BAHFFYcp1WXW5op0yVHOACHiBMF8oHOF3U04bFIZ-J1uM-XXFuPqeCzQBRW_yrIt-hidza8ycRgoXk_bIFL3wULbaWBsfcgoTiqZqV1xy4kmYAd6coAxoFbR4Qxpk5UG4jCfmN9Q6We76Ao3x9VakMZ6VNm2DE5nBPs_9IOZgVYBLrS954AAgsxquB7RxRIREKQ"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:9090/admin/realms/athlitaras_dev/users/count"
+							},
+							"response": []
 						},
-						"url": "{{Url}}/api/keycloak/login"
-					},
-					"response": []
+						{
+							"name": "Token_User_staging",
+							"id": "aac4038a-521f-4733-937a-fa1856f90a81",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "athitaras_client",
+											"equals": true,
+											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+										},
+										{
+											"key": "client_secret",
+											"value": "RQNqefisqeAqa5Urkw3ztSSsOzCWSfj2",
+											"equals": true,
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+										},
+										{
+											"key": "grant_type",
+											"value": "password",
+											"equals": true,
+											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
+										},
+										{
+											"key": "username",
+											"value": "kostasstra@athlitaras.gr",
+											"equals": true,
+											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
+										},
+										{
+											"key": "password",
+											"value": "kostas!!!13",
+											"equals": true,
+											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:9090/realms/athlitaras_dev/protocol/openid-connect/token?client_id=athitaras_client&grant_type=password&username=kostasstra@athlitaras.gr&password=kostas!!!13",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"realms",
+										"athlitaras_dev",
+										"protocol",
+										"openid-connect",
+										"token"
+									],
+									"query": [
+										{
+											"key": "client_id",
+											"value": "athitaras_client"
+										},
+										{
+											"key": "grant_type",
+											"value": "password"
+										},
+										{
+											"key": "username",
+											"value": "kostasstra@athlitaras.gr"
+										},
+										{
+											"key": "password",
+											"value": "kostas!!!13"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Token_Admin_staging",
+							"id": "a961c6d1-0e61-440c-8b97-fc1b065e0477",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "athlitaras_stg",
+											"equals": true,
+											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+										},
+										{
+											"key": "client_secret",
+											"value": "iI4yAGLPSnY7NRkTav68fv5Xn6NHvVph",
+											"equals": true,
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+										},
+										{
+											"key": "grant_type",
+											"value": "password",
+											"equals": true,
+											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"equals": true,
+											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
+										},
+										{
+											"key": "password",
+											"value": "Shdfrgth!13Hya",
+											"equals": true,
+											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
+										}
+									]
+								},
+								"url": "http://localhost:9090/realms/master/protocol/openid-connect/token"
+							},
+							"response": []
+						}
+					],
+					"id": "2108fe8e-e638-466a-a156-650e3455f7d6"
 				},
 				{
-					"name": "New Request",
-					"id": "119ece24-3a5d-47b6-abe3-248965a3001b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:5052"
-					},
-					"response": []
-				},
-				{
-					"name": "token_staging",
-					"id": "aac4038a-521f-4733-937a-fa1856f90a81",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "client_id",
-									"value": "athitaras_client",
-									"equals": true,
-									"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+					"name": "Athlitaras_Endpoints_for_Keycloak",
+					"item": [
+						{
+							"name": "Login_user_keycloak",
+							"id": "0e3f6998-28fc-43c1-b563-ee4de0f9b13e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"kostasstra@athlitaras.gr\",\r\n  \"password\": \"kostas!!!13\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "client_secret",
-									"value": "RQNqefisqeAqa5Urkw3ztSSsOzCWSfj2",
-									"equals": true,
-									"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
-								},
-								{
-									"key": "grant_type",
-									"value": "password",
-									"equals": true,
-									"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
-								},
-								{
-									"key": "username",
-									"value": "kostasstra@athlitaras.gr",
-									"equals": true,
-									"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
-								},
-								{
-									"key": "password",
-									"value": "kostas!!!13",
-									"equals": true,
-									"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
-								}
-							]
+								"url": "{{Url}}/api/keycloak/login"
+							},
+							"response": []
 						},
-						"url": "http://localhost:9090/realms/athlitaras_dev/protocol/openid-connect/token"
-					},
-					"response": []
+						{
+							"name": "Return_users_keycloak",
+							"id": "898f1bf2-ddc5-4614-9413-3892ed67d66d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTZjJzRU5UdUg3ZVlZekNoaHdOOUd4T2VHWDh1cklVMHJfZ3NTVWphRjZFIn0.eyJleHAiOjE3MzM5ODk3MTYsImlhdCI6MTczMzk4OTQxNiwianRpIjoiOGI4MGNiZjktYjk2NC00ZWQ1LWEwM2YtYjRiZDhkZmI4YWU2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9hdGhsaXRhcmFzX2RldiIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJmNDRlM2I3Ni00ZmNmLTQ3YzMtOThmMi05YjJhZGFkZmRhZTUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdGhpdGFyYXNfY2xpZW50Iiwic2lkIjoiZWJkYzQwYjctNmJlYy00MmRmLThkNjAtYTA3MTU3MWY5ZmUwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1hdGhsaXRhcmFzX2RldiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJrb3N0YXMgc3RyYSIsInByZWZlcnJlZF91c2VybmFtZSI6Imtvc3Rhc3N0cmEiLCJnaXZlbl9uYW1lIjoia29zdGFzIiwiZmFtaWx5X25hbWUiOiJzdHJhIiwiZW1haWwiOiJrb3N0YXNzdHJhQGF0aGxpdGFyYXMuZ3IifQ.VpED7uBbD_leR4d5_FT9LE6tmgRs4CTfOKqu5-rT-NK48nmtWgnqVNJg4jiEsq0oX1Tt0HUWOyBH3r5OuIOo8uCaXkN2siOLhXkoRbCxFVIfAMSY936RzQCitQjE5xiEr_wlVl5ECE7qt5yZW70bXJ1ck1F_usrRpw5ZkkxyWDwXCfPzXNyGGj33ZQdE9dH__sM37nsFBRqVMRfscHAZPJ-E_pB2tARUUvkU2WY59NJfq6biCge1rtWXSXBMw_MF1UrYRXsbMcISh85d7nBqMk7LZPOspbYYKmmej_CNdFxra8UYfNCDRtcdn_fO_vLqEIzEGaAjtXrJ1ykwgbgRTw"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url}}/api/keycloak/users"
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "119ece24-3a5d-47b6-abe3-248965a3001b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5052"
+							},
+							"response": []
+						}
+					],
+					"id": "ef99d2f6-ef20-4915-982c-87a63681a51d"
 				}
 			],
 			"id": "785fb71d-dadf-4184-80d4-2647c289046e"
