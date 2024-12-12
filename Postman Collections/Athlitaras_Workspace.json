@@ -3351,17 +3351,126 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTUGhKUHlfazUtd1JFRFZVYWFsUGxiOEo3SFNwZnpyTE04UTNxdVRCWFM4In0.eyJleHAiOjE3MzM5OTQ0NzEsImlhdCI6MTczMzk5NDQxMSwianRpIjoiN2VmMjIxNzktYTc0OC00N2I2LThlNDItYjRlNGFlYmZjMTg4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOlsiYXRobGl0YXJhc19kZXYtcmVhbG0iLCJtYXN0ZXItcmVhbG0iLCJhY2NvdW50Il0sInN1YiI6IjcxY2U5NTNmLTMxYzktNGM3Yi05ODAzLTk5ZmIyY2ZkYWU0NSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImF0aGxpdGFyYXNfc3RnIiwic2lkIjoiM2Q4MzY0MmQtZDdmOC00MDU0LTlhM2UtMmQ5OTI3NDBjMTdhIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImNyZWF0ZS1yZWFsbSIsImRlZmF1bHQtcm9sZXMtbWFzdGVyIiwib2ZmbGluZV9hY2Nlc3MiLCJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYXRobGl0YXJhc19kZXYtcmVhbG0iOnsicm9sZXMiOlsidmlldy1yZWFsbSIsInZpZXctaWRlbnRpdHktcHJvdmlkZXJzIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sIm1hc3Rlci1yZWFsbSI6eyJyb2xlcyI6WyJ2aWV3LXJlYWxtIiwidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJrb3N0YXNzdHJhQGhvdG1haWwuY29tIn0.C0S2XdHGssH786Wxmq7OWQ5T6YpESYKDWg0Cum0xvYCl3dvMgoNaB8_GrI97wd7xOLhYsmnq0PHltDd_wsD6uU2x6_RuO0TmSNvE0Lo-gXszAvt9JwGtmVuJVJyJX5LVPdKk3NtQjpmu5C73mn-BAHFFYcp1WXW5op0yVHOACHiBMF8oHOF3U04bFIZ-J1uM-XXFuPqeCzQBRW_yrIt-hidza8ycRgoXk_bIFL3wULbaWBsfcgoTiqZqV1xy4kmYAd6coAxoFbR4Qxpk5UG4jCfmN9Q6We76Ao3x9VakMZ6VNm2DE5nBPs_9IOZgVYBLrS954AAgsxquB7RxRIREKQ"
+										"token": "{{Bearer_Token_Athlitaras}}"
 									}
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:9090/admin/realms/athlitaras_dev/users/count"
+								"url": "http://localhost:9090/admin/realms/{{realm}}/users/count"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Config_For_User_Profile",
+							"id": "d4b4d91f-ced5-475f-98a5-fe8ed21b36e5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:9090/admin/realms/{{realm}}/users/profile"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_UserProfileMetadata_From_Configuration",
+							"id": "fb9ce501-a0f3-498e-9965-ecf2395e66f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:9090/admin/realms/{{realm}}/users/profile/metadata"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_All_Users",
+							"id": "5c95ccbb-14b7-4893-9f53-c76107c49edb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:9090/admin/realms/{{realm}}/users"
+							},
+							"response": []
+						},
+						{
+							"name": "Create_User",
+							"id": "8eb79304-71fb-4d04-b40f-11bf50642666",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"newuser123\",\r\n  \"enabled\": true,\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"emailVerified\": true,\r\n  \"credentials\": [\r\n    {\r\n      \"type\": \"password\",\r\n      \"value\": \"123456\",\r\n      \"temporary\": false\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:9090/admin/realms/{{realm}}/users"
 							},
 							"response": []
 						},
 						{
 							"name": "Token_User_staging",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8b7af331-99f5-4bfd-8080-9008d6c46326",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set('Bearer_Token_Athlitaras', jsonData.access_token);\r",
+											"\r",
+											"\r",
+											"// Retrieve the token from environment variable\r",
+											"var bearerToken = pm.environment.get(\"Bearer_Token_Athlitaras\");\r",
+											"\r",
+											"// Set the Authorization header with the Bearer token\r",
+											"pm.request.headers.add({\r",
+											"    key: 'Authorization',\r",
+											"    value: 'Bearer ' + bearerToken\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "aac4038a-521f-4733-937a-fa1856f90a81",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -3447,6 +3556,30 @@
 						},
 						{
 							"name": "Token_Admin_staging",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3c477e12-f95e-4fb5-9c1c-20381db214c6",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set('Bearer_Token_Athlitaras', jsonData.access_token);\r",
+											"\r",
+											"\r",
+											"// Retrieve the token from environment variable\r",
+											"var bearerToken = pm.environment.get(\"Bearer_Token_Athlitaras\");\r",
+											"\r",
+											"// Set the Authorization header with the Bearer token\r",
+											"pm.request.headers.add({\r",
+											"    key: 'Authorization',\r",
+											"    value: 'Bearer ' + bearerToken\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "a961c6d1-0e61-440c-8b97-fc1b065e0477",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
