@@ -3356,7 +3356,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:9090/admin/realms/{{realm}}/users/count",
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/count",
 								"description": "StartFragment\n\nReturns the number of users that match the given criteria.\n\n##### Description\n\nIt can be called in three different ways. 1. Don’t specify any criteria and pass {@code null}. The number of all users within that realm will be returned.\n\n2\\. If {@code search} is specified other criteria such as {@code last} will be ignored even though you set them. The {@code search} string will be matched against the first and last name, the username and the email of a user.\n\n3\\. If {@code search} is unspecified but any of {@code last}, {@code first}, {@code email} or {@code username} those criteria are matched against their respective fields on a user entity. Combined with a logical and.\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n###### Query Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **email**  <br>_optional_ | email filter | null |  |\n| **emailVerified**  <br>_optional_ |  | null |  |\n| **enabled**  <br>_optional_ | Boolean representing if user is enabled or not | null |  |\n| **firstName**  <br>_optional_ | first name filter | null |  |\n| **lastName**  <br>_optional_ | last name filter | null |  |\n| **q**  <br>_optional_ |  | null |  |\n| **search**  <br>_optional_ | arbitrary search string for all the fields below. Default search behavior is prefix-based (e.g., foo or foo\\*). Use **foo** for infix search and \"foo\" for exact search. | null |  |\n| **username**  <br>_optional_ | username filter | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | [[Integer]](https://www.keycloak.org/docs-api/latest/rest-api/index.html#Integer) |\n\nEndFragment"
 							},
 							"response": []
@@ -3376,7 +3376,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:9090/admin/realms/{{realm}}/users/profile",
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/profile",
 								"description": "StartFragment\n\n##### Description\n\nGet the configuration for the user profile\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\nEndFragment"
 							},
 							"response": []
@@ -3396,7 +3396,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:9090/admin/realms/{{realm}}/users/profile/metadata",
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/profile/metadata",
 								"description": "StartFragment\n\n##### Description\n\nGet the UserProfileMetadata from the configuration\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | [UserProfileMetadata](https://www.keycloak.org/docs-api/latest/rest-api/index.html#UserProfileMetadata) |\n\nEndFragment"
 							},
 							"response": []
@@ -3416,7 +3416,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:9090/admin/realms/{{realm}}/users",
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users",
 								"description": "StartFragment\n\nGet users Returns a stream of users, filtered according to query parameters.\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n###### Query Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **briefRepresentation**  <br>_optional_ | Boolean which defines whether brief representations are returned (default: false) | null |  |\n| **email**  <br>_optional_ | A String contained in email, or the complete email, if param \"exact\" is true | null |  |\n| **emailVerified**  <br>_optional_ | whether the email has been verified | null |  |\n| **enabled**  <br>_optional_ | Boolean representing if user is enabled or not | null |  |\n| **exact**  <br>_optional_ | Boolean which defines whether the params \"last\", \"first\", \"email\" and \"username\" must match exactly | null |  |\n| **first**  <br>_optional_ | Pagination offset | null |  |\n| **firstName**  <br>_optional_ | A String contained in firstName, or the complete firstName, if param \"exact\" is true | null |  |\n| **idpAlias**  <br>_optional_ | The alias of an Identity Provider linked to the user | null |  |\n| **idpUserId**  <br>_optional_ | The userId at an Identity Provider linked to the user | null |  |\n| **lastName**  <br>_optional_ | A String contained in lastName, or the complete lastName, if param \"exact\" is true | null |  |\n| **max**  <br>_optional_ | Maximum results size (defaults to 100) | null |  |\n| **q**  <br>_optional_ | A query to search for custom attributes, in the format 'key1:value2 key2:value2' | null |  |\n| **search**  <br>_optional_ | A String contained in username, first or last name, or email. Default search behavior is prefix-based (e.g., foo or foo\\*). Use **foo** for infix search and \"foo\" for exact search. | null |  |\n| **username**  <br>_optional_ | A String contained in username, or the complete username, if param \"exact\" is true | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | List\\[[UserRepresentation](https://www.keycloak.org/docs-api/latest/rest-api/index.html#UserRepresentation)\\] |\n\nEndFragment"
 							},
 							"response": []
@@ -3436,8 +3436,48 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:9090/admin/realms/{{realm}}/users/{{user_id}}/configured-user-storage-credential-types",
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id}}/configured-user-storage-credential-types",
 								"description": "StartFragment\n\nReturn credential types, which are provided by the user storage where user is stored.\n\n##### Description\n\nReturned values can contain for example \\\\\"password\\\\\", \\\\\"otp\\\\\" etc. This will always return empty list for \\\\\"local\\\\\" users, which are not backed by any user storage\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n| **user-id**  <br>_required_ |  | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | List\\[[[string]](https://www.keycloak.org/docs-api/latest/rest-api/index.html#string)\\] |\n\nEndFragment"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete_Consent_And_Offline_Tokens",
+							"id": "5b1d4bfa-f1e9-4df4-bb62-a873166b2fda",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id}}/consents/{{client}}",
+								"description": "StartFragment\n\nRevoke consent and offline tokens for particular client from user\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n| **user-id**  <br>_required_ |  | null |  |\n| **client**  <br>_required_ | Client id | null |  |\n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 204 | No Content | <<>> |\n\nEndFragment"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Consents_Granted_By_User",
+							"id": "a36ad0e1-0686-4c55-9fb2-b8555163d7bd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id}}/consents",
+								"description": "StartFragment\n\nGet consents granted by the user\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n| **user-id**  <br>_required_ |  | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | List\\[[[AnyType]](https://www.keycloak.org/docs-api/latest/rest-api/index.html#AnyType)\\] |\n\nEndFragment"
 							},
 							"response": []
 						},
@@ -3458,15 +3498,34 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"newuser123\",\r\n  \"enabled\": true,\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"emailVerified\": true,\r\n  \"credentials\": [\r\n    {\r\n      \"type\": \"password\",\r\n      \"value\": \"123456\",\r\n      \"temporary\": false\r\n    }\r\n  ]\r\n}\r\n",
+									"raw": "{\r\n  \"username\": \"newuser1253\",\r\n  \"enabled\": true,\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"emailVerified\": true,\r\n  \"credentials\": [\r\n    {\r\n      \"type\": \"password\",\r\n      \"value\": \"123456\",\r\n      \"temporary\": false\r\n    }\r\n  ]\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "http://localhost:9090/admin/realms/{{realm}}/users",
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users",
 								"description": "StartFragment\n\nCreate a new user Username must be unique.\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n###### Body Parameter\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **UserRepresentation**  <br>_optional_ | [UserRepresentation](https://www.keycloak.org/docs-api/latest/rest-api/index.html#UserRepresentation) |  |  |\n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | <<>> |\n\n#### GET /admin/realms/{realm}/users/profile\n\n##### Description\n\nGet the configuration for the user profile\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | [UPConfig](https://www.keycloak.org/docs-api/latest/rest-api/index.html#UPConfig) |\n\nEndFragment"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_User_Roles",
+							"id": "3465f6a7-3fd3-4bba-bb02-e491f5ecd1f5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/role"
 							},
 							"response": []
 						},
@@ -3531,25 +3590,23 @@
 										},
 										{
 											"key": "username",
-											"value": "kostasstra@athlitaras.gr",
+											"value": "kostasstra344433477499455@athlitaras.gr",
 											"equals": true,
 											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
 										},
 										{
 											"key": "password",
-											"value": "kostas!!!13",
+											"value": "123456",
 											"equals": true,
 											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost:9090/realms/athlitaras_dev/protocol/openid-connect/token?client_id=athitaras_client&grant_type=password&username=kostasstra@athlitaras.gr&password=kostas!!!13",
-									"protocol": "http",
+									"raw": "{{Url_Keycloak}}/realms/athlitaras_dev/protocol/openid-connect/token?client_id=athitaras_client&grant_type=password&username=kostasstra@athlitaras.gr&password=kostas!!!13",
 									"host": [
-										"localhost"
+										"{{Url_Keycloak}}"
 									],
-									"port": "9090",
 									"path": [
 										"realms",
 										"athlitaras_dev",
@@ -3614,7 +3671,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded"
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
 									}
 								],
 								"body": {
@@ -3652,7 +3710,87 @@
 										}
 									]
 								},
-								"url": "http://localhost:9090/realms/master/protocol/openid-connect/token"
+								"url": "{{Url_Keycloak}}/realms/master/protocol/openid-connect/token"
+							},
+							"response": []
+						},
+						{
+							"name": "Tutorial_Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3c477e12-f95e-4fb5-9c1c-20381db214c6",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set('Bearer_Token_Athlitaras', jsonData.access_token);\r",
+											"\r",
+											"\r",
+											"// Retrieve the token from environment variable\r",
+											"var bearerToken = pm.environment.get(\"Bearer_Token_Athlitaras\");\r",
+											"\r",
+											"// Set the Authorization header with the Bearer token\r",
+											"pm.request.headers.add({\r",
+											"    key: 'Authorization',\r",
+											"    value: 'Bearer ' + bearerToken\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2eedc659-0b0e-42e1-ace2-5a6c851a543c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "test_client",
+											"equals": true,
+											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+										},
+										{
+											"key": "client_secret",
+											"value": "mIvXIw1TmhPauhnh2TxSLkR06fT4jGMw",
+											"equals": true,
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"equals": true,
+											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"equals": true,
+											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "Shdfrgth!13Hya",
+											"equals": true,
+											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{Url_Keycloak}}/realms/athlitaras_dev/protocol/openid-connect/token"
 							},
 							"response": []
 						}
@@ -3662,6 +3800,28 @@
 				{
 					"name": "Athlitaras_Endpoints_for_Keycloak",
 					"item": [
+						{
+							"name": "Register_User",
+							"id": "038d1c97-79b6-470c-8333-c24e959a8d68",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"ko123@athlitaras.gr\",\r\n  \"enabled\": true,\r\n  \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url}}/api/keycloak/users"
+							},
+							"response": []
+						},
 						{
 							"name": "Login_user_keycloak",
 							"id": "0e3f6998-28fc-43c1-b563-ee4de0f9b13e",
@@ -3673,7 +3833,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"kostasstra@athlitaras.gr\",\r\n  \"password\": \"kostas!!!13\"\r\n}\r\n",
+									"raw": "{\r\n  \"username\": \"kos22322222444555@athlitaras.gr\",\r\n  \"password\": \"123456\"\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3694,7 +3854,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJTZjJzRU5UdUg3ZVlZekNoaHdOOUd4T2VHWDh1cklVMHJfZ3NTVWphRjZFIn0.eyJleHAiOjE3MzM5ODk3MTYsImlhdCI6MTczMzk4OTQxNiwianRpIjoiOGI4MGNiZjktYjk2NC00ZWQ1LWEwM2YtYjRiZDhkZmI4YWU2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9hdGhsaXRhcmFzX2RldiIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJmNDRlM2I3Ni00ZmNmLTQ3YzMtOThmMi05YjJhZGFkZmRhZTUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdGhpdGFyYXNfY2xpZW50Iiwic2lkIjoiZWJkYzQwYjctNmJlYy00MmRmLThkNjAtYTA3MTU3MWY5ZmUwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1hdGhsaXRhcmFzX2RldiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJrb3N0YXMgc3RyYSIsInByZWZlcnJlZF91c2VybmFtZSI6Imtvc3Rhc3N0cmEiLCJnaXZlbl9uYW1lIjoia29zdGFzIiwiZmFtaWx5X25hbWUiOiJzdHJhIiwiZW1haWwiOiJrb3N0YXNzdHJhQGF0aGxpdGFyYXMuZ3IifQ.VpED7uBbD_leR4d5_FT9LE6tmgRs4CTfOKqu5-rT-NK48nmtWgnqVNJg4jiEsq0oX1Tt0HUWOyBH3r5OuIOo8uCaXkN2siOLhXkoRbCxFVIfAMSY936RzQCitQjE5xiEr_wlVl5ECE7qt5yZW70bXJ1ck1F_usrRpw5ZkkxyWDwXCfPzXNyGGj33ZQdE9dH__sM37nsFBRqVMRfscHAZPJ-E_pB2tARUUvkU2WY59NJfq6biCge1rtWXSXBMw_MF1UrYRXsbMcISh85d7nBqMk7LZPOspbYYKmmej_CNdFxra8UYfNCDRtcdn_fO_vLqEIzEGaAjtXrJ1ykwgbgRTw"
+										"token": ""
 									}
 								},
 								"method": "GET",
