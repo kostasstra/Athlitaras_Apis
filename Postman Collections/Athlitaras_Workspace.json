@@ -1561,6 +1561,38 @@
 								}
 							],
 							"id": "9a4669b2-ef6c-462b-b7c1-dd6e7b00131e"
+						},
+						{
+							"name": "Update_Cache",
+							"item": [
+								{
+									"name": "Update_Areas_Cache",
+									"id": "d3e7b134-a743-4a06-a5f5-15eaac86a098",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": "{{Url}}/api/cacheRedis/updateAreasCache"
+									},
+									"response": []
+								},
+								{
+									"name": "Update_Sports_Cache",
+									"id": "703bb9fa-023b-48f6-bd79-7209ba690dee",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": "{{Url}}/api/cacheRedis/updateSportsCache"
+									},
+									"response": []
+								}
+							],
+							"id": "c4a023f1-1ecb-4a59-9d85-062b2fca8a7d"
 						}
 					],
 					"id": "ecd84a58-daf7-4ce6-a428-24a74a56e715"
@@ -3264,14 +3296,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"dayTime\": \"28/12/2024\",\r\n  \"time\": [\"04:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970\",\r\n    \"booking_date\": \"28/12/2024\",\r\n    \"booking_time\": \"04:00\",\r\n    \"booking_price\": 50,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 42\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"dayTime\": \"28/12/2024\",\r\n  \"time\": [\"04:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"28/12/2024\",\r\n    \"booking_time\": \"04:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 36,\r\n    \"user_id\": \"7881672d-38f0-4889-8d14-db0f681b3ab1\",\r\n    \"arena_id\": 47\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{Url}}/api/startBooking/1/42/bookingTransaction"
+						"url": "{{Url}}/api/startBooking/36/47/bookingTransaction"
 					},
 					"response": []
 				},
@@ -3357,6 +3389,26 @@
 								"method": "GET",
 								"header": [],
 								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/count",
+								"description": "StartFragment\n\nReturns the number of users that match the given criteria.\n\n##### Description\n\nIt can be called in three different ways. 1. Don’t specify any criteria and pass {@code null}. The number of all users within that realm will be returned.\n\n2\\. If {@code search} is specified other criteria such as {@code last} will be ignored even though you set them. The {@code search} string will be matched against the first and last name, the username and the email of a user.\n\n3\\. If {@code search} is unspecified but any of {@code last}, {@code first}, {@code email} or {@code username} those criteria are matched against their respective fields on a user entity. Combined with a logical and.\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n###### Query Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **email**  <br>_optional_ | email filter | null |  |\n| **emailVerified**  <br>_optional_ |  | null |  |\n| **enabled**  <br>_optional_ | Boolean representing if user is enabled or not | null |  |\n| **firstName**  <br>_optional_ | first name filter | null |  |\n| **lastName**  <br>_optional_ | last name filter | null |  |\n| **q**  <br>_optional_ |  | null |  |\n| **search**  <br>_optional_ | arbitrary search string for all the fields below. Default search behavior is prefix-based (e.g., foo or foo\\*). Use **foo** for infix search and \"foo\" for exact search. | null |  |\n| **username**  <br>_optional_ | username filter | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | [[Integer]](https://www.keycloak.org/docs-api/latest/rest-api/index.html#Integer) |\n\nEndFragment"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Events",
+							"id": "5ccb3d1b-b6e6-4d8b-ab37-470f1e851fb1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/events",
 								"description": "StartFragment\n\nReturns the number of users that match the given criteria.\n\n##### Description\n\nIt can be called in three different ways. 1. Don’t specify any criteria and pass {@code null}. The number of all users within that realm will be returned.\n\n2\\. If {@code search} is specified other criteria such as {@code last} will be ignored even though you set them. The {@code search} string will be matched against the first and last name, the username and the email of a user.\n\n3\\. If {@code search} is unspecified but any of {@code last}, {@code first}, {@code email} or {@code username} those criteria are matched against their respective fields on a user entity. Combined with a logical and.\n\n##### Parameters\n\n###### Path Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **realm**  <br>_required_ | realm name (not id!) | null |  |\n\n###### Query Parameters\n\n| Name | Description | Default | Pattern |\n| --- | --- | --- | --- |\n| **email**  <br>_optional_ | email filter | null |  |\n| **emailVerified**  <br>_optional_ |  | null |  |\n| **enabled**  <br>_optional_ | Boolean representing if user is enabled or not | null |  |\n| **firstName**  <br>_optional_ | first name filter | null |  |\n| **lastName**  <br>_optional_ | last name filter | null |  |\n| **q**  <br>_optional_ |  | null |  |\n| **search**  <br>_optional_ | arbitrary search string for all the fields below. Default search behavior is prefix-based (e.g., foo or foo\\*). Use **foo** for infix search and \"foo\" for exact search. | null |  |\n| **username**  <br>_optional_ | username filter | null |  |\n\n##### Content Type\n\n- `application/json`\n    \n\n##### Responses\n\n| Code | Message | Datatype |\n| --- | --- | --- |\n| 200 | OK | [[Integer]](https://www.keycloak.org/docs-api/latest/rest-api/index.html#Integer) |\n\nEndFragment"
 							},
 							"response": []
@@ -3590,26 +3642,26 @@
 										},
 										{
 											"key": "username",
-											"value": "kostasstra344433477499455@athlitaras.gr",
+											"value": "konstantinos.stratigos@gmail.com",
 											"equals": true,
 											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
 										},
 										{
 											"key": "password",
-											"value": "123456",
+											"value": "kostas!!!13",
 											"equals": true,
 											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{Url_Keycloak}}/realms/athlitaras_dev/protocol/openid-connect/token?client_id=athitaras_client&grant_type=password&username=kostasstra@athlitaras.gr&password=kostas!!!13",
+									"raw": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token?client_id={{clientId}}&grant_type={{grantType}}&username=kostasstra@athlitaras.gr&password=athlitaras!!!13",
 									"host": [
 										"{{Url_Keycloak}}"
 									],
 									"path": [
 										"realms",
-										"athlitaras_dev",
+										"{{realm}}",
 										"protocol",
 										"openid-connect",
 										"token"
@@ -3617,11 +3669,11 @@
 									"query": [
 										{
 											"key": "client_id",
-											"value": "athitaras_client"
+											"value": "{{clientId}}"
 										},
 										{
 											"key": "grant_type",
-											"value": "password"
+											"value": "{{grantType}}"
 										},
 										{
 											"key": "username",
@@ -3629,7 +3681,7 @@
 										},
 										{
 											"key": "password",
-											"value": "kostas!!!13"
+											"value": "athlitaras!!!13"
 										}
 									]
 								}
@@ -3680,37 +3732,37 @@
 									"urlencoded": [
 										{
 											"key": "client_id",
-											"value": "athlitaras_stg",
+											"value": "{{clientId}}",
 											"equals": true,
 											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
 										},
 										{
 											"key": "client_secret",
-											"value": "iI4yAGLPSnY7NRkTav68fv5Xn6NHvVph",
+											"value": "{{clientSecret}}",
 											"equals": true,
 											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
 										},
 										{
 											"key": "grant_type",
-											"value": "password",
+											"value": "{{grantType}}",
 											"equals": true,
 											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
 										},
 										{
 											"key": "username",
-											"value": "admin",
+											"value": "{{usernameAdminKeycloak}}",
 											"equals": true,
 											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
 										},
 										{
 											"key": "password",
-											"value": "Shdfrgth!13Hya",
+											"value": "{{passwordAdminKeycloak}}",
 											"equals": true,
 											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
 										}
 									]
 								},
-								"url": "{{Url_Keycloak}}/realms/master/protocol/openid-connect/token"
+								"url": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token"
 							},
 							"response": []
 						},
