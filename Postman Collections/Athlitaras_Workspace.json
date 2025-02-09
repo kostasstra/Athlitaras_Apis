@@ -1879,7 +1879,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Μπάσκετ&page=1&size=10",
+							"raw": "{{Url}}/api/search/getSearchResultsHome?sport=Μπάσκετ",
 							"host": [
 								"{{Url}}"
 							],
@@ -1916,11 +1916,13 @@
 								},
 								{
 									"key": "page",
-									"value": "1"
+									"value": "1",
+									"disabled": true
 								},
 								{
 									"key": "size",
-									"value": "10"
+									"value": "10",
+									"disabled": true
 								}
 							]
 						}
@@ -2799,7 +2801,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user_id\":1,\r\n    \"arena_id\":30,\r\n    \"review_desc\":\"Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα, δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου (π.χ. γραμματοσειρά, μέγεθος και χρώμα γραμμάτων) ή μιας οπτικής παρουσίασης και όχι να εκφέρουν γραπτό λόγο. Τα κείμενα αυτά αρχίζουν συνήθως με τον όρο αυτό και χρησιμοποιούνται πολύ συχνά στη γραφιστική. Απαρτίζονται συνήθως από λατινικές λέξεις ή λέξεις που μοιάζουν με λατινικές, χωρίς όμως να αποκλείονται και κείμενα με λέξεις άλλων γλωσσών. Ο λόγος που επιλέγονται κείμενα ακατάληπτα και όχι αποσπάσματα κειμένων που να εμπεριέχουν κάποιο νόημα είναι για να δοθεί έμφαση στα γραφιστικά χαρακτηριστικά ενός κειμένου και στη σελιδοποίησή του προκειμένου να γίνει η επιλογή τους, χωρίς να αποσπάται η προσοχή του αναγνώστη από τη γλώσσα, το ύφος, τη σύνταξη ή το περιεχόμενο ενός καταληπτού κειμένου\",\r\n    \"answer_review\":\"test answetr\",\r\n    \"rate\":1,\r\n    \"image_review\":\"\",\r\n    \"published_review\":false\r\n}",
+							"raw": "{\r\n    \"user_id\":\"3eaf2ff1-1cab-4cf9-8098-b13ea2d7af98\",\r\n    \"arena_id\":\"6d65f9b5-7aaa-4b93-b324-311651bbf2e7\",\r\n    \"review_desc\":\"Με τον όρο Lorem ipsum αναφέρονται τα κείμενα εκείνα τα οποία είναι ακατάληπτα, δεν μπορεί δηλαδή κάποιος να βγάλει κάποιο λογικό νόημα από αυτά, και έχουν δημιουργηθεί με σκοπό να παρουσιάσουν στον αναγνώστη μόνο τα γραφιστικά χαρακτηριστικά, αυτά καθ' εαυτά, ενός κειμένου (π.χ. γραμματοσειρά, μέγεθος και χρώμα γραμμάτων) ή μιας οπτικής παρουσίασης και όχι να εκφέρουν γραπτό λόγο. Τα κείμενα αυτά αρχίζουν συνήθως με τον όρο αυτό και χρησιμοποιούνται πολύ συχνά στη γραφιστική. Απαρτίζονται συνήθως από λατινικές λέξεις ή λέξεις που μοιάζουν με λατινικές, χωρίς όμως να αποκλείονται και κείμενα με λέξεις άλλων γλωσσών. Ο λόγος που επιλέγονται κείμενα ακατάληπτα και όχι αποσπάσματα κειμένων που να εμπεριέχουν κάποιο νόημα είναι για να δοθεί έμφαση στα γραφιστικά χαρακτηριστικά ενός κειμένου και στη σελιδοποίησή του προκειμένου να γίνει η επιλογή τους, χωρίς να αποσπάται η προσοχή του αναγνώστη από τη γλώσσα, το ύφος, τη σύνταξη ή το περιεχόμενο ενός καταληπτού κειμένου\",\r\n    \"answer_review\":\"test answetr\",\r\n    \"rate\":1,\r\n    \"image_review\":\"\",\r\n    \"published_review\":false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2820,7 +2822,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Url}}/api/reviews/getReviewsByArenaId?arena_id=30",
+							"raw": "{{Url}}/api/reviews/getReviewsByArenaId?arena_id=6d65f9b5-7aaa-4b93-b324-311651bbf2e7",
 							"host": [
 								"{{Url}}"
 							],
@@ -2832,7 +2834,7 @@
 							"query": [
 								{
 									"key": "arena_id",
-									"value": "30"
+									"value": "6d65f9b5-7aaa-4b93-b324-311651bbf2e7"
 								}
 							]
 						}
@@ -2849,7 +2851,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Url}}/api/reviews/getAverageRatingAndSumRatesByUserId?user_id=1&sport_center_id=1",
+							"raw": "{{Url}}/api/reviews/getAverageRatingAndSumRatesByUserId?user_id=1&sport_center_id=5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7",
 							"host": [
 								"{{Url}}"
 							],
@@ -2865,7 +2867,7 @@
 								},
 								{
 									"key": "sport_center_id",
-									"value": "1"
+									"value": "5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7"
 								}
 							]
 						}
@@ -2882,7 +2884,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Url}}/api/reviews/getCountReviewAndBooking?user_id=1&arena_id=1",
+							"raw": "{{Url}}/api/reviews/getCountReviewAndBooking?user_id=5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7&arena_id=1",
 							"host": [
 								"{{Url}}"
 							],
@@ -2894,7 +2896,7 @@
 							"query": [
 								{
 									"key": "user_id",
-									"value": "1"
+									"value": "5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7"
 								},
 								{
 									"key": "arena_id",
@@ -3612,6 +3614,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -3624,7 +3632,7 @@
 									"urlencoded": [
 										{
 											"key": "client_id",
-											"value": "athitaras_client",
+											"value": "{{clientId}}",
 											"equals": true,
 											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
 										},
@@ -3632,59 +3640,30 @@
 											"key": "client_secret",
 											"value": "RQNqefisqeAqa5Urkw3ztSSsOzCWSfj2",
 											"equals": true,
-											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe",
+											"disabled": true
 										},
 										{
 											"key": "grant_type",
-											"value": "password",
+											"value": "{{grantType}}",
 											"equals": true,
 											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
 										},
 										{
 											"key": "username",
-											"value": "konstantinos.stratigos@gmail.com",
+											"value": "tests13kostas@yopmail.com",
 											"equals": true,
 											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
 										},
 										{
 											"key": "password",
-											"value": "kostas!!!13",
+											"value": "kostas",
 											"equals": true,
 											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
 										}
 									]
 								},
-								"url": {
-									"raw": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token?client_id={{clientId}}&grant_type={{grantType}}&username=kostasstra@athlitaras.gr&password=athlitaras!!!13",
-									"host": [
-										"{{Url_Keycloak}}"
-									],
-									"path": [
-										"realms",
-										"{{realm}}",
-										"protocol",
-										"openid-connect",
-										"token"
-									],
-									"query": [
-										{
-											"key": "client_id",
-											"value": "{{clientId}}"
-										},
-										{
-											"key": "grant_type",
-											"value": "{{grantType}}"
-										},
-										{
-											"key": "username",
-											"value": "kostasstra@athlitaras.gr"
-										},
-										{
-											"key": "password",
-											"value": "athlitaras!!!13"
-										}
-									]
-								}
+								"url": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token"
 							},
 							"response": []
 						},
@@ -3845,6 +3824,28 @@
 								"url": "{{Url_Keycloak}}/realms/athlitaras_dev/protocol/openid-connect/token"
 							},
 							"response": []
+						},
+						{
+							"name": "Update_Password_By_User_Id",
+							"id": "271b8a39-fdc5-4008-b878-bfb6ba5fd172",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"type\": \"password\",\r\n  \"temporary\": false,\r\n  \"value\": \"new-password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id}}/reset-password"
+							},
+							"response": []
 						}
 					],
 					"id": "2108fe8e-e638-466a-a156-650e3455f7d6"
@@ -3912,6 +3913,34 @@
 								"method": "GET",
 								"header": [],
 								"url": "{{Url}}/api/keycloak/users"
+							},
+							"response": []
+						},
+						{
+							"name": "Update_User_New_Password",
+							"id": "0c7b85bc-9224-417d-97bb-8232f7e721c5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\" : \"fbc12a63-9808-4e0d-9fac-744d1896a545\",\r\n    \"newPassword\": \"kostas19\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url}}/api/keycloak/updateUserPassword"
 							},
 							"response": []
 						},
