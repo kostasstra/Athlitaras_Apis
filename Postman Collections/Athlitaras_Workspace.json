@@ -3962,6 +3962,162 @@
 				}
 			],
 			"id": "785fb71d-dadf-4184-80d4-2647c289046e"
+		},
+		{
+			"name": "Viva_Payments",
+			"item": [
+				{
+					"name": "Return_Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5f5cbf43-7728-41bf-83a0-ac56d1bb2585",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set('Bearer_Token_Viva_Payments_Athlitaras', jsonData.access_token);\r",
+									"\r",
+									"\r",
+									"// Retrieve the token from environment variable\r",
+									"var bearerToken = pm.environment.get(\"Bearer_Token_Viva_Payments_Athlitaras\");\r",
+									"\r",
+									"// Set the Authorization header with the Bearer token\r",
+									"pm.request.headers.add({\r",
+									"    key: 'Authorization',\r",
+									"    value: 'Bearer ' + bearerToken\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "5030aca7-12b6-48b9-9e18-e8df98db5973",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"clientSecret": "6h51ECK6oh68oqZ964HFf58MLs4nUC",
+								"clientId": "ajrcyss41nwuu3i3tqk7ztoy4j70shus672rt689w0as1.apps.vivapayments.com",
+								"client_authentication": "header",
+								"addTokenTo": "header"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text",
+									"uuid": "2ecc1339-5a71-4188-8ee5-0bcda9c83c7d"
+								},
+								{
+									"key": "client_id",
+									"value": "ajrcyss41nwuu3i3tqk7ztoy4j70shus672rt689w0as1.apps.vivapayments.com",
+									"type": "text",
+									"uuid": "736a4c88-355f-460e-b03a-bc5b430e01db"
+								},
+								{
+									"key": "client_secret",
+									"value": "6h51ECK6oh68oqZ964HFf58MLs4nUC",
+									"type": "text",
+									"uuid": "5d124c17-e360-4dba-bc5c-bd564083b779"
+								}
+							]
+						},
+						"url": "{{Url_Viva}}/connect/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_A_Payment_Order",
+					"id": "e7b6ae6b-a6fa-4ada-b6b8-8fd90a92760c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 1000,  \r\n  \"preauth\": false,\r\n  \"dynamicDescriptor\": \"Arena Booking\",\r\n  \"disableCash\": true,\r\n  \"customerTrns\": \"Booking for Arena\",\r\n  \"merchantTrns\": \"Payment for Arena\",\r\n  \"paymentTimeout\": 1800,\r\n  \"customer\": {\r\n    \"email\": \"customer@example.com\",\r\n    \"phone\": \"01234567890\",\r\n    \"fullName\": \"John Doe\",\r\n    \"countryCode\": \"GB\"\r\n  },\r\n  \"cardTokens\": [\r\n    \"ct_5d0a4e3a7e04469f82da228ca98fd661\"\r\n  ],\r\n  \"transfer\": {\r\n    \"amount\": 900,  \r\n    \"platformFee\": 100,\r\n    \"connectedAccountId\": \"ac03972a-5ca5-43c5-b96f-c519ac843b7a\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url_Viva}}/checkout/v2/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Card Token",
+					"id": "41f27bb8-6194-4b54-9be2-184ba5981c50",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"holderName\": \"John Doe\",\r\n  \"number\": \"4111111111111111\",\r\n  \"expiryMonth\": \"12\",\r\n  \"expiryYear\": \"2025\",\r\n  \"cvv\": \"123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url_Viva}}/cards/v1/tokens"
+					},
+					"response": []
+				}
+			],
+			"id": "0871efaf-2075-49e7-bac9-1dc8322bf1b9"
 		}
 	]
 }
