@@ -3,7 +3,7 @@
 		"_postman_id": "6729dbb7-baef-41db-af7d-93ddf71c0800",
 		"name": "Athlitaras",
 		"description": "URL Staging : http://localhost:5052  \nUrl Production : http://api.athlitaras.gr",
-		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -3967,6 +3967,75 @@
 			"name": "Viva_Payments",
 			"item": [
 				{
+					"name": "Athlitaras_Endpoints_For_Viva_Payments",
+					"item": [
+						{
+							"name": "Create_Order_For_Payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eaa80691-11b5-4939-b3da-fd3f159674f2",
+										"exec": [
+											"let responseData = pm.response.json();\r",
+											"pm.environment.set('viva_order_code', responseData.data.orderCode);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b48728e2-cf4e-410a-ba3b-28bb3da37fc3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 1000,\r\n    \"customer\": {\r\n        \"email\": \"kostasstr134@yopmail.com\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n        \"countryCode\": \"GB\",\r\n        \"requestLang\": \"en-GB\"\r\n    }\r\n}\r\n\r\n //Browser after the response - https://demo.vivapayments.com/web2?ref=2912380187572606&color=0000ff",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url}}/api/vivapayment/createorder"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Created_Order_By_OrderCode",
+							"id": "a69e80a9-1ac5-406c-9bd9-8f15658e76fb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Url}}/api/vivapayment/order/{{viva_order_code}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Html_For_Payment",
+							"id": "54ea201e-479d-4013-9cb9-f725d009bb3f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Url}}/api/vivapayment/pay/{{viva_order_code}}"
+							},
+							"response": []
+						}
+					],
+					"id": "cdfb57ec-61ad-402f-82e4-b11666c33f88"
+				},
+				{
 					"name": "Create_Token",
 					"item": [
 						{
@@ -4276,7 +4345,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{Url_Viva}}/platforms/v1/accounts/{{connectedAccountId}}"
+								"url": "{{Url_Viva_Create_Order}}/platforms/v1/accounts/{{connectedAccountId}}"
 							},
 							"response": []
 						},
@@ -4373,7 +4442,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"amount\": 1000,\r\n    \"customerTrns\": \"Short description of purchased items/services to display to your customer\",\r\n    \"customer\":\r\n    {\r\n        \"email\": \"{{userEmailViva}}\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n        \"countryCode\": \"GB\",\r\n        \"requestLang\": \"en-GB\"\r\n    },\r\n    \"paymentTimeout\": 300,\r\n    \"preauth\": false,\r\n    \"allowRecurring\": false,\r\n    \"maxInstallments\": 12,\r\n    \"paymentNotification\": true,\r\n    \"tipAmount\": 100,\r\n    \"disableExactAmount\": false,\r\n    \"disableCash\": true,\r\n    \"disableWallet\": true,\r\n    //\"sourceCode\": \"1234\",\r\n    \"merchantTrns\": \"Short description of items/services purchased by customer\",\r\n    \"tags\":\r\n    [\r\n        \"tags for grouping and filtering the transactions\",\r\n        \"this tag can be searched on VivaWallet sales dashboard\",\r\n        \"Sample tag 1\",\r\n        \"Sample tag 2\",\r\n        \"Another string\"\r\n    ]\r\n    //,\r\n    // \"cardTokens\":\r\n    // [\r\n    //     \"ct_5d0a4e3a7e04469f82da228ca98fd661\"\r\n    // ]\r\n\r\n    //Browser after the response - https://demo.vivapayments.com/web2?ref=4135937330972609&color=0000ff\r\n}",
+									"raw": "{\r\n    \"amount\": 1000,\r\n    \"customerTrns\": \"Short description of purchased items/services to display to your customer\",\r\n    \"customer\":\r\n    {\r\n        \"email\": \"{{userEmailViva}}\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n        \"countryCode\": \"GB\",\r\n        \"requestLang\": \"en-GB\"\r\n    },\r\n    \"paymentTimeout\": 300,\r\n    \"preauth\": false,\r\n    \"allowRecurring\": false,\r\n    \"maxInstallments\": 12,\r\n    \"paymentNotification\": true,\r\n    \"tipAmount\": 100,\r\n    \"disableExactAmount\": false,\r\n    \"disableCash\": true,\r\n    \"disableWallet\": true,\r\n    //\"sourceCode\": \"1234\",\r\n    \"merchantTrns\": \"Short description of items/services purchased by customer\",\r\n    \"tags\":\r\n    [\r\n        \"tags for grouping and filtering the transactions\",\r\n        \"this tag can be searched on VivaWallet sales dashboard\",\r\n        \"Sample tag 1\",\r\n        \"Sample tag 2\",\r\n        \"Another string\"\r\n    ]\r\n    //,\r\n    // \"cardTokens\":\r\n    // [\r\n    //     \"ct_5d0a4e3a7e04469f82da228ca98fd661\"\r\n    // ]\r\n\r\n    //Browser after the response - https://demo.vivapayments.com/web2?ref=2912380187572606&color=0000ff\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
