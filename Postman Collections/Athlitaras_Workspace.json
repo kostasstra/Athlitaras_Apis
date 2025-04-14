@@ -3970,67 +3970,98 @@
 					"name": "Athlitaras_Endpoints_For_Viva_Payments",
 					"item": [
 						{
-							"name": "Create_Order_For_Payment",
-							"event": [
+							"name": "Orders",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"id": "eaa80691-11b5-4939-b3da-fd3f159674f2",
-										"exec": [
-											"let responseData = pm.response.json();\r",
-											"pm.environment.set('viva_order_code', responseData.data.orderCode);\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
+									"name": "Create_Order_For_Payment",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "eaa80691-11b5-4939-b3da-fd3f159674f2",
+												"exec": [
+													"let responseData = pm.response.json();\r",
+													"pm.environment.set('viva_order_code', responseData.data.orderCode);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b48728e2-cf4e-410a-ba3b-28bb3da37fc3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"amount\": 5000,\r\n    \"customer\": {\r\n        \"email\": \"kostas@stra.com\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n         \"countryCode\": \"GR\",   \r\n         \"requestLang\": \"el-GR\"\r\n    },\r\n    \"transfer\": {\r\n                \"amount\": 3000,\r\n                \"platformFee\": null,\r\n                \"connectedAccountId\": \"{{connectedAccountId}}\"\r\n}\r\n}\r\n\r\n //Browser after the response - https://demo.vivapayments.com/web2?ref=5305476357072609&color=0000ff",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/vivapayment/createorder"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Created_Order_By_OrderCode",
+									"id": "a69e80a9-1ac5-406c-9bd9-8f15658e76fb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{Url}}/api/vivapayment/order/{{viva_order_code}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Html_For_Payment",
+									"id": "54ea201e-479d-4013-9cb9-f725d009bb3f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{Url}}/api/vivapayment/pay/{{viva_order_code}}"
+									},
+									"response": []
 								}
 							],
-							"id": "b48728e2-cf4e-410a-ba3b-28bb3da37fc3",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"amount\": 1000,\r\n    \"customer\": {\r\n        \"email\": \"kostasstr134@yopmail.com\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n        \"countryCode\": \"GB\",\r\n        \"requestLang\": \"en-GB\"\r\n    }\r\n}\r\n\r\n //Browser after the response - https://demo.vivapayments.com/web2?ref=2912380187572606&color=0000ff",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Url}}/api/vivapayment/createorder"
-							},
-							"response": []
+							"id": "2bf7f6e8-295e-47fb-925b-476d39457a26"
 						},
 						{
-							"name": "Return_Created_Order_By_OrderCode",
-							"id": "a69e80a9-1ac5-406c-9bd9-8f15658e76fb",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Url}}/api/vivapayment/order/{{viva_order_code}}"
-							},
-							"response": []
-						},
-						{
-							"name": "Return_Html_For_Payment",
-							"id": "54ea201e-479d-4013-9cb9-f725d009bb3f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Url}}/api/vivapayment/pay/{{viva_order_code}}"
-							},
-							"response": []
+							"name": "Transactions",
+							"item": [
+								{
+									"name": "Return_A_Status_Payment_By_Transaction_Id",
+									"id": "bc0c9dac-0baa-4a26-ba5f-34792643a2cf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{Url}}/api/vivapayment/transaction/de9bffe0-fe8d-4259-a16e-4784ad059e5b"
+									},
+									"response": []
+								}
+							],
+							"id": "d54129a3-2df6-4e38-b407-68a0848f4350"
 						}
 					],
 					"id": "cdfb57ec-61ad-402f-82e4-b11666c33f88"
@@ -4294,7 +4325,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"kostasstr134@yopmail.com\",\r\n  \"mobile\": 6900000000,\r\n  \"legalName\": \"Consulting Detective\",\r\n  \"tradeName\": \"Sherlock Holmes\",\r\n  \"taxNumber\": null,\r\n  \"returnUrl\": \"https://example.com/connected\",\r\n  \"address\": {\r\n    \"street\": \"Baker Street\",\r\n    \"number\": \"221B\",\r\n    \"city\": \"London\",\r\n    \"postCode\": \"NW1\",\r\n    \"countryCode\": \"GB\",\r\n    \"secondLine\": null\r\n  },\r\n  \"branding\": {\r\n    \"partnerName\": \"Header/title summary\",\r\n    \"primaryColor\": null,\r\n    \"logoUrl\": \"https://example.com/company-logo\"\r\n  },\r\n  \"payouts\": {\r\n    \"statementDescriptor\": \"Weekly payouts\",\r\n    \"dayOfWeek\": 1,\r\n    \"dayOfMonth\": null,\r\n    \"interval\": 2,\r\n    \"amountThreshold\": 1000,\r\n    \"disable\": false,\r\n    \"bankAccount\": {\r\n      \"iban\": \"NL04RABO6360804956\",\r\n      \"friendlyName\": \"External account\",\r\n      \"beneficiaryName\": \"Sherlock Holmes\",\r\n      \"branchCode\": null,\r\n      \"accountNumber\": null,\r\n      \"countryCode\": null\r\n    }\r\n  }\r\n}",
+									"raw": "{\r\n  \"email\": \"kostasstr134555@yopmail.com\",\r\n  \"mobile\": 6942797587,\r\n  \"legalName\": \"Consulting Detective\",\r\n  \"tradeName\": \"Sherlock Holmes\",\r\n  \"taxNumber\": null,\r\n  \"returnUrl\": \"https://example.com/connected\",\r\n  \"address\": {\r\n    \"street\": \"Baker Street\",\r\n    \"number\": \"221B\",\r\n    \"city\": \"London\",\r\n    \"postCode\": \"NW1\",\r\n    \"countryCode\": \"GB\",\r\n    \"secondLine\": null\r\n  },\r\n  \"branding\": {\r\n    \"partnerName\": \"Header/title summary\",\r\n    \"primaryColor\": null,\r\n    \"logoUrl\": \"https://example.com/company-logo\"\r\n  },\r\n  \"payouts\": {\r\n    \"statementDescriptor\": \"Weekly payouts\",\r\n    \"dayOfWeek\": 1,\r\n    \"dayOfMonth\": null,\r\n    \"interval\": 2,\r\n    \"amountThreshold\": 1000,\r\n    \"disable\": false,\r\n    \"bankAccount\": {\r\n      \"iban\": \"NL04RABO6360804956\",\r\n      \"friendlyName\": \"External account\",\r\n      \"beneficiaryName\": \"Sherlock Holmes\",\r\n      \"branchCode\": null,\r\n      \"accountNumber\": null,\r\n      \"countryCode\": null\r\n    }\r\n  }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4394,6 +4425,39 @@
 									"body": null
 								}
 							]
+						},
+						{
+							"name": "Send_Funds_To_A_Connected_Account_Id",
+							"id": "bfd85d0f-770c-4db7-9e0e-044b1a4eacea",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"amount\": 1000,\r\n  \"connectedAccountId\": {{connectedAccountId}},\r\n  \"description\": \"This is a description for sending funds to a connected account\",\r\n  \"transactionId\": \"43691ecf-fba4-4047-bd04-3e3c427df449\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url_Viva_Create_Order}}/platforms/v1/transfers"
+							},
+							"response": []
 						}
 					],
 					"id": "7317050e-eae3-4dfd-abca-c53f59076a33"
@@ -4584,6 +4648,54 @@
 						}
 					],
 					"id": "748b2ec9-fea1-42ec-a183-50f0f859ad2d"
+				},
+				{
+					"name": "Webhook",
+					"item": [
+						{
+							"name": "Return_A_Webhook_Key",
+							"id": "ecef15fa-27b2-45d1-af81-be3c1a49b6ab",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "NzY?2h",
+										"username": "82e93391-bfb1-45eb-9f76-81eba06b27e9"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Viva_Get_Order}}/api/messages/config/token"
+							},
+							"response": []
+						},
+						{
+							"name": "Event_successful_payment",
+							"id": "855d2ff4-aa53-42b2-9e12-eef1b66e6c03",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"EventTypeId\": \"1796\",\r\n  \"EventData\": {\r\n    \"StatusId\": \"F\",\r\n    \"TransactionId\": \"123456\"\r\n  }\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://a973-2a02-214a-8400-5a00-65d6-87b3-ee9-4a55.ngrok-free.app/api/viva/webhook"
+							},
+							"response": []
+						}
+					],
+					"id": "81b185a9-58b3-4f38-a626-de81a4360589"
 				}
 			],
 			"id": "0871efaf-2075-49e7-bac9-1dc8322bf1b9"
