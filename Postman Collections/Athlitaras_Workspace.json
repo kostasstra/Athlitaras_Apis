@@ -1336,6 +1336,28 @@
 						"url": "{{Url}}/api/bookingdetails/bookings/getCheckBookingStatus"
 					},
 					"response": []
+				},
+				{
+					"name": "Update_A_Order_Code",
+					"id": "32d8a2a9-a5b4-4b06-b133-db8d04e2343f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"booking_date\": \"09/06/2025\",\r\n  \"booking_time\": \"11:00\",\r\n  \"user_id\": \"5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7\",\r\n  \"sport_center_id\": \"25a69af9-a1b0-4635-bfb4-7e02c65edad5\",\r\n  \"arena_id\": \"8001d84c-37eb-4944-a010-08adfe783283\",\r\n  \"order_code\": 7364465563472604\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/bookingdetails/bookings/updateOrderCode"
+					},
+					"response": []
 				}
 			],
 			"id": "71a39d50-2e40-47e1-b988-d7020a456e87"
