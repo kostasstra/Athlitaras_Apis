@@ -872,6 +872,19 @@
 						"url": "{{Url}}/api/insertarenas/updateArenas/1"
 					},
 					"response": []
+				},
+				{
+					"name": "Update_One_Field_Config_Admin_Booking",
+					"id": "8bfed8cd-071f-46e1-bb9f-45228bbfee44",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": ""
+					},
+					"response": []
 				}
 			],
 			"id": "4267da76-8e92-4705-b0e6-6f17702ccba6"
@@ -3685,7 +3698,7 @@
 										}
 									]
 								},
-								"url": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token"
+								"url": "http://localhost:9090/realms/athlitaras_stg/protocol/openid-connect/token"
 							},
 							"response": []
 						},
@@ -3741,7 +3754,8 @@
 											"key": "client_secret",
 											"value": "{{clientSecret}}",
 											"equals": true,
-											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe",
+											"disabled": true
 										},
 										{
 											"key": "grant_type",
@@ -4695,24 +4709,46 @@
 							"response": []
 						},
 						{
-							"name": "Event_successful_payment",
+							"name": "Event_successful_payment_Staging",
 							"id": "855d2ff4-aa53-42b2-9e12-eef1b66e6c03",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "POST",
+								"method": "GET",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"EventTypeId\": \"1796\",\r\n  \"EventData\": {\r\n    \"StatusId\": \"F\",\r\n    \"TransactionId\": \"123456\"\r\n  }\r\n}\r\n",
+									"raw": "//Post and Get is same endpoint\r\n{\r\n  \"EventTypeId\": \"1796\",\r\n  \"EventData\": {\r\n    \"StatusId\": \"F\",\r\n    \"TransactionId\": \"123456\"\r\n  }\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "https://a973-2a02-214a-8400-5a00-65d6-87b3-ee9-4a55.ngrok-free.app/api/viva/webhook"
+								"url": "https://6f2b-2a02-214a-8400-5a00-a57f-1352-132c-30cb.ngrok-free.app/api/viva/webhook"
+							},
+							"response": []
+						},
+						{
+							"name": "Event_successful_payment_Production",
+							"id": "5dfd7be2-55d0-4795-b87b-15b58789a9c7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//Post and Get is same endpoint\r\n{\r\n  \"EventTypeId\": \"1796\",\r\n  \"EventData\": {\r\n    \"StatusId\": \"F\",\r\n    \"TransactionId\": \"123456\"\r\n  }\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.athlitaras.gr/api/viva/webhook"
 							},
 							"response": []
 						}
