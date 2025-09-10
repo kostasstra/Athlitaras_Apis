@@ -3892,9 +3892,24 @@
 							"request": {
 								"method": "PUT",
 								"header": [],
-								"url": "{{Url_Keycloak}}/{{realm}}/users/{id}"
+								"url": "{{Url_Keycloak}}/{{realm}}/users/{{user_id_kc}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "7635e62e-0ac3-44b5-ace5-2d61f144e15c",
+									"name": "Update_User_In_The_Keycloak_By_User_Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": "{{Url_Keycloak}}/{{realm}}/users/{{user_id_kc}}"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
 						}
 					],
 					"id": "2108fe8e-e638-466a-a156-650e3455f7d6"
