@@ -3882,6 +3882,19 @@
 								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id}}/reset-password"
 							},
 							"response": []
+						},
+						{
+							"name": "Update_User_In_The_Keycloak_By_User_Id",
+							"id": "a92ecadd-f5ec-4696-84c0-72276acd4210",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": "{{Url_Keycloak}}/{{realm}}/users/{id}"
+							},
+							"response": []
 						}
 					],
 					"id": "2108fe8e-e638-466a-a156-650e3455f7d6"
