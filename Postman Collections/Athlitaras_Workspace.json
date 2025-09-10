@@ -3333,14 +3333,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"dayTime\": \"28/12/2024\",\r\n  \"time\": [\"04:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"28/12/2024\",\r\n    \"booking_time\": \"04:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 36,\r\n    \"user_id\": \"7881672d-38f0-4889-8d14-db0f681b3ab1\",\r\n    \"arena_id\": 47\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"dayTime\": \"20/09/2025\",\r\n  \"time\": [\"04:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"28/12/2024\",\r\n    \"booking_time\": \"04:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": \"8a8c04fb-9124-43c1-9b38-817644f2731a\",\r\n    \"sport_center_id\": \"25a69af9-a1b0-4635-bfb4-7e02c65edad5\",\r\n    \"user_id\": \"be08feef-a91c-4737-aa73-dce6c9b1ed8a\",\r\n    \"arena_id\": \"8001d84c-37eb-4944-a010-08adfe783283\"\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{Url}}/api/startBooking/36/47/bookingTransaction"
+						"url": "{{Url}}/api/startBooking/25a69af9-a1b0-4635-bfb4-7e02c65edad5/8001d84c-37eb-4944-a010-08adfe783283/bookingTransaction"
 					},
 					"response": []
 				},
