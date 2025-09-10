@@ -3333,7 +3333,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"dayTime\": \"20/09/2026\",\r\n  \"time\": [\"17:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"29/09/2026\",\r\n    \"booking_time\": \"17:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": \"8a8c04fb-9124-43c1-9b38-817644f2731a\",\r\n    \"sport_center_id\": \"25a69af9-a1b0-4635-bfb4-7e02c65edad5\",\r\n    \"user_id\": \"5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7\",\r\n    \"arena_id\": \"8001d84c-37eb-4944-a010-08adfe783283\",\r\n    \"name\":\"name\",\r\n    \"email\":\"kostas@kostas.gr\"\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"dayTime\": \"20/09/2026\",\r\n  \"time\": [\"17:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"29/09/2026\",\r\n    \"booking_time\": \"18:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": \"8a8c04fb-9124-43c1-9b38-817644f2731a\",\r\n    \"sport_center_id\": \"25a69af9-a1b0-4635-bfb4-7e02c65edad5\",\r\n    \"user_id\": \"be08feef-a91c-4737-aa73-dce6c9b1ed8a\",\r\n    \"arena_id\": \"8001d84c-37eb-4944-a010-08adfe783283\",\r\n    \"name\":\"name\",\r\n    \"email\":\"kostas@kostas.gr\"\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
