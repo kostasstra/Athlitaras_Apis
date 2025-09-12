@@ -107,7 +107,7 @@
 								}
 							}
 						},
-						"url": "{{Url}}/api/username/findoneuser/kostasstra@hotmail.com"
+						"url": "{{Url}}/api/username/findoneuser/{{user_id}}"
 					},
 					"response": [
 						{
@@ -3333,7 +3333,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"dayTime\": \"20/09/2026\",\r\n  \"time\": [\"17:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"29/09/2026\",\r\n    \"booking_time\": \"18:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": \"8a8c04fb-9124-43c1-9b38-817644f2731a\",\r\n    \"sport_center_id\": \"25a69af9-a1b0-4635-bfb4-7e02c65edad5\",\r\n    \"user_id\": \"be08feef-a91c-4737-aa73-dce6c9b1ed8a\",\r\n    \"arena_id\": \"8001d84c-37eb-4944-a010-08adfe783283\",\r\n    \"name\":\"name\",\r\n    \"email\":\"kostas@kostas.gr\"\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"dayTime\": \"19/09/2025\",\r\n  \"time\": [\"12:00\"],\r\n  \"bookingDetails\": {\r\n    \"msisdn\": \"6970938599\",\r\n    \"booking_date\": \"28/12/2024\",\r\n    \"booking_time\": \"12:00\",\r\n    \"booking_price\": 14,\r\n    \"status\": \"pending\",\r\n    \"sport_id\": \"8a8c04fb-9124-43c1-9b38-817644f2731a\",\r\n    \"sport_center_id\": \"25a69af9-a1b0-4635-bfb4-7e02c65edad5\",\r\n    \"user_id\": \"5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7\",\r\n    \"arena_id\": \"8001d84c-37eb-4944-a010-08adfe783283\",\r\n    \"teamName\": \"testName\",\r\n    \"name\": \"kostas\",\r\n    \"surname\": \"stratigos\",\r\n    \"email\": \"kostas@kostas.gr\",\r\n    \"comment\": \"testName test nsnsnkckedckekejheujekjej\",\r\n    \"booking_to_time\": \"13:00\"\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3410,6 +3410,104 @@
 				{
 					"name": "Keycloak_endpoints",
 					"item": [
+						{
+							"name": "Athlitaras_Endpoints_for_Keycloak",
+							"item": [
+								{
+									"name": "Register_User",
+									"id": "038d1c97-79b6-470c-8333-c24e959a8d68",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"ko123@athlitaras.gr\",\r\n  \"enabled\": true,\r\n  \"password\": \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/keycloak/users"
+									},
+									"response": []
+								},
+								{
+									"name": "Login_user_keycloak",
+									"id": "0e3f6998-28fc-43c1-b563-ee4de0f9b13e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"kos22322222444555@athlitaras.gr\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/keycloak/login"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_users_keycloak",
+									"id": "898f1bf2-ddc5-4614-9413-3892ed67d66d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": ""
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{Url}}/api/keycloak/users"
+									},
+									"response": []
+								},
+								{
+									"name": "Update_User_New_Password",
+									"id": "0c7b85bc-9224-417d-97bb-8232f7e721c5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Athlitaras}}"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userId\" : \"fbc12a63-9808-4e0d-9fac-744d1896a545\",\r\n    \"newPassword\": \"kostas19\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/keycloak/updateUserPassword"
+									},
+									"response": []
+								}
+							],
+							"id": "ef99d2f6-ef20-4915-982c-87a63681a51d",
+							"description": "StartFragment\n\n#### Update the user\n\n```\nPUT /{realm}/users/{id}\n\n ```\n\n##### Parameters\n\n| Type | Name | Description | Schema |\n| --- | --- | --- | --- |\n| **Path** | **id**  <br>_required_ | User id | string |\n| **Path** | **realm**  <br>_required_ | realm name (not id!) | string |\n| **Body** | **rep**  <br>_required_ |  | [UserRepresentation](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_userrepresentation) |\n\n##### Responses\n\n| HTTP Code | Description | Schema |\n| --- | --- | --- |\n| **default** | success | [Response](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_response) |\n\nEndFragment  \n  \n\nStartFragment\n\n### UserRepresentation\n\n| Name | Schema |\n| --- | --- |\n| **access**  <br>_optional_ | [Map](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_map) |\n| **attributes**  <br>_optional_ | [Map](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_map) |\n| **clientConsents**  <br>_optional_ | < [UserConsentRepresentation](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_userconsentrepresentation) > array |\n| **clientRoles**  <br>_optional_ | [Map](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_map) |\n| **createdTimestamp**  <br>_optional_ | integer(int64) |\n| **credentials**  <br>_optional_ | < [CredentialRepresentation](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_credentialrepresentation) > array |\n| **disableableCredentialTypes**  <br>_optional_ | < string > array |\n| **email**  <br>_optional_ | string |\n| **emailVerified**  <br>_optional_ | boolean |\n| **enabled**  <br>_optional_ | boolean |\n| **federatedIdentities**  <br>_optional_ | < [FederatedIdentityRepresentation](https://www.keycloak.org/docs-api/21.1.2/rest-api/#_federatedidentityrepresentation) > array |\n| **federationLink**  <br>_optional_ | string |\n| **firstName**  <br>_optional_ | string |\n| **groups**  <br>_optional_ | < string > array |\n| **id**  <br>_optional_ | string |\n| **lastName**  <br>_optional_ | string |\n| **notBefore**  <br>_optional_ | integer(int32) |\n| **origin**  <br>_optional_ | string |\n| **realmRoles**  <br>_optional_ | < string > array |\n| **requiredActions**  <br>_optional_ | < string > array |\n| **self**  <br>_optional_ | string |\n| **serviceAccountClientId**  <br>_optional_ | string |\n| **username**  <br>_optional_ | string |\n\nEndFragment"
+						},
 						{
 							"name": "Return_Count_For_Users",
 							"id": "f3db27bc-5f84-417f-99b2-8a374d935526",
@@ -3686,7 +3784,7 @@
 										},
 										{
 											"key": "username",
-											"value": "tests13kostas@yopmail.com",
+											"value": "qa_athlitaras_test@yopmail.com",
 											"equals": true,
 											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
 										},
@@ -3754,8 +3852,7 @@
 											"key": "client_secret",
 											"value": "{{clientSecret}}",
 											"equals": true,
-											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe",
-											"disabled": true
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
 										},
 										{
 											"key": "grant_type",
@@ -3882,60 +3979,10 @@
 								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id}}/reset-password"
 							},
 							"response": []
-						}
-					],
-					"id": "2108fe8e-e638-466a-a156-650e3455f7d6"
-				},
-				{
-					"name": "Athlitaras_Endpoints_for_Keycloak",
-					"item": [
-						{
-							"name": "Register_User",
-							"id": "038d1c97-79b6-470c-8333-c24e959a8d68",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"ko123@athlitaras.gr\",\r\n  \"enabled\": true,\r\n  \"password\": \"123456\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Url}}/api/keycloak/users"
-							},
-							"response": []
 						},
 						{
-							"name": "Login_user_keycloak",
-							"id": "0e3f6998-28fc-43c1-b563-ee4de0f9b13e",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"kos22322222444555@athlitaras.gr\",\r\n  \"password\": \"123456\"\r\n}\r\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Url}}/api/keycloak/login"
-							},
-							"response": []
-						},
-						{
-							"name": "Return_users_keycloak",
-							"id": "898f1bf2-ddc5-4614-9413-3892ed67d66d",
+							"name": "Update_User_In_The_Keycloak_By_User_Id_kc",
+							"id": "7d6e3696-dacf-41ee-a96e-fbba1c59c731",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -3943,58 +3990,154 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": ""
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{Url}}/api/keycloak/users"
-							},
-							"response": []
-						},
-						{
-							"name": "Update_User_New_Password",
-							"id": "0c7b85bc-9224-417d-97bb-8232f7e721c5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": ""
+										"token": "{{Bearer_Token_Athlitaras}}"
 									}
 								},
 								"method": "PUT",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Bearer_Token_Athlitaras}}"
+									}
+								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"userId\" : \"fbc12a63-9808-4e0d-9fac-744d1896a545\",\r\n    \"newPassword\": \"kostas19\"\r\n}",
+									"raw": "{\r\n    \"id\": \"f75ad15c-6ec4-4022-9fc8-84e448b324c4\",\r\n    \"username\": \"qa_athlitaras_test@yopmail.com\",\r\n    \"email\": \"qa_athlitaras_test@yopmail.com\",\r\n    \"emailVerified\": true,\r\n    \"createdTimestamp\": 1757486537554,\r\n    \"enabled\": true,\r\n    \"firstName\": \"Giannis\",\r\n    \"lastName\": \"Papadopoulos\",\r\n    \"totp\": false,\r\n    \"disableableCredentialTypes\": [],\r\n    \"requiredActions\": [],\r\n    \"federatedIdentities\": [],\r\n    \"notBefore\": 0,\r\n    \"access\": {\r\n        \"manageGroupMembership\": true,\r\n        \"view\": true,\r\n        \"mapRoles\": true,\r\n        \"impersonate\": true,\r\n        \"manage\": true\r\n    }\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{Url}}/api/keycloak/updateUserPassword"
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id_kc}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "b92a682a-eaa4-44de-863e-8c4d5cfce786",
+									"name": "Update_User_In_The_Keycloak_By_User_Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": "{{Url_Keycloak}}/{{realm}}/users/{{user_id_kc}}"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
 						},
 						{
-							"name": "New Request",
-							"id": "119ece24-3a5d-47b6-abe3-248965a3001b",
+							"name": "Return_User_In_The_Keycloak_By_User_Id_kc",
+							"id": "ad3202eb-5f9d-46fa-8734-862bfeea8230",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
 								"method": "GET",
-								"header": [],
-								"url": "http://localhost:5052"
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Bearer_Token_Athlitaras}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/users/{{user_id_kc}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "ebd77cf3-e7f4-4d98-80d8-3513daf9995d",
+									"name": "Update_User_In_The_Keycloak_By_User_Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": "{{Url_Keycloak}}/{{realm}}/users/{{user_id_kc}}"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Return_User_Info_In_The_Keycloak",
+							"id": "844e4f69-68fd-4ca3-86be-6c793afdb05e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Bearer_Token_Athlitaras}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/userinfo"
+							},
+							"response": [
+								{
+									"id": "8f96edd4-a4cd-429a-91de-f4d1c64e3563",
+									"name": "Update_User_In_The_Keycloak_By_User_Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": "{{Url_Keycloak}}/{{realm}}/users/{{user_id_kc}}"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
 						}
 					],
-					"id": "ef99d2f6-ef20-4915-982c-87a63681a51d"
+					"id": "2108fe8e-e638-466a-a156-650e3455f7d6"
 				}
 			],
 			"id": "785fb71d-dadf-4184-80d4-2647c289046e"
@@ -4757,6 +4900,95 @@
 				}
 			],
 			"id": "0871efaf-2075-49e7-bac9-1dc8322bf1b9"
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Create_Notification_By_User",
+					"id": "62a98670-8c06-4bcd-b6eb-79397471b8bb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"{{user_id}}\",\r\n  \"message\": \"Your booking has been confirmed\",\r\n  \"type\": \"info\",\r\n  \"status\": \"unread\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_All_Notifications_By_User",
+					"id": "c06be46e-f74f-4608-a060-a7183341b402",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/notifications/{{user_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_One_Notification_By_Norification_Id",
+					"id": "3a62d057-c0b4-4c7f-8b78-4cbec61496dd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/notifications/one/{{notification_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Notification_By_User",
+					"id": "f3cfdde0-78e9-4f90-8121-bfd2f57073ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"read\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/notifications/{{notification_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Notification_By_Notification_Id",
+					"id": "5ea1a97d-4c21-4a67-bd69-7f72e5f583bb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{Url}}/api/notifications/{{notification_id}}"
+					},
+					"response": []
+				}
+			],
+			"id": "015a5c09-6935-4edb-8c77-81756ff703b9"
 		}
 	]
 }
