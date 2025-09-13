@@ -4912,17 +4912,22 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"user_id\": \"{{user_id}}\",\r\n  \"message\": \"Your booking has been confirmed\",\r\n  \"type\": \"info\",\r\n  \"status\": \"unread\"\r\n}\r\n",
+							"raw": "//Only with https for production-> https://api.athlitaras.gr/api/notifications/send/notification\r\n\r\n{\r\n  \"user_id\": \"7a94703b-2026-41e3-a97f-a4c2f7bd6a98\",\r\n  \"title\": \"Νέα Κράτηση\",\r\n  \"message\": \"Η κράτηση σου στο γήπεδο BASKET16 έγινε με επιτυχία!\",\r\n  \"type\": \"warning\",       // info, warning, success\r\n  \"status\": \"unread\"    // unread, read, deleted\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{Url}}/api/notifications"
+						"url": "{{Url}}/api/notifications/send/notification"
 					},
 					"response": []
 				},
@@ -4935,7 +4940,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{Url}}/api/notifications/{{user_id}}"
+						"url": "{{Url}}/api/notifications/user/{{user_id}}"
 					},
 					"response": []
 				},
@@ -4948,7 +4953,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{Url}}/api/notifications/one/{{notification_id}}"
+						"url": "{{Url}}/api/notifications/{{notification_id}}"
 					},
 					"response": []
 				},
@@ -4959,18 +4964,18 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "PUT",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"status\": \"read\"\r\n}\r\n",
+							"raw": "{\r\n  \"success\": true,\r\n  \"message\": \"Notification marked as read\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{Url}}/api/notifications/{{notification_id}}"
+						"url": "{{Url}}/api/notifications/{{notification_id}}/read"
 					},
 					"response": []
 				},
