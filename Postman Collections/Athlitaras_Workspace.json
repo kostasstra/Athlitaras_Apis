@@ -96,8 +96,23 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Bearer_Token_Athlitaras}}"
+							}
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": " Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfdmJwV3FwM2w0ZVJXU3lxRENUUmg0QjFqQWt3ZEZ2VDh2aFk3ckE2dHVZIn0.eyJleHAiOjE3NTc4NTY0MzIsImlhdCI6MTc1Nzg1NjEzMiwianRpIjoiZGVjNTE3MzgtYjUwZS00ZDdmLWIzOTctNDlmOWMwZGVhOTM0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9hdGhsaXRhcmFzX3N0ZyIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJkNjFlMWNkMS1hZmJmLTQ3YzItYTFmOS04ZGEwN2JkYjFiNzIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdGhsaXRhcmFzX2NsaWVudCIsInNpZCI6IjE1YTg3NzA3LTQ0ZjktNDg5NS1iZjJlLThlNmRhOGFjMmE5YiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWF0aGxpdGFyYXNfc3RnIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsicmVhbG0tbWFuYWdlbWVudCI6eyJyb2xlcyI6WyJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsInZpZXctcmVhbG0iLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsInJlYWxtLWFkbWluIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX0sImF0aGxpdGFyYXNfY2xpZW50Ijp7InJvbGVzIjpbIkFkbWluIl19fSwic2NvcGUiOiJwcm9maWxlIHVzZXJfaWQgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6Imtvc3Rhc3N0cmFAYXRobGl0YXJhcy5nciBrb3N0YXNzdHJhQGF0aGxpdGFyYXMuZ3IiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrb3N0YXNzdHJhQGF0aGxpdGFyYXMuZ3IiLCJnaXZlbl9uYW1lIjoia29zdGFzc3RyYUBhdGhsaXRhcmFzLmdyIiwiZmFtaWx5X25hbWUiOiJrb3N0YXNzdHJhQGF0aGxpdGFyYXMuZ3IiLCJlbWFpbCI6Imtvc3Rhc3N0cmFAYXRobGl0YXJhcy5nciJ9"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -107,7 +122,7 @@
 								}
 							}
 						},
-						"url": "{{Url}}/api/username/findoneuser/{{user_id}}"
+						"url": "{{Url}}/api/username/findoneuser/5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7"
 					},
 					"response": [
 						{
@@ -851,13 +866,13 @@
 					"response": []
 				},
 				{
-					"name": "Update_Arena Copy",
+					"name": "insert_new_arena",
 					"id": "f5766133-39e1-4642-9052-a63520e539e2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "PATCH",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -866,12 +881,151 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arena_details",
+									"value": "\"{}\"",
+									"type": "text",
+									"uuid": "82ae7106-a04b-4ca0-87f7-8160597a393e"
+								},
+								{
+									"key": "arena_name",
+									"value": "\"kostas test\"",
+									"type": "text",
+									"uuid": "55ccd5e1-b1f2-4cfc-96a5-dde819e52e81"
+								},
+								{
+									"key": "desc_arenas",
+									"value": "\"vergvbrbt\"",
+									"type": "text"
+								},
+								{
+									"key": "sport_id",
+									"value": "8a8c04fb-9124-43c1-9b38-817644f2731a",
+									"type": "text",
+									"uuid": "200986d4-466f-41fa-a715-14708ae90308"
+								},
+								{
+									"key": "sport_center_id",
+									"value": "25a69af9-a1b0-4635-bfb4-7e02c65edad5",
+									"type": "text",
+									"uuid": "5194af41-9613-4007-bb06-0cca25bbfd7d"
+								},
+								{
+									"key": "email",
+									"value": "konstantinos.stratigos@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "published_arena",
+									"value": "true",
+									"type": "text",
+									"uuid": "727847c3-ce68-42f5-a250-2f7380c969a7"
+								},
+								{
+									"key": "views",
+									"value": "2",
+									"type": "text",
+									"uuid": "1d79a635-ff74-4db8-ae75-2177758c688a"
+								},
+								{
+									"key": "imagearena",
+									"type": "file",
+									"uuid": "c2a42ecb-801a-4ceb-99f5-f2cd9338cfc6",
+									"src": [
+										"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-12-28 153051.png",
+										"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-12-28 153001.png",
+										"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-11-18 170345.png"
+									]
+								}
+							]
 						},
-						"url": "{{Url}}/api/insertarenas/updateArenas/1"
+						"url": "{{Url}}/api/insertarenas/insertarenas"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "eef86dc1-0748-4825-88b6-2170efd5cf05",
+							"name": "insert_new_arena",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "arena_details",
+											"value": "\"{}\"",
+											"type": "text",
+											"uuid": "82ae7106-a04b-4ca0-87f7-8160597a393e"
+										},
+										{
+											"key": "arena_name",
+											"value": "\"kostas test\"",
+											"type": "text",
+											"uuid": "55ccd5e1-b1f2-4cfc-96a5-dde819e52e81"
+										},
+										{
+											"key": "desc_arenas",
+											"value": "\"vergvbrbt\"",
+											"type": "text"
+										},
+										{
+											"key": "sport_id",
+											"value": "8a8c04fb-9124-43c1-9b38-817644f2731a",
+											"type": "text",
+											"uuid": "200986d4-466f-41fa-a715-14708ae90308"
+										},
+										{
+											"key": "sport_center_id",
+											"value": "25a69af9-a1b0-4635-bfb4-7e02c65edad5",
+											"type": "text",
+											"uuid": "5194af41-9613-4007-bb06-0cca25bbfd7d"
+										},
+										{
+											"key": "email",
+											"value": "konstantinos.stratigos@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "published_arena",
+											"value": "true",
+											"type": "text",
+											"uuid": "727847c3-ce68-42f5-a250-2f7380c969a7"
+										},
+										{
+											"key": "views",
+											"value": "2",
+											"type": "text",
+											"uuid": "1d79a635-ff74-4db8-ae75-2177758c688a"
+										},
+										{
+											"key": "imagearena",
+											"type": "file",
+											"uuid": "c2a42ecb-801a-4ceb-99f5-f2cd9338cfc6",
+											"src": [
+												"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-12-28 153051.png",
+												"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-12-28 153001.png",
+												"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-11-18 170345.png"
+											]
+										}
+									]
+								},
+								"url": "{{Url}}/api/insertarenas/insertarenas"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Update_One_Field_Config_Admin_Booking",
@@ -883,6 +1037,89 @@
 						"method": "GET",
 						"header": [],
 						"url": ""
+					},
+					"response": []
+				},
+				{
+					"name": "insert_new_arena",
+					"id": "ffcad459-7f40-4f96-8679-b3a0ff5ed45a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arena_details",
+									"value": "\"{}\"",
+									"type": "text",
+									"uuid": "82ae7106-a04b-4ca0-87f7-8160597a393e"
+								},
+								{
+									"key": "arena_name",
+									"value": "\"kostas test\"",
+									"type": "text",
+									"uuid": "55ccd5e1-b1f2-4cfc-96a5-dde819e52e81"
+								},
+								{
+									"key": "desc_arenas",
+									"value": "\"vergvbrbt\"",
+									"type": "text"
+								},
+								{
+									"key": "sport_id",
+									"value": "8a8c04fb-9124-43c1-9b38-817644f2731a",
+									"type": "text",
+									"uuid": "200986d4-466f-41fa-a715-14708ae90308"
+								},
+								{
+									"key": "sport_center_id",
+									"value": "25a69af9-a1b0-4635-bfb4-7e02c65edad5",
+									"type": "text",
+									"uuid": "5194af41-9613-4007-bb06-0cca25bbfd7d"
+								},
+								{
+									"key": "email",
+									"value": "konstantinos.stratigos@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "published_arena",
+									"value": "true",
+									"type": "text",
+									"uuid": "727847c3-ce68-42f5-a250-2f7380c969a7"
+								},
+								{
+									"key": "views",
+									"value": "2",
+									"type": "text",
+									"uuid": "1d79a635-ff74-4db8-ae75-2177758c688a"
+								},
+								{
+									"key": "imagearena",
+									"type": "file",
+									"uuid": "c2a42ecb-801a-4ceb-99f5-f2cd9338cfc6",
+									"src": [
+										"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-12-28 153051.png",
+										"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-12-28 153001.png",
+										"/C:/Users/k.stratigos_xe/Pictures/Screenshots/Screenshot 2023-11-18 170345.png"
+									]
+								}
+							]
+						},
+						"url": "{{Url}}/api/insertarenas/insertarenas"
 					},
 					"response": []
 				}
@@ -999,6 +1236,52 @@
 					"response": [
 						{
 							"id": "dc47bcc8-2934-4511-bb29-b5a3134a2a6a",
+							"name": "Create_Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 5,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-31\",\r\n  \"booking_time\": \"15:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5052/api/bookingdetails/bookingdetails"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"booking_id\": 3,\r\n    \"msisdn\": 697,\r\n    \"booking_date\": \"2023-12-31\",\r\n    \"booking_time\": \"15:00\",\r\n    \"booking_price\": \"50\",\r\n    \"status\": \"pending\",\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"user_id\": 1,\r\n    \"arena_id\": 5,\r\n    \"updatedAt\": \"2023-12-10T07:37:00.037Z\",\r\n    \"createdAt\": \"2023-12-10T07:37:00.037Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Return_Booking_Events",
+					"id": "53914acc-d473-4868-86af-0763648e62ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"user_id\": 1,\r\n \"arena_id\": 30,\r\n \"sport_id\": 1,\r\n \"sport_center_id\": 1,\r\n  \"msisdn\": 697,\r\n  \"booking_date\": \"2023-12-01\",\r\n  \"booking_time\": \"16:00\",\r\n  \"booking_price\": 50.00,\r\n  \"status\": \"pending\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/bookingdetails/calendar/events"
+					},
+					"response": [
+						{
+							"id": "19df98d1-5909-4b4a-9ae9-638b6c269554",
 							"name": "Create_Booking",
 							"originalRequest": {
 								"method": "PUT",
@@ -3443,10 +3726,15 @@
 									},
 									"request": {
 										"method": "POST",
-										"header": [],
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"username\": \"kos22322222444555@athlitaras.gr\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+											"raw": "{\r\n  \"username\": \"qa_athlitaras_test@yopmail.com\",\r\n  \"password\": \"kostas\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3501,6 +3789,84 @@
 											}
 										},
 										"url": "{{Url}}/api/keycloak/updateUserPassword"
+									},
+									"response": []
+								},
+								{
+									"name": "Token_Admin_staging",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c477e12-f95e-4fb5-9c1c-20381db214c6",
+												"exec": [
+													"let jsonData = pm.response.json();\r",
+													"pm.environment.set('Bearer_Token_Athlitaras', jsonData.access_token);\r",
+													"\r",
+													"\r",
+													"// Retrieve the token from environment variable\r",
+													"var bearerToken = pm.environment.get(\"Bearer_Token_Athlitaras\");\r",
+													"\r",
+													"// Set the Authorization header with the Bearer token\r",
+													"pm.request.headers.add({\r",
+													"    key: 'Authorization',\r",
+													"    value: 'Bearer ' + bearerToken\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "ccf19d8d-9f43-4f48-9dd8-534347811ffc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "client_id",
+													"value": "{{clientId}}",
+													"equals": true,
+													"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+												},
+												{
+													"key": "client_secret",
+													"value": "{{clientSecret}}",
+													"equals": true,
+													"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+												},
+												{
+													"key": "grant_type",
+													"value": "{{grantType}}",
+													"equals": true,
+													"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
+												},
+												{
+													"key": "username",
+													"value": "{{usernameAdminKeycloak}}",
+													"equals": true,
+													"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
+												},
+												{
+													"key": "password",
+													"value": "{{passwordAdminKeycloak}}",
+													"equals": true,
+													"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
+												}
+											]
+										},
+										"url": "http://localhost:9090/realms/athlitaras_stg/protocol/openid-connect/token"
 									},
 									"response": []
 								}
@@ -3717,7 +4083,7 @@
 							"response": []
 						},
 						{
-							"name": "Token_User_staging",
+							"name": "Token_End_User_staging",
 							"event": [
 								{
 									"listen": "test",
@@ -3801,7 +4167,7 @@
 							"response": []
 						},
 						{
-							"name": "Token_Admin_staging",
+							"name": "Token_Admin_User_staging",
 							"event": [
 								{
 									"listen": "test",
@@ -3869,6 +4235,84 @@
 										{
 											"key": "password",
 											"value": "{{passwordAdminKeycloak}}",
+											"equals": true,
+											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
+										}
+									]
+								},
+								"url": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token"
+							},
+							"response": []
+						},
+						{
+							"name": "Token_Internal_Users_staging",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3c477e12-f95e-4fb5-9c1c-20381db214c6",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set('Bearer_Token_Athlitaras', jsonData.access_token);\r",
+											"\r",
+											"\r",
+											"// Retrieve the token from environment variable\r",
+											"var bearerToken = pm.environment.get(\"Bearer_Token_Athlitaras\");\r",
+											"\r",
+											"// Set the Authorization header with the Bearer token\r",
+											"pm.request.headers.add({\r",
+											"    key: 'Authorization',\r",
+											"    value: 'Bearer ' + bearerToken\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6b4059a2-3a66-451a-94bf-c449791042aa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "admin-client-ath",
+											"equals": true,
+											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+										},
+										{
+											"key": "client_secret",
+											"value": "sPQWQdVQXXEtlvAhzPNvBylE9iMTgPla",
+											"equals": true,
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"equals": true,
+											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
+										},
+										{
+											"key": "username",
+											"value": "kostasstra@athlitaras.gr",
+											"equals": true,
+											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
+										},
+										{
+											"key": "password",
+											"value": "athlitaras!!!13",
 											"equals": true,
 											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
 										}
@@ -4920,7 +5364,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "//Only with https for production-> https://api.athlitaras.gr/api/notifications/send/notification\r\n\r\n{\r\n  \"user_id\": \"7a94703b-2026-41e3-a97f-a4c2f7bd6a98\",\r\n  \"title\": \"Νέα Κράτηση\",\r\n  \"message\": \"Η κράτηση σου στο γήπεδο BASKET16 έγινε με επιτυχία!\",\r\n  \"type\": \"warning\",       // info, warning, success\r\n  \"status\": \"unread\"    // unread, read, deleted\r\n}\r\n",
+							"raw": "//Only with https for production-> https://api.athlitaras.gr/api/notifications/send/notification\r\n{\r\n    \"user_id\": \"{{user_id}}\",\r\n    \"title\": \"Νέα Κράτηση\",\r\n    \"message\": \"Έχετε μια νέα κράτηση στο γήπεδο ${arena_name}!\",\r\n    \"type\": \"info\", // info, warning, success, booking\r\n    \"status\": \"unread\" // unread, read, deleted\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4941,6 +5385,19 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{Url}}/api/notifications/user/{{user_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Unread_Notifications_By_User_Id",
+					"id": "8e020ec4-79b1-46ad-bd99-abcd5d248c64",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/notifications/user/{{user_id}}/unread"
 					},
 					"response": []
 				},
@@ -4994,6 +5451,207 @@
 				}
 			],
 			"id": "015a5c09-6935-4edb-8c77-81756ff703b9"
+		},
+		{
+			"name": "Elorus_ERP",
+			"item": [
+				{
+					"name": "Retrieve_Contacts",
+					"id": "abfe4f31-e217-4dd7-a34f-442d1026d0cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 608438d716dc0e453e3375fc8a3c10e5d810d5af"
+							},
+							{
+								"key": "X-Elorus-Organization",
+								"value": "3369254383358314387"
+							},
+							{
+								"key": "X-Elorus-Demo",
+								"value": "true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-09-23\",\r\n  \"client\": {\r\n    \"name\": \"Γιάννης Παπαδόπουλος\",\r\n    \"email\": \"giannis@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"title\": \"Κράτηση γηπέδου\",\r\n      \"quantity\": 1,\r\n      \"unit_price\": 50.0\r\n    }\r\n  ],\r\n  \"mydata_document_type\": \"receipt\",\r\n  \"billing_address\": {\r\n    \"street\": \"Οδός Παράδειγμα 10\",\r\n    \"city\": \"Αθήνα\",\r\n    \"country\": \"GR\",\r\n    \"zip_code\": \"11111\"\r\n  },\r\n  \"currency_code\": \"EUR\",\r\n  \"draft\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.elorus.com/v1.2/contacts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve_Document_Types",
+					"id": "f1d7694b-8688-4e9b-a63a-3399ad6d656e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 608438d716dc0e453e3375fc8a3c10e5d810d5af"
+							},
+							{
+								"key": "X-Elorus-Organization",
+								"value": "3369254383358314387"
+							},
+							{
+								"key": "X-Elorus-Demo",
+								"value": "true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-09-23\",\r\n  \"client\": {\r\n    \"name\": \"Γιάννης Παπαδόπουλος\",\r\n    \"email\": \"giannis@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"title\": \"Κράτηση γηπέδου\",\r\n      \"quantity\": 1,\r\n      \"unit_price\": 50.0\r\n    }\r\n  ],\r\n  \"mydata_document_type\": \"receipt\",\r\n  \"billing_address\": {\r\n    \"street\": \"Οδός Παράδειγμα 10\",\r\n    \"city\": \"Αθήνα\",\r\n    \"country\": \"GR\",\r\n    \"zip_code\": \"11111\"\r\n  },\r\n  \"currency_code\": \"EUR\",\r\n  \"draft\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.elorus.com/v1.2/documenttypes/"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve_Taxes",
+					"id": "c1f3abf5-2ecd-441f-b793-055e81d11a00",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 608438d716dc0e453e3375fc8a3c10e5d810d5af"
+							},
+							{
+								"key": "X-Elorus-Organization",
+								"value": "3369254383358314387"
+							},
+							{
+								"key": "X-Elorus-Demo",
+								"value": "true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-09-23\",\r\n  \"client\": {\r\n    \"name\": \"Γιάννης Παπαδόπουλος\",\r\n    \"email\": \"giannis@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"title\": \"Κράτηση γηπέδου\",\r\n      \"quantity\": 1,\r\n      \"unit_price\": 50.0\r\n    }\r\n  ],\r\n  \"mydata_document_type\": \"receipt\",\r\n  \"billing_address\": {\r\n    \"street\": \"Οδός Παράδειγμα 10\",\r\n    \"city\": \"Αθήνα\",\r\n    \"country\": \"GR\",\r\n    \"zip_code\": \"11111\"\r\n  },\r\n  \"currency_code\": \"EUR\",\r\n  \"draft\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.elorus.com/v1.2/taxes/"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Contact",
+					"id": "8cf7841b-9ff0-4fd7-bda8-056a1d7d536f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 608438d716dc0e453e3375fc8a3c10e5d810d5af"
+							},
+							{
+								"key": "X-Elorus-Organization",
+								"value": "3369254383358314387"
+							},
+							{
+								"key": "X-Elorus-Demo",
+								"value": "true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Κωνσταντίνος\",\r\n    \"last_name\": \"Στρατηγός\",\r\n    \"company\": \"Demo Company\",\r\n    \"is_client\": true,\r\n    \"is_supplier\": false,\r\n    \"client_type\": 1,\r\n    \"default_language\": \"el\",\r\n    \"addresses\": [\r\n        {\r\n            \"address\": \"Δελφών 16\",\r\n            \"city\": \"Αττικής\",\r\n            \"state\": \"Περιστέρι\",\r\n            \"zip\": \"12134\",\r\n            \"country\": \"GR\",\r\n            \"ad_type\": \"bill\"\r\n        }\r\n    ],\r\n    \"email\": [\r\n        {\r\n            \"email\": \"demo@example.com\",\r\n            \"primary\": true\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.elorus.com/v1.2/contacts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Invoice",
+					"id": "e228fdfc-3fcd-4932-9538-6b6dec5d07c2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 608438d716dc0e453e3375fc8a3c10e5d810d5af"
+							},
+							{
+								"key": "X-Elorus-Organization",
+								"value": "3369254383358314387"
+							},
+							{
+								"key": "X-Elorus-Demo",
+								"value": "true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-09-23\",\r\n  \"client\": \"3369254391579149862\",\r\n  \"mydata_document_type\": \"11.1\",\r\n  \"client_vat_number\": \"\",\r\n  \"billing_address\": {\r\n    \"address_line\": \"Δελφών 16\",\r\n    \"city\": \"Αττικής\",\r\n    \"state\": \"Περιστέρι\",\r\n    \"zip\": \"12134\",\r\n    \"country\": \"GR\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"title\": \"Υπηρεσία ανάπτυξης λογισμικού\",\r\n      \"quantity\": 1,\r\n      \"unit_price\": 100.00,\r\n      \"accounts\": [\r\n        {\r\n          \"code\": \"7010\",\r\n          \"title\": \"Έσοδα από υπηρεσίες\"\r\n        }\r\n      ],\r\n      \"taxes\": [\r\n        {\r\n          \"tax\": \"3369254389607827096\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.elorus.com/v1.2/invoices/"
+					},
+					"response": []
+				}
+			],
+			"id": "f0404c87-eb4a-4864-bbb6-239f156b8fb2"
 		}
 	]
 }
