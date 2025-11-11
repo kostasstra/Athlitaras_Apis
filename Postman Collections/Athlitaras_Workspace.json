@@ -628,6 +628,90 @@
 					]
 				},
 				{
+					"name": "Update_Arenas",
+					"id": "355a53ba-9591-4b51-a213-a010be05cc34",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"arena_details\": {\r\n  \"Υπηρεσίες\": [\r\n    \"Καφετέρια\",\r\n    \"Αποδυτήρια\",\r\n    \"Πισίνα\",\r\n    \"Σάουνα\"\r\n  ],\r\n  \"Εκδηλώσεις\": [\r\n    \"Παιδικό πάρτι\",\r\n    \"Συναυλία\"\r\n  ],\r\n  \"Είδος γηπέδου\": [\r\n    \"Μία μπασκέτα\",\r\n    \"Δύο μπασκέτες\"\r\n  ]\r\n}\r\n}"
+						},
+						"url": "{{Url}}/api/insertarenas/updateArenas/ad632779-cc7f-4464-8523-795ffc5745b7"
+					},
+					"response": [
+						{
+							"id": "b5a30951-8abe-4ea7-b296-71941b48f7fa",
+							"name": "InsertArenas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imagearena",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"src": "/C:/Users/k.stratigos_xe/Desktop/Στρατηγός_Κωνσταντίνος/Athlitars_Project/tennis1.jpeg"
+										},
+										{
+											"key": "email",
+											"value": "kostasstra@hotmail.com",
+											"type": "text"
+										},
+										{
+											"key": "sport_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "sport_center_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "arena_details",
+											"value": "{\n        \"Kind\": [\"Διπλό Γήπεδο\"],\n        \"Events\": [\"Παιδικό Πάρτι\"]\n      }",
+											"type": "text"
+										},
+										{
+											"key": "arena_name",
+											"value": "test test",
+											"type": "text"
+										},
+										{
+											"key": "desc_arenas",
+											"value": "testaki",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:5052/api/insertarenas/insertarenas"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\r\n    \"arena_id\": 9,\r\n    \"sport_id\": 1,\r\n    \"sport_center_id\": 1,\r\n    \"arena_details\": {\r\n        \"Kind\": [\r\n            \"Διπλό Γήπεδο\"\r\n        ],\r\n        \"Events\": [\r\n            \"Παιδικό Πάρτι\"\r\n        ]\r\n    },\r\n    \"arena_name\": \"test test\",\r\n    \"desc_arenas\": \"testaki\",\r\n    \"imagearena\": null,\r\n    \"updatedAt\": \"2023-12-11T19:46:06.911Z\",\r\n    \"createdAt\": \"2023-12-11T19:46:06.911Z\",\r\n    \"rate_arenas\": null,\r\n    \"config_admin_booking\": null\r\n}"
+						}
+					]
+				},
+				{
 					"name": "Return_Arenas_By_Email",
 					"id": "5cb48979-3e68-4d1b-8104-340747761093",
 					"protocolProfileBehavior": {
@@ -646,6 +730,28 @@
 							}
 						},
 						"url": "{{Url}}/api/myarenas/myarenas/kostasstra@hotmail.com"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Arenas_By_User_Id",
+					"id": "11ff79be-2879-4224-ba09-7d9402e22814",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/myarenas/myarenas/user/5776a9ae-2ef8-4a11-93c7-b2c84f7ad3b7"
 					},
 					"response": []
 				},
@@ -843,7 +949,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{Url}}/api/insertarenas/deleteArenas/9",
+							"raw": "{{Url}}/api/insertarenas/deleteArenas/55498ffc-b494-408f-813f-75fc7bf556a3",
 							"host": [
 								"{{Url}}"
 							],
@@ -851,13 +957,12 @@
 								"api",
 								"insertarenas",
 								"deleteArenas",
-								"9"
+								"55498ffc-b494-408f-813f-75fc7bf556a3"
 							],
 							"query": [
 								{
 									"key": "arena_id",
 									"value": "9",
-									"type": "text",
 									"disabled": true
 								}
 							]
@@ -1120,6 +1225,28 @@
 							]
 						},
 						"url": "{{Url}}/api/insertarenas/insertarenas"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Price_Arena_Check_If_Exist_Rules",
+					"id": "baa95c61-e14f-4801-9288-b2bb15ee2a45",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"arena_id\": \"3787c48f-cdb9-4f27-8715-bf31f3bddbb6\",\r\n  \"day\": \"Δευτέρα\",\r\n  \"time\": \"19:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/myarenas/myarenas/"
 					},
 					"response": []
 				}
@@ -3765,6 +3892,25 @@
 									"response": []
 								},
 								{
+									"name": "Return_Curent_user",
+									"id": "2bcf6e37-078a-4f35-83e9-d7193c78db0c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": ""
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{Url}}/api/keycloak/users"
+									},
+									"response": []
+								},
+								{
 									"name": "Update_User_New_Password",
 									"id": "0c7b85bc-9224-417d-97bb-8232f7e721c5",
 									"protocolProfileBehavior": {
@@ -5652,6 +5798,268 @@
 				}
 			],
 			"id": "f0404c87-eb4a-4864-bbb6-239f156b8fb2"
+		},
+		{
+			"name": "Company_Details",
+			"item": [
+				{
+					"name": "Create_Company_Details",
+					"id": "f15ead60-6b73-471a-86ba-a88991d47457",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"6ef99c85-7ce6-4637-bc0a-c4479cb0db5b\",\r\n  \"country\": \"Greece\",\r\n  \"vat_number\": \"998281510\",\r\n  \"name\": \"GENERAL VEND ΜΟΝΟΠΡΟΣΩΠΗ ΑΝΩΝΥΜΟΣ ΕΤΑΙΡΕΙΑ\",\r\n  \"address\": \"ΛΕΩΦΟΡΟΣ ΔΗΜΟΚΡΑΤΙΑΣ 33\",\r\n  \"city\": \"ΗΛΙΟΥΠΟΛΗ\",\r\n  \"postal_code\": \"16342\",\r\n  \"doy\": \"ΗΛΙΟΥΠΟΛΗΣ\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/company/companyDetails"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Company_Details_By_Afm",
+					"id": "b6dbedf8-e393-4493-b974-0be3599de631",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"1a2b3c4d-5678-90ab-cdef-1234567890ab\",\r\n  \"vat_number\": \"998281510\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/company/companyDetails/afm"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Company_Details_By_Afm",
+					"id": "3e8771e7-02ac-4121-9afd-96b9689f207b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"1a2b3c4d-5678-90ab-cdef-1234567890ab\",\r\n  \"vat_number\": \"998281510\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/api/company/companyDetails/:vat_number",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"company",
+								"companyDetails",
+								":vat_number"
+							],
+							"variable": [
+								{
+									"id": "b1620ff6-db5a-4df8-8dfc-1482d4360b7a",
+									"key": "vat_number",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Company_Details_By_Afm Copy",
+					"id": "7c1029ff-80b0-4de3-b3e4-70717f60ca98",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"1a2b3c4d-5678-90ab-cdef-1234567890ab\",\r\n  \"vat_number\": \"998281510\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/company/companyDetails/user/{{user_id}}/companyDetails"
+					},
+					"response": []
+				}
+			],
+			"id": "ed41bb5f-8204-40e8-856c-27a3bc19366c"
+		},
+		{
+			"name": "My_bookings",
+			"item": [
+				{
+					"name": "Return_Booking_By_Order_Code",
+					"id": "a125cc69-f27a-48af-8fe4-14e90edffe97",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/api/mybookings/bookings/byOrderCode?order_code=5770844503372608",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"mybookings",
+								"bookings",
+								"byOrderCode"
+							],
+							"query": [
+								{
+									"key": "order_code",
+									"value": "5770844503372608"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "aa84c421-4468-47d5-b49b-35a4d68b57be"
+		},
+		{
+			"name": "contact_details",
+			"item": [
+				{
+					"name": "Start_Verify_Mobile",
+					"id": "0d9ff79a-89d2-4b08-a851-3f76ec01514f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"user_id\": \"{{user_id}}\",\r\n\"mobile_phone\":\"6970938599\",\r\n\"country_code\":\"+30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/contactDetails/verify/start"
+					},
+					"response": []
+				},
+				{
+					"name": "Send_Code_Verify_Mobile",
+					"id": "34484d74-ce06-4bcc-b942-0a8de97abf72",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"user_id\": \"{{user_id}}\",\r\n\"mobile_phone\":\"6970938599\",\r\n\"country_code\":\"+30\",\r\n\"code\":\"668964\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/contactDetails/verify/check"
+					},
+					"response": []
+				},
+				{
+					"name": "Return_Contact_Details",
+					"id": "9ad35586-33a0-48b9-9a85-1eeb0471bf7e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{Url}}/api/contactDetails/getContactDetails?user_id={{user_id}}",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"api",
+								"contactDetails",
+								"getContactDetails"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "{{user_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "d84eb160-9e8f-4fa5-9acb-5377b57a47af"
 		}
 	]
 }
