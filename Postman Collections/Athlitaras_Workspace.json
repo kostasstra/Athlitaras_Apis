@@ -491,6 +491,545 @@
 			"name": "arenas",
 			"item": [
 				{
+					"name": "config_admin_booking",
+					"item": [
+						{
+							"name": "active_date",
+							"item": [
+								{
+									"name": "Create_Active_Date",
+									"id": "04fdcc4d-ade9-4b25-98af-2a5d47f434f1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"toDate\": \"2025-01-28\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/activeDate/arena/{{arena_id}}/activedate"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Active_Date_By_Arena_Id",
+									"id": "77e6fd79-3604-44b0-8919-e5ca1939427b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": ""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/activeDate/arena/{{arena_id}}/activedate"
+									},
+									"response": []
+								},
+								{
+									"name": "Update_Active_Date_By_Active_Date_Id",
+									"id": "bfde5147-a694-471c-a10c-180ed0de73ec",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": ""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"toDate\": \"2025-01-30\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/activeDate/activedate/{{active_date_id}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Active_Date_By_Active_Date_Id",
+									"id": "963efaa6-758b-4646-abed-e3d9b46b7cf3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": ""
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"toDate\": \"2025-01-30\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/activeDate/activedate/{{active_date_id}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Create_Or_Update_Active_Date_By_Arena_Id",
+									"id": "2d027354-d33c-4e25-9419-756f62748d45",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"toDate\": \"2025-01-30\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/activeDate/{{arena_id}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Create_Or_Update_Active_Date_By_Arena_Id Copy",
+									"id": "a16a3549-f16d-4799-ae7f-3cf295622951",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/activeDate/{{arena_id}}"
+									},
+									"response": []
+								}
+							],
+							"id": "1e294083-1eec-4a37-a430-054aaa1f01cc"
+						},
+						{
+							"name": "day_time",
+							"item": [
+								{
+									"name": "Create_Day_Time",
+									"id": "fd87511e-76fb-4f90-81af-61847b4da5ea",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"day\": \"Τρίτη\",\r\n  \"fromTime\": \"09:00\",\r\n  \"toTime\": \"18:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/dayTime/arena/{{arena_id}}/daytime"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_All_Days_Time_By_Arena_Id",
+									"id": "411bf4de-671c-4230-bf6c-1c046dd37d18",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/dayTime/arena/{{arena_id}}/daytime"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Day_Time_By_Day_Time_Id",
+									"id": "a429422c-011c-4d80-9cb9-65452465e900",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/dayTime/daytime/{{day_time_id}}"
+									},
+									"response": []
+								}
+							],
+							"id": "a19fc999-f70c-48fd-8b15-35c217235c59"
+						},
+						{
+							"name": "exclude_days",
+							"item": [
+								{
+									"name": "Create_Or_Update_Exclude_Days",
+									"id": "b239f2ec-d870-466f-8115-ab8a851eaa40",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"days\": [\"Monday\", \"Wednesday\", \"Friday\",\"Saturday\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDays/arena/{{arena_id}}/excludedays"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Exclude_Days_By_Arena_Id",
+									"id": "70b3086f-c785-4951-a5c2-ee493df0dad6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDays/arena/{{arena_id}}/excludedays"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Exclude_Days_By_Arena_Id",
+									"id": "0c443d87-b582-45a5-89ed-6d3f88a7d247",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDays/excludedays/{{exclude_day_id}}"
+									},
+									"response": []
+								}
+							],
+							"id": "3a79d9ea-643e-4e42-828f-1e62504c0b92"
+						},
+						{
+							"name": "exclude_dates",
+							"item": [
+								{
+									"name": "Create_Or_Update_Exclude_Dates",
+									"id": "b6318a91-e0fe-4ffe-a878-c1c6c38ac525",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"date\": [\"2025-11-10\",\"2025-11-17\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDates/arena/{{arena_id}}/excludedates"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_All_Exclude_Dates_By_Arena_Id",
+									"id": "42a9eac3-0de8-4c7c-a524-b91d38bcd9dc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDates/arena/{{arena_id}}/excludedates"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Exclude_Date_By_Arena_Id",
+									"id": "7b4c872d-9a0d-4d17-854b-3947eed76392",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"date\": \"2025-11-17\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDates/arena/{{arena_id}}/excludedates"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_All_Exclude_Dates_By_Arena_Id",
+									"id": "fd8bf598-5b31-42d9-b7ef-3249702653bf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDates/arena/{{arena_id}}/excludedates/all"
+									},
+									"response": []
+								}
+							],
+							"id": "e48d52bd-62c1-4d14-bbef-b6a21db64ffe"
+						}
+					],
+					"id": "9a83b477-b2ec-45dc-a5d6-1ad4066ad64a"
+				},
+				{
 					"name": "InsertArenas",
 					"id": "827a040c-99d8-4ece-aab7-9cf240438aba",
 					"protocolProfileBehavior": {
