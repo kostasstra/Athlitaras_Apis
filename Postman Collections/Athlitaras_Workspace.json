@@ -885,7 +885,7 @@
 												}
 											}
 										},
-										"url": "{{Url}}/api/excludeDays/excludedays/{{exclude_day_id}}"
+										"url": "{{Url}}/api/excludeDays/arena/{{arena_id}}/excludedays"
 									},
 									"response": []
 								}
@@ -1025,6 +1025,501 @@
 								}
 							],
 							"id": "e48d52bd-62c1-4d14-bbef-b6a21db64ffe"
+						},
+						{
+							"name": "exclude_day_ time",
+							"item": [
+								{
+									"name": "Create_Exclude_Day_Time",
+									"id": "62aa1dbe-e57b-4933-986f-c8fcff951398",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weekday\": \"Δευτέρα\",\r\n  \"time\": [\"16:00\", \"18:00\", \"20:00\",\"21:00\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDayTime/arena/{{arena_id}}/excludedaytime"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Exclude_Day_Times",
+									"id": "656d61ef-1cee-43aa-ad86-ecf940d20de5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDayTime/arena/{{arena_id}}/excludedaytime"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Exclude_Day_Times",
+									"id": "24fff456-b2ee-4e63-ba2c-703a8ba934a4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"weekday\": \"Δευτέρα\",\r\n  \"time\": [\"16:00\",\"17:00\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDayTime/arena/{{arena_id}}/excludedaytime"
+									},
+									"response": []
+								}
+							],
+							"id": "2adbfb00-f4dd-483f-9ee6-39386a940dd7"
+						},
+						{
+							"name": "pricing_rules",
+							"item": [
+								{
+									"name": "Create_Or_Update_Pricing_Rules",
+									"id": "1cbc9f3a-7511-4bc1-8da0-762c48b7b64a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fromTime\": \"18:30\",\r\n  \"toTime\": \"19:00\",\r\n  \"days\": [\"Δευτέρα\"],\r\n  \"price\": 29\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/pricing/{{arena_id}}/pricingRules"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_All_Pricing_Rules",
+									"id": "f278b3da-7c0b-49c2-9955-684f0b97a837",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/pricing/{{arena_id}}/pricingRules"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Pricing_Rule",
+									"id": "c9cba94d-0c45-42ec-9bd2-e312f8967233",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fromTime\": \"16:00\",\r\n  \"toTime\": \"18:00\",\r\n  \"days\": [\"Monday\"],\r\n  \"price\": 25\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/pricing/{{arena_id}}/pricingRules"
+									},
+									"response": []
+								}
+							],
+							"id": "bbf05dde-4ff1-4b06-a1eb-efbde85c2311"
+						},
+						{
+							"name": "time_intervals",
+							"item": [
+								{
+									"name": "Create_Or_Update_Time_intervals",
+									"id": "1ffa62dd-8e3a-4311-906b-3730c7fa33ed",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"60 λεπτά\",\r\n  \"minutes\": 60\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/timeInterval/arena/{{arena_id}}/timeinterval"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Time_interval",
+									"id": "2f89cdae-1ebe-4c36-b7c2-75e43585b3ea",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/timeInterval/arena/{{arena_id}}/timeinterval"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Time_interval Copy",
+									"id": "6a584540-89bc-4911-8953-401e6664900f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/timeInterval/timeinterval/{{time_interval_id}}"
+									},
+									"response": []
+								}
+							],
+							"id": "c818a207-63c6-4ab9-99c1-bfef26b8cca5"
+						},
+						{
+							"name": "exclude_date_ time",
+							"item": [
+								{
+									"name": "Create_Exclude_Date_Time",
+									"id": "90d54fbd-2f6d-4966-96c2-28a3d2f59735",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"date\": \"2025-08-01\",\r\n  \"time\": [\"16:00\", \"18:00\", \"20:00\",\"21:00\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDateTime/arena/{{arena_id}}/excludedDatetime"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_Exclude_Date_Times",
+									"id": "94ba3ae7-46e7-40d8-9ae9-cf6ebb73be8b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDateTime/arena/{{arena_id}}/excludedDatetime"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete_Exclude_Date_Times",
+									"id": "e9fa0c53-67a4-4b2a-b9f2-ebebe9b87110",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"date\": \"2025-08-01\",\r\n  \"time\": [\"16:00\",\"17:00\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDayTime/arena/{{arena_id}}/excludedDatetime"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_All_Exclude_Dates_Time_By_Arena_Id_And_Date",
+									"id": "4566e6d7-52d4-435b-b965-45bd61b92035",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url}}/api/excludeDateTime/arena/{{arena_id}}/date/{{date}}/excludedTimes"
+									},
+									"response": []
+								}
+							],
+							"id": "7c8f0112-afa3-464f-9777-845e060469db"
+						},
+						{
+							"name": "price_arena",
+							"item": [
+								{
+									"name": "Return_Default_Price_Arena",
+									"id": "c96dade6-1811-436f-8e8e-0ba092c825b2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "X-CSRF-Token",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Url}}/api/myarenas/arena/get_default_price?arena_id={{arena_id}}",
+											"host": [
+												"{{Url}}"
+											],
+											"path": [
+												"api",
+												"myarenas",
+												"arena",
+												"get_default_price"
+											],
+											"query": [
+												{
+													"key": "arena_id",
+													"value": "{{arena_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "f41f5796-89d3-4c2e-bbf8-09665e191177"
 						}
 					],
 					"id": "9a83b477-b2ec-45dc-a5d6-1ad4066ad64a"
@@ -2318,6 +2813,19 @@
 							}
 						},
 						"url": "{{Url}}/api/bookingdetails/bookings/updateOrderCode"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate_Order_id",
+					"id": "6e205de6-0165-4223-ba34-c513e9d78e5a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Url}}/api/bookingdetails/bookings/generateOrderId"
 					},
 					"response": []
 				}
@@ -5306,7 +5814,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"amount\": 5000,\r\n    \"customer\": {\r\n        \"email\": \"kostas@stra.com\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n         \"countryCode\": \"GR\",   \r\n         \"requestLang\": \"el-GR\"\r\n    },\r\n    \"transfer\": {\r\n                \"amount\": 3000,\r\n                \"platformFee\": null,\r\n                \"connectedAccountId\": \"{{connectedAccountId}}\"\r\n}\r\n}\r\n\r\n //Browser after the response - https://demo.vivapayments.com/web2?ref=5305476357072609&color=0000ff",
+											"raw": "{\r\n    \"amount\": 5000,\r\n    \"customer\": {\r\n        \"email\": \"kostase@stra.com\",\r\n        \"fullName\": \"John Doe\",\r\n        \"phone\": \"+30999999999\",\r\n         \"countryCode\": \"GR\",   \r\n         \"requestLang\": \"el-GR\"\r\n    }\r\n//     \"transfer\": {\r\n//                 \"amount\": 3000,\r\n//                 \"platformFee\": null,\r\n//                 \"connectedAccountId\": \"{{connectedAccountId}}\"\r\n// }\r\n}\r\n\r\n //Browser after the response - https://demo.vivapayments.com/web2?ref=5305476357072609&color=0000ff",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5490,13 +5998,13 @@
 										},
 										{
 											"key": "client_id",
-											"value": "rxi1af3xr10pw97qgbc0yhu7482oo37xtyq6u9j7qf851.apps.vivapayments.com",
+											"value": "{{client_id}}",
 											"type": "text",
 											"uuid": "920db85e-bebd-4e60-9500-77f35ea7f5be"
 										},
 										{
 											"key": "client_secret",
-											"value": "i9Q4HzYZtdE532J4owD781LxTFnysS",
+											"value": "{{client_secret}}",
 											"type": "text",
 											"uuid": "476fe805-8d4c-4467-921f-c384a7e44ed8"
 										}
@@ -6441,29 +6949,33 @@
 					"response": []
 				},
 				{
-					"name": "Return_Company_Details_By_Afm Copy",
+					"name": "Return_Company_Details_By_Afm_Real_Data",
 					"id": "7c1029ff-80b0-4de3-b3e4-70717f60ca98",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": " application/json"
+							},
+							{
+								"key": "",
+								"value": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"user_id\": \"1a2b3c4d-5678-90ab-cdef-1234567890ab\",\r\n  \"vat_number\": \"998281510\"\r\n}",
+							"raw": "{\r\n  \"user_id\": \"27eff331-b36c-49e1-b9aa-d7e297de66f3\",\r\n  \"vat_number\": \"132723410\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{Url}}/api/company/companyDetails/user/{{user_id}}/companyDetails"
+						"url": "{{Url}}/api/company/companyDetails/afm"
 					},
 					"response": []
 				}
@@ -6599,6 +7111,110 @@
 				}
 			],
 			"id": "d84eb160-9e8f-4fa5-9acb-5377b57a47af"
+		},
+		{
+			"name": "ΓΕΜΗ",
+			"item": [
+				{
+					"name": "Return_Company_Afm",
+					"id": "809413e2-d403-4ed3-b08f-7504714587be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "{{API_KEY_GEMH}}"
+							}
+						],
+						"url": {
+							"raw": "https://opendata-api.businessportal.gr/api/opendata/v1/companies?afm=132723410",
+							"protocol": "https",
+							"host": [
+								"opendata-api",
+								"businessportal",
+								"gr"
+							],
+							"path": [
+								"api",
+								"opendata",
+								"v1",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "arGemi",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "legalTypes",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "gemiOffices",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "municipalities",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "prefectures",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "statuses",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "isActive",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "activities",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "resultsSortBy",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "resultsOffset",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "resultsSize",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "afm",
+									"value": "132723410"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "be562f22-2470-4008-b654-6ff19a6bc07f"
 		}
 	]
 }
