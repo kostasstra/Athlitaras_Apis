@@ -5878,6 +5878,102 @@
 								}
 							],
 							"id": "d54129a3-2df6-4e38-b407-68a0848f4350"
+						},
+						{
+							"name": "Isv_Payments",
+							"item": [
+								{
+									"name": "Create_Order_Isv",
+									"id": "5adfe5dd-d63e-4edc-9696-52bd3aa9a52c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"amount\": 8500,\r\n\"customerTrns\": \"Συναλλαγή αγοράς\",\r\n\"customer\": {\r\n\"email\": \"test1@test.gr\",\r\n\"fullName\": \"test\",\r\n\"phone\": \"6970938599\",\r\n\"countryCode\": \"GR\",\r\n\"requestLang\": \"el-GR\"\r\n},\r\n// \"dynamicDescriptor\": \"Descriptor\",\r\n// \"paymentTimeout\": 0,\r\n// \"currencyCode\": 978,\r\n// \"preauth\": false,\r\n// \"allowRecurring\": false,\r\n// \"maxInstallments\": 0,\r\n// \"paymentNotification\": true,\r\n// \"tipAmount\": 1,\r\n// \"disableExactAmount\": true,\r\n// \"disableCash\": false,\r\n// \"disableWallet\": false,\r\n   \"isvAmount\": 500,\r\n// \"saleToAcquirerData\": \"ewogICAgImFwcGxpY2F0aW9uSW5mbyI6IHsKICAgICAgICAiZXh0ZXJuYWxQbGF0Zm9ybSI6IHsKICAgICAgICAgICAgIm5hbWUiOiAidml2YS5jb218VGVybWluYWwiLAogICAgICAgICAgICAidmVyc2lvbiI6ICJjb20udml2YXdhbGxldC5zcG9jLnBheWFwcCB2NS4xOS43ICgxMDgxNSkiLAogICAgICAgICAgICAiaW50ZWdyYXRvciI6ICJWaXZhIgogICAgICAgIH0KICAgIH0KfQ==\",\r\n    \"sourceCode\": \"1589\",\r\n// \"isCardVerification\": false,\r\n \"merchantTrns\": \"123456\",\r\n\"stateId\": 1,\r\n \"urlFail\": \"https://viva.com/exmaple-url\",\r\n\"tags\": [\r\n\"string 1\",\r\n\"string 2\",\r\n\"string 3\"\r\n]\r\n// \"resellerSourceCode\": \"9920\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://demo-api.vivapayments.com/checkout/v2/isv/orders?merchantId=82e93391-bfb1-45eb-9f76-81eba06b27e9",
+											"protocol": "https",
+											"host": [
+												"demo-api",
+												"vivapayments",
+												"com"
+											],
+											"path": [
+												"checkout",
+												"v2",
+												"isv",
+												"orders"
+											],
+											"query": [
+												{
+													"key": "merchantId",
+													"value": "82e93391-bfb1-45eb-9f76-81eba06b27e9"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "9bd1f39a-3adb-4842-93d2-729e58683dd5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": ""
+									},
+									"response": []
+								},
+								{
+									"name": "Create_Sources",
+									"id": "659c50c6-2f76-49d6-97cd-7211911b8b95",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "1X92JtH62Fg5Yd3cRkkcA1kGQyizME",
+												"username": "h6912wamgogvoz506kro2suh6ytzw2zonvxu2c7h78t87.apps.vivapayments.com"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"domain\": \"www.example.com\",\r\n  \"isSecure\": true,\r\n  \"name\": \"API test\",\r\n  \"pathFail\": \"fail\",\r\n  \"pathSuccess\": \"success\",\r\n  \"sourceCode\": \"1234\",\r\n  \"phone\": \"2102312111\",\r\n  \"address\": \"Amarousiou Chalandriou 18-20\",\r\n  \"walletId\": 100000000000,\r\n  \"isPhysical\": true,\r\n  \"latitude\": 38.0425,\r\n  \"longitude\": 23.8086,\r\n  \"transactionDescriptor\": \"my store coffee\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url_Viva_Get_Order}}/api/sources"
+									},
+									"response": []
+								}
+							],
+							"id": "ac6167cb-7d46-4c51-b52b-4fa0e9926a2e"
 						}
 					],
 					"id": "cdfb57ec-61ad-402f-82e4-b11666c33f88"
@@ -5998,13 +6094,13 @@
 										},
 										{
 											"key": "client_id",
-											"value": "{{client_id}}",
+											"value": "{{client_id_Isv_Credentials}}",
 											"type": "text",
 											"uuid": "920db85e-bebd-4e60-9500-77f35ea7f5be"
 										},
 										{
 											"key": "client_secret",
-											"value": "{{client_secret}}",
+											"value": "{{client_secret_Isv_Credentials}}",
 											"type": "text",
 											"uuid": "476fe805-8d4c-4467-921f-c384a7e44ed8"
 										}
@@ -6048,8 +6144,8 @@
 								"auth": {
 									"type": "basic",
 									"basic": {
-										"password": "GtX8afBdNEAda02jPC10dQ4DeC1U1S",
-										"username": "ajrcyss41nwuu3i3tqk7ztoy4j70shus672rt689w0as1.apps.vivapayments.com"
+										"password": "Wn9hP22b6JnxvJq8ADy44C7V5p0QFG",
+										"username": "aprt4m2yce768u0f1mdruwgz2zpw87psl8vwec1r4fjt9.apps.vivapayments.com"
 									}
 								},
 								"method": "POST",
@@ -6534,6 +6630,59 @@
 						}
 					],
 					"id": "81b185a9-58b3-4f38-a626-de81a4360589"
+				},
+				{
+					"name": "ISV_payments",
+					"item": [
+						{
+							"name": "Create_Connect_account",
+							"id": "4a951129-ba13-4270-b985-fdd16c80e17a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"konstantinos.stratigos@gmail.com\",\r\n\"returnUrl\": \"https://athlitaras.gr/\",\r\n\"branding\": {\r\n\"partnerName\": \"kostas stratigos\",\r\n\"primaryColor\": \"1a0080\",\r\n\"logoUrl\": \"https://athlitaras.gr/images/logo-white.png\"\r\n}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Url_Viva_Create_Order}}/isv/v1/accounts"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_An_Viva_Account",
+							"id": "350b514b-5085-4c7b-800a-0b7a7ab1c963",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "https://api.vivapayments.com/isv/v1/accounts/cc5d8556-5393-4a98-833f-94bf474b9c5f"
+							},
+							"response": []
+						}
+					],
+					"id": "c6c08134-0052-4ce2-81c2-2fcda3228b5f"
 				}
 			],
 			"id": "0871efaf-2075-49e7-bac9-1dc8322bf1b9"
@@ -7215,6 +7364,25 @@
 				}
 			],
 			"id": "be562f22-2470-4008-b654-6ff19a6bc07f"
+		},
+		{
+			"name": "cookies_consents",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "bf6023a2-fbce-4b1a-88b4-9a3be17d0f2b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": ""
+					},
+					"response": []
+				}
+			],
+			"id": "332a1aa5-29d6-403a-b59d-3ca6b662b0d1"
 		}
 	]
 }
