@@ -6692,7 +6692,66 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "https://api.vivapayments.com/isv/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
+								"url": "{{Url_Viva_Create_Order}}/isv/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_Status_By_Connected_Account_Id",
+							"id": "fe78cc75-da10-435b-9bbc-99c2ad08dd37",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Viva_Create_Order}}/platforms/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_a_Payment_By_Order_Code",
+							"id": "4bdd0a4d-a336-4474-9bba-87d344f24c40",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "{{viva_API_key}}",
+										"username": "{{viva_merchant_id}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Viva_Get_Order}}/api/orders/3958121726095215"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete_a_Payment_By_Order_Code",
+							"id": "a3f11c23-7336-4340-8ddd-d231b532cb62",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "{{viva_API_key}}",
+										"username": "{{viva_merchant_id}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Viva_Get_Order}}/api/orders/{orderCode}"
 							},
 							"response": []
 						}
