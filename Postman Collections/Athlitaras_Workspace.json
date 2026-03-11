@@ -5937,9 +5937,24 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "POST",
 										"header": [],
-										"url": ""
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"merchant1@test.com\",\r\n  \"phone\": \"+306912345678\",\r\n  \"redirectUrl\": \"www.localhost:8080/success\",\r\n  \"sourceCode\": \"1589\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://demo-api.vivapayments.com/isv/v1/accounts"
 									},
 									"response": []
 								},
@@ -5953,15 +5968,15 @@
 										"auth": {
 											"type": "basic",
 											"basic": {
-												"password": "1X92JtH62Fg5Yd3cRkkcA1kGQyizME",
-												"username": "h6912wamgogvoz506kro2suh6ytzw2zonvxu2c7h78t87.apps.vivapayments.com"
+												"password": "Wn9hP22b6JnxvJq8ADy44C7V5p0QFG",
+												"username": "aprt4m2yce768u0f1mdruwgz2zpw87psl8vwec1r4fjt9.apps.vivapayments.com"
 											}
 										},
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"domain\": \"www.example.com\",\r\n  \"isSecure\": true,\r\n  \"name\": \"API test\",\r\n  \"pathFail\": \"fail\",\r\n  \"pathSuccess\": \"success\",\r\n  \"sourceCode\": \"1234\",\r\n  \"phone\": \"2102312111\",\r\n  \"address\": \"Amarousiou Chalandriou 18-20\",\r\n  \"walletId\": 100000000000,\r\n  \"isPhysical\": true,\r\n  \"latitude\": 38.0425,\r\n  \"longitude\": 23.8086,\r\n  \"transactionDescriptor\": \"my store coffee\"\r\n}",
+											"raw": "{\r\n  \"domain\": \"www.example.com\",\r\n  \"isSecure\": true,\r\n  \"name\": \"API test\",\r\n  \"pathFail\": \"fail\",\r\n  \"pathSuccess\": \"success\",\r\n  \"sourceCode\": \"9920\",\r\n  \"phone\": \"6970938599\",\r\n  \"address\": \"Amarousiou Chalandriou 18-20\",\r\n  \"walletId\": 100000000000,\r\n  \"isPhysical\": false,\r\n  \"latitude\": 38.0425,\r\n  \"longitude\": 23.8086,\r\n  \"transactionDescriptor\": \"my store coffee\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -6574,8 +6589,8 @@
 								"auth": {
 									"type": "basic",
 									"basic": {
-										"password": "NzY?2h",
-										"username": "82e93391-bfb1-45eb-9f76-81eba06b27e9"
+										"password": "{{viva_API_key}}",
+										"username": "{{viva_merchant_id}}"
 									}
 								},
 								"method": "GET",
@@ -6677,7 +6692,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "https://api.vivapayments.com/isv/v1/accounts/cc5d8556-5393-4a98-833f-94bf474b9c5f"
+								"url": "https://api.vivapayments.com/isv/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
 							},
 							"response": []
 						}
