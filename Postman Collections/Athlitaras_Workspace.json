@@ -6203,6 +6203,201 @@
 					"id": "aa130394-6a79-47ff-ae10-33c5ed7f826f"
 				},
 				{
+					"name": "ISV_Seller",
+					"item": [
+						{
+							"name": "ISV_Account",
+							"item": [
+								{
+									"name": "Create_Connect_account",
+									"id": "4a951129-ba13-4270-b985-fdd16c80e17a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"email\": \"konstantinos.stratigos@gmail.com\",\r\n\"returnUrl\": \"https://athlitaras.gr/\",\r\n\"branding\": {\r\n\"partnerName\": \"kostas stratigos\",\r\n\"primaryColor\": \"1a0080\",\r\n\"logoUrl\": \"https://athlitaras.gr/images/logo-white.png\"\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url_Viva_Create_Order}}/isv/v1/accounts"
+									},
+									"response": []
+								},
+								{
+									"name": "Return_An_Viva_Account",
+									"id": "350b514b-5085-4c7b-800a-0b7a7ab1c963",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{Url_Viva_Create_Order}}/isv/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
+									},
+									"response": []
+								}
+							],
+							"id": "4af00c12-9baa-4c76-aa8f-96d08a845cb4"
+						},
+						{
+							"name": "ISV_Transactions",
+							"item": [
+								{
+									"name": "Return _Transaction _By_Transaction_Id",
+									"id": "01f73801-7e60-4e00-8761-2e70ef64b574",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{Url_Viva_Create_Order}}/checkout/v2/isv/transactions/{{viva_transaction_id}}?merchantId={{viva_merchant_id}}",
+											"host": [
+												"{{Url_Viva_Create_Order}}"
+											],
+											"path": [
+												"checkout",
+												"v2",
+												"isv",
+												"transactions",
+												"{{viva_transaction_id}}"
+											],
+											"query": [
+												{
+													"key": "merchantId",
+													"value": "{{viva_merchant_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete _Transaction _By_Order_code",
+									"id": "d243bada-57a3-468e-b811-709ec72a2e87",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": "{{Url_Viva_Create_Order}}/api/orders/{orderCode}"
+									},
+									"response": []
+								}
+							],
+							"id": "283aa206-1ee3-4033-a31b-98a2ecdc3b32"
+						},
+						{
+							"name": "ISV_Webhook",
+							"item": [
+								{
+									"name": "Return_Key_Webhook_Isv",
+									"id": "e4326122-494d-4041-ad6c-fa792a67e352",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"url\": \"https://api.athlitaras.gr/api/viva/webhook\",\r\n\"eventTypeId\": 1796\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url_Viva_Create_Order}}/isv/v1/webhooks"
+									},
+									"response": []
+								}
+							],
+							"id": "0d7d614d-3b9e-41e3-b4d3-30b20d147541"
+						},
+						{
+							"name": "ISV_Source",
+							"item": [
+								{
+									"name": "Create_source",
+									"id": "cc33da39-b70d-465c-bdf3-06bb9e9908ed",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "{{client_secret_Reseller_Credentials}}",
+												"username": "{{client_id_Reseller_Credentials}}:{{viva_merchant_id}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"domain\": \"www.vivapayments.com\",\r\n  \"isSecure\": true,\r\n  \"name\": \"Default\",\r\n  \"pathFail\": \"web2/fail\",\r\n  \"pathSuccess\": \"web2/success\",\r\n  \"sourceCode\":\"Default\",\r\n  \"merchantId\": \"81e2fb04-24ed-414b-be37-93af532dee04\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{Url_Viva_Get_Order}} /api/sources"
+									},
+									"response": []
+								}
+							],
+							"id": "c6c08134-0052-4ce2-81c2-2fcda3228b5f"
+						}
+					],
+					"id": "ffe5b450-e9b6-408f-9399-27c634f400e3"
+				},
+				{
 					"name": "Marketplace_Seller",
 					"item": [
 						{
@@ -6645,118 +6840,6 @@
 						}
 					],
 					"id": "81b185a9-58b3-4f38-a626-de81a4360589"
-				},
-				{
-					"name": "ISV_payments",
-					"item": [
-						{
-							"name": "Create_Connect_account",
-							"id": "4a951129-ba13-4270-b985-fdd16c80e17a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"email\": \"konstantinos.stratigos@gmail.com\",\r\n\"returnUrl\": \"https://athlitaras.gr/\",\r\n\"branding\": {\r\n\"partnerName\": \"kostas stratigos\",\r\n\"primaryColor\": \"1a0080\",\r\n\"logoUrl\": \"https://athlitaras.gr/images/logo-white.png\"\r\n}\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Url_Viva_Create_Order}}/isv/v1/accounts"
-							},
-							"response": []
-						},
-						{
-							"name": "Return_An_Viva_Account",
-							"id": "350b514b-5085-4c7b-800a-0b7a7ab1c963",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{Url_Viva_Create_Order}}/isv/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
-							},
-							"response": []
-						},
-						{
-							"name": "Return_Status_By_Connected_Account_Id",
-							"id": "fe78cc75-da10-435b-9bbc-99c2ad08dd37",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{Bearer_Token_Viva_Payments_Athlitaras}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{Url_Viva_Create_Order}}/platforms/v1/accounts/df316a10-4fb6-44a6-a8f6-26eb7ecf1504"
-							},
-							"response": []
-						},
-						{
-							"name": "Return_a_Payment_By_Order_Code",
-							"id": "4bdd0a4d-a336-4474-9bba-87d344f24c40",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "basic",
-									"basic": {
-										"password": "{{viva_API_key}}",
-										"username": "{{viva_merchant_id}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{Url_Viva_Get_Order}}/api/orders/3958121726095215"
-							},
-							"response": []
-						},
-						{
-							"name": "Delete_a_Payment_By_Order_Code",
-							"id": "a3f11c23-7336-4340-8ddd-d231b532cb62",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "basic",
-									"basic": {
-										"password": "{{viva_API_key}}",
-										"username": "{{viva_merchant_id}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{Url_Viva_Get_Order}}/api/orders/{orderCode}"
-							},
-							"response": []
-						}
-					],
-					"id": "c6c08134-0052-4ce2-81c2-2fcda3228b5f"
 				}
 			],
 			"id": "0871efaf-2075-49e7-bac9-1dc8322bf1b9"
