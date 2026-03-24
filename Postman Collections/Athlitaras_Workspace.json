@@ -7540,6 +7540,39 @@
 				}
 			],
 			"id": "332a1aa5-29d6-403a-b59d-3ca6b662b0d1"
+		},
+		{
+			"name": "Commission_Policy",
+			"item": [
+				{
+					"name": "Create_Or_Update_A_Commission_Policy_By_Sporcenter_Id",
+					"id": "6939bd61-cfa6-449c-add6-9e259302d42f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"commission_rate\": 17,\r\n  \"vat_liable\": true,\r\n  \"vat_rate\": 24,\r\n  \"notes\": \"Κανονικό καθεστώς ΦΠΑ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Url}}/api/commission-policy/{{sport_center_id}}"
+					},
+					"response": []
+				}
+			],
+			"id": "5bf93b1a-e63c-48cb-9ec5-6b8190f6fbbf"
 		}
 	]
 }
