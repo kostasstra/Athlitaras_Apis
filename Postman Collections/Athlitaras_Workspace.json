@@ -7573,6 +7573,25 @@
 				}
 			],
 			"id": "5bf93b1a-e63c-48cb-9ec5-6b8190f6fbbf"
+		},
+		{
+			"name": "Webhook_NGROK",
+			"item": [
+				{
+					"name": "Get_Ngrok_Register_Only_Staging",
+					"id": "91bf807d-4553-42b0-b354-3c6fb981dd94",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}/api/onlyStagingRegister/onlyStagingRegister"
+					},
+					"response": []
+				}
+			],
+			"id": "4a5e8d6e-628c-42ef-bad1-d7bd393da144"
 		}
 	]
 }
