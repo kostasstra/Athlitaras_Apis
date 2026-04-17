@@ -5257,7 +5257,7 @@
 							"response": []
 						},
 						{
-							"name": "Return_User_Roles",
+							"name": "Return_User_Specific_Role",
 							"id": "3465f6a7-3fd3-4bba-bb02-e491f5ecd1f5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -5271,7 +5271,26 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/role"
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/clients/{{client_Uuid_Keyckloak}}/roles"
+							},
+							"response": []
+						},
+						{
+							"name": "Return_User_Realm_Roles",
+							"id": "17c9e4d8-5919-4cf3-850c-3dabd3f13963",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{Bearer_Token_Athlitaras}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{Url_Keycloak}}/admin/realms/{{realm}}/roles"
 							},
 							"response": []
 						},
@@ -5330,10 +5349,9 @@
 										},
 										{
 											"key": "client_secret",
-											"value": "RQNqefisqeAqa5Urkw3ztSSsOzCWSfj2",
+											"value": "{{client_secret}}",
 											"equals": true,
-											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe",
-											"disabled": true
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
 										},
 										{
 											"key": "grant_type",
@@ -5343,7 +5361,7 @@
 										},
 										{
 											"key": "username",
-											"value": "qa_athlitaras_test@yopmail.com",
+											"value": "ath_company_test_stg2@yopmail.com",
 											"equals": true,
 											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
 										},
@@ -5416,6 +5434,85 @@
 										{
 											"key": "grant_type",
 											"value": "{{grantType}}",
+											"equals": true,
+											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
+										},
+										{
+											"key": "username",
+											"value": "{{usernameAdminKeycloak}}",
+											"equals": true,
+											"uuid": "c79df39b-ae6e-4f93-aec4-bce477f21994"
+										},
+										{
+											"key": "password",
+											"value": "{{passwordAdminKeycloak}}",
+											"equals": true,
+											"uuid": "ade3d1c3-6655-4be1-a383-2dc66d89cd9b"
+										}
+									]
+								},
+								"url": "{{Url_Keycloak}}/realms/{{realm}}/protocol/openid-connect/token"
+							},
+							"response": []
+						},
+						{
+							"name": "Token_Admin_Cli_staging",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3c477e12-f95e-4fb5-9c1c-20381db214c6",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set('Bearer_Token_Athlitaras', jsonData.access_token);\r",
+											"\r",
+											"\r",
+											"// Retrieve the token from environment variable\r",
+											"var bearerToken = pm.environment.get(\"Bearer_Token_Athlitaras\");\r",
+											"\r",
+											"// Set the Authorization header with the Bearer token\r",
+											"pm.request.headers.add({\r",
+											"    key: 'Authorization',\r",
+											"    value: 'Bearer ' + bearerToken\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "21759801-72ee-4259-a361-7eae6bab79dd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "admin-cli",
+											"equals": true,
+											"uuid": "ce213c87-2edb-4c6d-9402-6649803d0c99"
+										},
+										{
+											"key": "client_secret",
+											"value": "QLgvrOeO80ap4GPi9QZavHH38Mg12UnH",
+											"equals": true,
+											"uuid": "03d252d9-383e-450a-88ff-5ababec25fbe"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
 											"equals": true,
 											"uuid": "96eec660-0b4a-4921-9382-e25b4ad1556c"
 										},
@@ -7592,6 +7689,202 @@
 				}
 			],
 			"id": "4a5e8d6e-628c-42ef-bad1-d7bd393da144"
+		},
+		{
+			"name": "Ttlock",
+			"item": [
+				{
+					"name": "Get_Access_Token",
+					"id": "16398c2f-6f4e-4097-af18-1e84c909af75",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "067c00d3ff5b48f998131367f3aae42f",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "ce830d846aec64cf22251c92ef2423e6",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "kostasstra@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "19074329aaadfe5c4a756c3f455ad8b6",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://euapi.ttlock.com/oauth2/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve_Locks_List",
+					"id": "59cae36c-5370-451b-9bb5-0a797787a7f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://euapi.ttlock.com/v3/lock/list?clientId=067c00d3ff5b48f998131367f3aae42f&accessToken=f3c6bd5f520eeb051c4ebf134eb58f7c&pageNo=1&pageSize=20&date=1776374836540",
+							"protocol": "https",
+							"host": [
+								"euapi",
+								"ttlock",
+								"com"
+							],
+							"path": [
+								"v3",
+								"lock",
+								"list"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "067c00d3ff5b48f998131367f3aae42f"
+								},
+								{
+									"key": "accessToken",
+									"value": "f3c6bd5f520eeb051c4ebf134eb58f7c"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								},
+								{
+									"key": "date",
+									"value": "1776374836540",
+									"description": "Open browser and write in inspect -> Date.now()"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve_Passcodes_List",
+					"id": "92aaa17a-9bf8-4ef1-838d-aba77d62483e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://euapi.ttlock.com/v3/lock/listKeyboardPwd?clientId=067c00d3ff5b48f998131367f3aae42f&accessToken=f3c6bd5f520eeb051c4ebf134eb58f7c&lockId=24658775&pageNo=1&pageSize=20&date=1776413578836",
+							"protocol": "https",
+							"host": [
+								"euapi",
+								"ttlock",
+								"com"
+							],
+							"path": [
+								"v3",
+								"lock",
+								"listKeyboardPwd"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "067c00d3ff5b48f998131367f3aae42f"
+								},
+								{
+									"key": "accessToken",
+									"value": "f3c6bd5f520eeb051c4ebf134eb58f7c"
+								},
+								{
+									"key": "lockId",
+									"value": "24658775"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								},
+								{
+									"key": "date",
+									"value": "1776413578836",
+									"description": "Open browser and write in inspect -> Date.now()"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details_keyboard",
+					"id": "9a70dacb-1c8d-4845-93fa-19b3d032ac92",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://euapi.ttlock.com/v3/lock/detail?clientId=067c00d3ff5b48f998131367f3aae42f&accessToken=f3c6bd5f520eeb051c4ebf134eb58f7c&lockId=24658775&date=1776414290433",
+							"protocol": "https",
+							"host": [
+								"euapi",
+								"ttlock",
+								"com"
+							],
+							"path": [
+								"v3",
+								"lock",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "067c00d3ff5b48f998131367f3aae42f"
+								},
+								{
+									"key": "accessToken",
+									"value": "f3c6bd5f520eeb051c4ebf134eb58f7c"
+								},
+								{
+									"key": "lockId",
+									"value": "24658775"
+								},
+								{
+									"key": "date",
+									"value": "1776414290433",
+									"description": "Open browser and write in inspect -> Date.now()"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "83e6012f-faae-4305-a534-4ebba2afb65f"
 		}
 	]
 }
