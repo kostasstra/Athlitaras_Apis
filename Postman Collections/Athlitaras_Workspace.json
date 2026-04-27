@@ -7686,6 +7686,32 @@
 						"url": "{{Url}}/api/onlyStagingRegister/onlyStagingRegister"
 					},
 					"response": []
+				},
+				{
+					"name": "Get_list_My_Webhook",
+					"id": "4a58da50-da93-4d72-af89-244a5fc8f081",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Url}}}/api/onlyStagingRegister/list-webhooks"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "df1fa1a6-8a12-4602-adb4-cdae64cd7091",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": ""
+					},
+					"response": []
 				}
 			],
 			"id": "4a5e8d6e-628c-42ef-bad1-d7bd393da144"
@@ -7885,6 +7911,51 @@
 				}
 			],
 			"id": "83e6012f-faae-4305-a534-4ebba2afb65f"
+		},
+		{
+			"name": "Redis",
+			"item": [
+				{
+					"name": "Update_Sports_Cache",
+					"id": "db07f6fb-1cdf-40a3-84d2-5497b9355ada",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Url}}/api/cacheRedis/updateSportsCache"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Arena_Details_Cache",
+					"id": "14890920-89b5-431d-8113-13a62eccbf25",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Url}}/api/cacheRedis/updateArenaDetailsCache"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Areas_Cache",
+					"id": "05b0890e-ef53-45d5-91f5-10a430d44604",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Url}}/api/cacheRedis/updateAreasCache"
+					},
+					"response": []
+				}
+			],
+			"id": "f2d4f5ca-4839-4e9f-aced-f8fe8d1b119e"
 		}
 	]
 }
